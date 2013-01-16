@@ -1,0 +1,35 @@
+PACKAGE = @PACKAGE@
+VERSION = @VERSION@
+utildir = @PUBRULE@
+pubdir = @prefix@
+srcdir = @srcdir@
+applib = FDL
+appname = @APPNAME@
+TAR = tar
+GZIP_ENV = --best
+
+export PACKAGE utildir pubdir applib appname
+
+include $(utildir)/PubRule
+
+webinst-access-ui:
+	make -C dynacase-admin-access-ui webinst
+	mv dynacase-admin-access-ui/*webinst .
+
+webinst-appmng-ui:
+	make -C dynacase-admin-appmng-ui webinst
+	mv dynacase-admin-appmng-ui/*webinst .
+
+webinst-fusers-ui:
+	make -C dynacase-admin-fusers-ui webinst
+	mv dynacase-admin-fusers-ui/*webinst .
+
+webinst-vault-ui:
+	make -C dynacase-admin-vault-ui webinst
+	mv dynacase-admin-vault-ui/*webinst .
+
+webinst: webinst-access-ui webinst-appmng-ui webinst-fusers-ui webinst-vault-ui
+
+clean:
+	/bin/rm -f *.*~ config.* Makefile configure $(appname)_init.php info.xml $(PACKAGE)-*webinst
+	/bin/rm -fr autom4te.cache
