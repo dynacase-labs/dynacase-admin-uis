@@ -12,6 +12,8 @@ export PACKAGE utildir pubdir applib appname
 
 include $(utildir)/PubRule
 
+
+## make webinst
 webinst-access-ui:
 	make -C dynacase-admin-access-ui webinst
 	mv dynacase-admin-access-ui/*webinst .
@@ -29,6 +31,24 @@ webinst-vault-ui:
 	mv dynacase-admin-vault-ui/*webinst .
 
 webinst: webinst-access-ui webinst-appmng-ui webinst-fusers-ui webinst-vault-ui
+
+## make po
+po-access-ui:
+	make -C dynacase-admin-access-ui po
+
+po-appmng-ui:
+	make -C dynacase-admin-appmng-ui po
+
+po-docadmin-ui:
+	make -C dynacase-admin-docadmin-ui po
+
+po-fusers-ui:
+	make -C dynacase-admin-fusers-ui po
+
+po-vault-ui:
+	make -C dynacase-admin-vault-ui po
+
+po: po-access-ui po-appmng-ui po-docadmin-ui po-fusers-ui po-vault-ui
 
 clean:
 	/bin/rm -f *.*~ config.* Makefile configure $(appname)_init.php info.xml $(PACKAGE)-*webinst

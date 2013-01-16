@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-16 16:14+0100\n"
+"POT-Creation-Date: 2013-01-22 17:05+0100\n"
 "PO-Revision-Date: 2013-01-16 16:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -52,6 +52,9 @@ msgstr "Famille"
 msgid "Generic Management"
 msgstr "Gestion générique"
 
+msgid "Group"
+msgstr "Groupe"
+
 msgid "Groups"
 msgstr "Groupes"
 
@@ -70,6 +73,12 @@ msgstr "Modifier les catégories"
 #, php-format
 msgid "No need to refresh group"
 msgstr "Tous les groupes sont actualisés"
+
+msgid "Others"
+msgstr "Autres"
+
+msgid "Password"
+msgstr "Mot de passe"
 
 msgid "Refersh groups may take long time. Sure ?"
 msgstr ""
@@ -114,6 +123,9 @@ msgstr "Réinitialisation"
 msgid "Save"
 msgstr "Sauver"
 
+msgid "System"
+msgstr "Système"
+
 msgid "To create and modify users and groups"
 msgstr "Pour créer et modifier des utilisateurs et des groups"
 
@@ -123,19 +135,11 @@ msgstr "Utilisateurs"
 msgid "Users Management"
 msgstr "Gestion des utilisateurs"
 
-#, php-format
-msgid "cannot write  %s"
-msgstr "écriture impossible : %s"
-
 msgid "choose colums"
 msgstr "Choix des colonnes affichées"
 
 msgid "click here to create a new"
 msgstr "Création...."
-
-#, php-format
-msgid "csv file <%s> wroted"
-msgstr "fichier csv <%s> écrit"
 
 msgid "edit contact card"
 msgstr "éditer la fiche"
@@ -202,3 +206,9 @@ msgstr "voir détails"
 
 msgid "view sub families"
 msgstr "Voir les sous-familles"
+
+#~ msgid "cannot write  %s"
+#~ msgstr "écriture impossible : %s"
+
+#~ msgid "csv file <%s> wroted"
+#~ msgstr "fichier csv <%s> écrit"

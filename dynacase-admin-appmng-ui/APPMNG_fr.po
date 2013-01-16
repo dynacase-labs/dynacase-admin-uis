@@ -1,0 +1,249 @@
+# French translations for dynacase-admin-uis package
+# Traductions françaises du paquet dynacase-admin-uis.
+# Copyright (C) 2013 THE dynacase-admin-uis'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dynacase-admin-uis package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dynacase-admin-uis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"PO-Revision-Date: 2013-01-16 16:12+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Application list"
+msgstr "Liste des applications"
+
+msgid "Application manager"
+msgstr "Gestion des applications"
+
+msgid "Parameters configuration"
+msgstr "Paramètres de configuration"
+
+msgid "Remove parameter"
+msgstr "Suppression de paramètre"
+
+msgid "SuperUser permission"
+msgstr "Accès administration"
+
+msgid "Version"
+msgstr "Version"
+
+msgid "What Application Management"
+msgstr "Gestion des applications"
+
+msgid "access_free"
+msgstr "Acces libre"
+
+msgid "acl"
+msgstr "Acl"
+
+msgid "actions"
+msgstr "les actions"
+
+msgid "addparam"
+msgstr "Ajouter un paramètre"
+
+msgid "addstyle"
+msgstr "Ajouter un style"
+
+msgid "application parameters"
+msgstr "paramètres applicatif"
+
+msgid "application parameters list"
+msgstr "Liste des paramètres applicatif"
+
+msgid "applications"
+msgstr "les applications"
+
+msgid "appname"
+msgstr "Application"
+
+msgid "available"
+msgstr "Dispo"
+
+msgid "butclosew"
+msgstr "Fermer la fenêtre"
+
+msgid "butcreate"
+msgstr "Créer"
+
+msgid "butmodify"
+msgstr "Modifier"
+
+msgid "current user parameters"
+msgstr "mes paramètres"
+
+msgid "delconfirm"
+msgstr "Voulez-vous supprimer"
+
+msgid "delconfirmparam"
+msgstr "Confirmez-vous la suppression du paramètre "
+
+msgid "delconfirmstyle"
+msgstr "Confirmez-vous la suppression du style"
+
+msgid "delete"
+msgstr "supprimer"
+
+msgid "delete parameters"
+msgstr "suppression de paramètres"
+
+msgid "delete user parameters"
+msgstr "suppression de paramètres utilisateur"
+
+msgid "description"
+msgstr "Description"
+
+msgid "displayable"
+msgstr "Affichable"
+
+msgid "edit"
+msgstr "Modifier"
+
+msgid "err_add_action"
+msgstr "Impossible de creer l'action"
+
+msgid "err_add_application"
+msgstr "Impossible de creer l'application"
+
+msgid "err_add_param"
+msgstr "Impossible de creer le paramètre"
+
+msgid "err_mod_action"
+msgstr "Impossible de modifier l'action"
+
+msgid "err_mod_application"
+msgstr "Impossible de modifier l'application"
+
+msgid "err_mod_param"
+msgstr "Impossible de modifier le paramètre"
+
+msgid "err_mod_parameter"
+msgstr "Impossible de modifier le paramètre"
+
+msgid "help"
+msgstr "aide"
+
+msgid "long_name"
+msgstr "Nom complet"
+
+msgid "modify parameters"
+msgstr "modification des paramètres"
+
+msgid "modify user parameters"
+msgstr "modification des paramètres utilisateur"
+
+msgid "my parameters"
+msgstr "mes paramètres"
+
+msgid "name"
+msgstr "Nom"
+
+msgid "only current user parameters can be deleted with its action"
+msgstr ""
+"seul les paramêtres utilisateurs peuvent être supprimés avec cette action"
+
+msgid "only current user parameters can be modified with its action"
+msgstr ""
+"seul les paramêtres utilisateurs peuvent être modifiés avec cette action"
+
+msgid "only user parameters can be deleted with its action"
+msgstr ""
+"seul les paramêtres utilisateurs peuvent être supprimés avec cette action"
+
+msgid "only user parameters can be modified with its action"
+msgstr ""
+"seul les paramêtres utilisateurs peuvent être modifiés avec cette action"
+
+msgid "openaccess"
+msgstr "Accès ouvert"
+
+msgid "param Changed"
+msgstr "Modifié"
+
+msgid "param not changed"
+msgstr "Inchangé"
+
+msgid "print"
+msgstr "Impression de la page"
+
+msgid "root"
+msgstr "racine"
+
+msgid "select a style"
+msgstr "Sélectionnez un style"
+
+msgid "select a user"
+msgstr "Sélectionnez un utilisateur"
+
+msgid "short_name"
+msgstr "nom abrégé"
+
+msgid "style parameters list"
+msgstr "Liste des paramètres style"
+
+msgid "styles parameters"
+msgstr "paramètres de style"
+
+#, php-format
+msgid "the '%s' parameter cannot be removed"
+msgstr "le parametre '%s' n'a pu être supprimé"
+
+msgid "titleaction"
+msgstr "Liste des actions de l'application"
+
+msgid "titlecreate"
+msgstr "Cr&eacute;ation d'application"
+
+msgid "titlecreateaction"
+msgstr "Cr&eacute;ation d'action"
+
+msgid "titlemodify"
+msgstr "Modification de l'application"
+
+msgid "titlemodifyaction"
+msgstr "Modification de l'action"
+
+msgid "titleparamcreate"
+msgstr "Création d'un paramètre "
+
+msgid "titleparammodify"
+msgstr "Modification de paramètre"
+
+msgid "toc"
+msgstr "Toc"
+
+msgid "unmodifiable parameter"
+msgstr "paramètre non modifiable"
+
+msgid "update"
+msgstr "mise à jour"
+
+msgid "user parameters"
+msgstr "paramètres utilisateur"
+
+msgid "user parameters list"
+msgstr "Liste des paramètres utilisateur"
+
+msgid "user preference"
+msgstr "préférences utilisateur"
+
+msgid "val"
+msgstr "Valeur"
+
+msgid "view all"
+msgstr "tout voir"
+
+#~ msgid "cannot write  %s"
+#~ msgstr "écriture impossible : %s"
+
+#~ msgid "csv file <%s> wroted"
+#~ msgstr "fichier csv <%s> écrit"
