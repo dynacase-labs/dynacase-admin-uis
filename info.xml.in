@@ -10,6 +10,7 @@
         <module comp='ge' version='1.0.0' name='dynacase-admin'/>
         <module comp='ge' version='3.2.5' name='dynacase-admin-access-ui'/>
         <module comp='ge' version='3.2.5' name='dynacase-admin-appmng-ui'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-docadmin-ui'/>
         <module comp='ge' version='3.2.5' name='dynacase-admin-fusers-ui'/>
         <module comp='ge' version='3.2.5' name='dynacase-admin-vault-ui'/>
     </requires>
@@ -27,8 +28,9 @@
             <change title="First release">
               Include:
               - dynacase-admin-access-ui
-              - dynacase-admin-applications-management-ui
-              - dynacase-admin-users-ui
+              - dynacase-admin-appmng-ui
+              - dynacase-admin-docadmin-ui
+              - dynacase-admin-fusers-ui
               - dynacase-admin-vault-ui
             </change>
         </version>

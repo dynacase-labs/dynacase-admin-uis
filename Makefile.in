@@ -22,6 +22,10 @@ webinst-appmng-ui:
 	make -C dynacase-admin-appmng-ui webinst
 	mv dynacase-admin-appmng-ui/*webinst .
 
+webinst-docadmin-ui:
+	make -C dynacase-admin-docadmin-ui webinst
+	mv dynacase-admin-docadmin-ui/*webinst .
+
 webinst-fusers-ui:
 	make -C dynacase-admin-fusers-ui webinst
 	mv dynacase-admin-fusers-ui/*webinst .
@@ -30,7 +34,7 @@ webinst-vault-ui:
 	make -C dynacase-admin-vault-ui webinst
 	mv dynacase-admin-vault-ui/*webinst .
 
-webinst: webinst-access-ui webinst-appmng-ui webinst-fusers-ui webinst-vault-ui
+webinst: webinst-access-ui webinst-appmng-ui webinst-docadmin-ui webinst-fusers-ui webinst-vault-ui
 
 ## make po
 po-access-ui:
