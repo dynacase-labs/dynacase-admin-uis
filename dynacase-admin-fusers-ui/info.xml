@@ -11,6 +11,9 @@
     </requires>
 
     <post-install>
+        <process command="programs/enable_FUSERS">
+            <label>Reactivate FUSERS application</label>
+        </process>
         <process command="programs/record_application FUSERS I">
             <label lang="en">Record FUSERS application in database</label>
         </process>

@@ -11,6 +11,9 @@
     </requires>
 
     <post-install>
+        <process command="programs/enable_APPMNG">
+            <label>Reactivate APPMNG application</label>
+        </process>
         <process command="programs/record_application APPMNG I">
             <label lang="en">Record appmng application in database</label>
         </process>
