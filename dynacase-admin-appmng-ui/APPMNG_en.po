@@ -1,0 +1,239 @@
+# French translations for dynacase-admin-uis package
+# Traductions françaises du paquet dynacase-admin-uis.
+# Copyright (C) 2013 THE dynacase-admin-uis'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dynacase-admin-uis package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dynacase-admin-uis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"PO-Revision-Date: 2013-01-16 16:12+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Application list"
+msgstr ""
+
+msgid "Application manager"
+msgstr ""
+
+msgid "Parameters configuration"
+msgstr ""
+
+msgid "Remove parameter"
+msgstr ""
+
+msgid "SuperUser permission"
+msgstr ""
+
+msgid "Version"
+msgstr ""
+
+msgid "What Application Management"
+msgstr ""
+
+msgid "access_free"
+msgstr ""
+
+msgid "acl"
+msgstr ""
+
+msgid "actions"
+msgstr ""
+
+msgid "addparam"
+msgstr ""
+
+msgid "addstyle"
+msgstr ""
+
+msgid "application parameters"
+msgstr ""
+
+msgid "application parameters list"
+msgstr ""
+
+msgid "applications"
+msgstr ""
+
+msgid "appname"
+msgstr ""
+
+msgid "available"
+msgstr ""
+
+msgid "butclosew"
+msgstr ""
+
+msgid "butcreate"
+msgstr ""
+
+msgid "butmodify"
+msgstr ""
+
+msgid "current user parameters"
+msgstr ""
+
+msgid "delconfirm"
+msgstr ""
+
+msgid "delconfirmparam"
+msgstr ""
+
+msgid "delconfirmstyle"
+msgstr ""
+
+msgid "delete"
+msgstr ""
+
+msgid "delete parameters"
+msgstr ""
+
+msgid "delete user parameters"
+msgstr ""
+
+msgid "description"
+msgstr ""
+
+msgid "displayable"
+msgstr ""
+
+msgid "edit"
+msgstr ""
+
+msgid "err_add_action"
+msgstr ""
+
+msgid "err_add_application"
+msgstr ""
+
+msgid "err_add_param"
+msgstr ""
+
+msgid "err_mod_action"
+msgstr ""
+
+msgid "err_mod_application"
+msgstr ""
+
+msgid "err_mod_param"
+msgstr ""
+
+msgid "err_mod_parameter"
+msgstr ""
+
+msgid "help"
+msgstr ""
+
+msgid "long_name"
+msgstr ""
+
+msgid "modify parameters"
+msgstr ""
+
+msgid "modify user parameters"
+msgstr ""
+
+msgid "my parameters"
+msgstr ""
+
+msgid "name"
+msgstr ""
+
+msgid "only current user parameters can be deleted with its action"
+msgstr ""
+
+msgid "only current user parameters can be modified with its action"
+msgstr ""
+
+msgid "only user parameters can be deleted with its action"
+msgstr ""
+
+msgid "only user parameters can be modified with its action"
+msgstr ""
+
+msgid "openaccess"
+msgstr ""
+
+msgid "param Changed"
+msgstr ""
+
+msgid "param not changed"
+msgstr ""
+
+msgid "print"
+msgstr ""
+
+msgid "root"
+msgstr ""
+
+msgid "select a style"
+msgstr ""
+
+msgid "select a user"
+msgstr ""
+
+msgid "short_name"
+msgstr ""
+
+msgid "style parameters list"
+msgstr ""
+
+msgid "styles parameters"
+msgstr ""
+
+#, php-format
+msgid "the '%s' parameter cannot be removed"
+msgstr ""
+
+msgid "titleaction"
+msgstr ""
+
+msgid "titlecreate"
+msgstr ""
+
+msgid "titlecreateaction"
+msgstr ""
+
+msgid "titlemodify"
+msgstr ""
+
+msgid "titlemodifyaction"
+msgstr ""
+
+msgid "titleparamcreate"
+msgstr ""
+
+msgid "titleparammodify"
+msgstr ""
+
+msgid "toc"
+msgstr ""
+
+msgid "unmodifiable parameter"
+msgstr ""
+
+msgid "update"
+msgstr ""
+
+msgid "user parameters"
+msgstr ""
+
+msgid "user parameters list"
+msgstr ""
+
+msgid "user preference"
+msgstr ""
+
+msgid "val"
+msgstr ""
+
+msgid "view all"
+msgstr ""

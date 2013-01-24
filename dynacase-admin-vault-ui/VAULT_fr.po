@@ -1,0 +1,207 @@
+# French translations for dynacase-admin-uis package
+# Traductions françaises du paquet dynacase-admin-uis.
+# Copyright (C) 2013 THE dynacase-admin-uis'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the dynacase-admin-uis package.
+# Automatically generated, 2013.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: dynacase-admin-uis\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"PO-Revision-Date: 2013-01-16 16:17+0100\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, php-format
+msgid "%.02f Gb"
+msgstr "%.02f Go"
+
+#, php-format
+msgid "%.02f Kb"
+msgstr "%.02f Ko"
+
+#, php-format
+msgid "%.02f Mb"
+msgstr "%.02f Mo"
+
+#, php-format
+msgid "%d Gb"
+msgstr "%d Go"
+
+#, php-format
+msgid "%d Kb"
+msgstr "%d Ko"
+
+#, php-format
+msgid "%d Mb"
+msgstr "%d Mo"
+
+#, php-format
+msgid "%d Tb"
+msgstr "%d To"
+
+#, php-format
+msgid "%d bytes"
+msgstr "%d octets"
+
+#, php-format
+msgid "%d stored files"
+msgstr "%d fichiers stockés"
+
+#, php-format
+msgid "%s directory not empty"
+msgstr "répertoire %s non vide"
+
+#, php-format
+msgid "%s directory not found"
+msgstr "répertoire %s non trouvé"
+
+#, php-format
+msgid "%s directory not writable"
+msgstr "répertoire %s non accessible en écriture"
+
+#, php-format
+msgid "Cannot adding : [%s]"
+msgstr "Ajout impossible : [%s]"
+
+msgid "Capacity"
+msgstr "Capacité"
+
+msgid "Clear orphan"
+msgstr "Supprimer les orphelins"
+
+msgid "Directory"
+msgstr "Répertoire"
+
+#, php-format
+msgid "Error : Cleaning %s  status %d"
+msgstr "Erreur : Nettoyage %s état %d"
+
+msgid "Free"
+msgstr "Libre"
+
+msgid "Gb"
+msgstr "Go"
+
+msgid "Generate new vault"
+msgstr "Créer un nouveau coffre"
+
+msgid "Increase FS"
+msgstr "Augmenter le FS"
+
+msgid "Increase vault size"
+msgstr "Augmenter la taille du coffre"
+
+msgid "Kb"
+msgstr "Ko"
+
+msgid "Mb"
+msgstr "Mo"
+
+msgid "Move FS"
+msgstr "Déplacer FS"
+
+msgid "Move directory"
+msgstr "Déplacer le répertoire"
+
+msgid "New Vault FS"
+msgstr "Nouveau coffre"
+
+msgid "New directory"
+msgstr "Nouveau répertoire"
+
+msgid "New size"
+msgstr "Nouvelle taille"
+
+#, php-format
+msgid "Orphan Cleaned in %s directory"
+msgstr "Orphelins supprimés dans le répertoire %s"
+
+msgid "Orphean"
+msgstr "Orphelins"
+
+msgid "Size"
+msgstr "Taille"
+
+msgid "Tb"
+msgstr "To"
+
+msgid "Trash"
+msgstr "Poubelle"
+
+msgid "Used"
+msgstr "Utilisé"
+
+msgid "Vault"
+msgstr "Coffre"
+
+msgid "Vault Management"
+msgstr "Gestion du Coffre"
+
+msgid "Vault manager"
+msgstr "Administrateur du Coffre"
+
+msgid "Vault user"
+msgstr "Utilisateur du Coffre"
+
+#, php-format
+msgid "adding %s"
+msgstr "ajout de %s"
+
+msgid "analyze vaults occupation"
+msgstr "Analyse des taux d'occupation des coffres"
+
+msgid "create new vault"
+msgstr "Créer un nouveau coffre"
+
+#, php-format
+msgid "create vault %s"
+msgstr "Création du nouveau coffre %s"
+
+msgid "delete orphan"
+msgstr "Supprimer les orphelins"
+
+msgid "increase size vault"
+msgstr "Augmenter la taille du coffre"
+
+msgid "million bytes"
+msgstr "million d'octets"
+
+msgid "million of Megabytes"
+msgstr "million de mégaoctets"
+
+msgid "move root directory vault"
+msgstr "déplacer le répertoire du coffre"
+
+#, php-format
+msgid "new directory %s"
+msgstr "nouveau répertoire %s"
+
+msgid "no vault initialised."
+msgstr "Aucun coffre d'initialisé"
+
+msgid "show vaults occupation"
+msgstr "Affiche les taux d'occupation des coffres"
+
+#, php-format
+msgid "the new size must be upper than %s"
+msgstr "La nouvelle taille doit être supérieure à %s"
+
+msgid "thousands bytes"
+msgstr "milliers d'octets"
+
+msgid "thousands of Megabytes"
+msgstr "milliers de mégaoctets"
+
+#, php-format
+msgid "vault already created %s: aborted\n"
+msgstr "coffre déjà crée %s: abandon\n"
+
+msgid "view image for free size"
+msgstr "voir l'image pour l'espace libre"

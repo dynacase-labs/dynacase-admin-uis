@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<module name="@PACKAGE@" disabled="no" version="@VERSION@"
+    release="@RELEASE@">
+
+    <description>Meta module installing all dynacase-admin-* uis.
+    </description>
+
+    <requires>
+        <module comp='ge' version='3.2.5' name='dynacase-core'/>
+        <module comp='ge' version='1.0.0' name='dynacase-admin'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-access-ui'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-appmng-ui'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-docadmin-ui'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-fusers-ui'/>
+        <module comp='ge' version='3.2.5' name='dynacase-admin-vault-ui'/>
+    </requires>
+
+    <post-install>
+      <!-- Nothing to do: this is only a meta-package -->
+    </post-install>
+
+    <post-upgrade>
+      <!-- Nothing to do: this is only a meta-package -->
+    </post-upgrade>
+
+    <changelog>
+        <version number="3.2.5" date="2012-01-20">
+            <change title="First release">
+              Include:
+              - dynacase-admin-access-ui
+              - dynacase-admin-appmng-ui
+              - dynacase-admin-docadmin-ui
+              - dynacase-admin-fusers-ui
+              - dynacase-admin-vault-ui
+            </change>
+        </version>
+    </changelog>
+
+</module>
