@@ -18,14 +18,17 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Admin Access"
+msgid "docadmin:DOCADMIN Access"
+msgstr ""
+
+msgid "docadmin:Documents management"
 msgstr ""
 
 msgid "docadmin:ihm to access and manage documents"
 msgstr ""
 
-msgid "docadmin:main ihm"
+msgid "docadmin:manage documents"
 msgstr ""
 
-msgid "docadmin:manage documents"
+msgid "docadmin:Timers management"
 msgstr ""
