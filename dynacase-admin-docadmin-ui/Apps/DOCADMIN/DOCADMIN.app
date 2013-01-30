@@ -24,13 +24,25 @@ $app_acl = array(
 
 $action_desc = array(
     array(
-        "name"       => "DOCADMIN",
+        "name"       => "ADMIN_ACTIONS_LIST",
+        "short_name" => N_("docadmin:ADMIN_ACTIONS_LIST short_name"),
+    ),
+    array(
+        "name"       => "DOCS_ADMIN",
         "acl"        => "DOCADMIN",
-        "short_name" => N_("docadmin:main ihm"),
-        "script"     => "docadmin.php",
-        "function"   => "docadmin",
-        "layout"     => "docadmin.html",
+        "short_name" => N_("docadmin:Documents management"),
+        "script"     => "docs_admin.php",
+        "function"   => "docs_admin",
+        "layout"     => "docs_admin.html",
         "root"       => "Y"
+    ),
+    array(
+        "name"       => "TIMERS_ADMIN",
+        "acl" => "DOCADMIN",
+        "short_name" => N_("docadmin:Timers management"),
+        "script"     => "timers_admin.php",
+        "function"   => "timers_admin",
+        "layout"     => "timers_admin.xml"
     )
 );
 

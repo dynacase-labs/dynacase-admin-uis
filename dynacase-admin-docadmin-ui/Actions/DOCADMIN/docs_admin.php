@@ -18,7 +18,7 @@
 //
 // ---------------------------------------------------------------
 // -----------------------------------
-function docadmin(Action &$action)
+function docs_admin(Action &$action)
 {
     // -----------------------------------
     $mode = ApplicationParameterManager::getScopedParameterValue('FREEDOM_VIEWFRAME', "navigator");

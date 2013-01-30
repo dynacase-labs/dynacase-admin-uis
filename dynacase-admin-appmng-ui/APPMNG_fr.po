@@ -37,7 +37,7 @@ msgid "Version"
 msgstr "Version"
 
 msgid "What Application Management"
-msgstr "Gestion des applications"
+msgstr "Paramétrage des applications"
 
 msgid "access_free"
 msgstr "Acces libre"
@@ -46,7 +46,7 @@ msgid "acl"
 msgstr "Acl"
 
 msgid "actions"
-msgstr "les actions"
+msgstr "Les actions"
 
 msgid "addparam"
 msgstr "Ajouter un paramètre"
@@ -55,13 +55,13 @@ msgid "addstyle"
 msgstr "Ajouter un style"
 
 msgid "application parameters"
-msgstr "paramètres applicatif"
+msgstr "Paramètres applicatif"
 
 msgid "application parameters list"
 msgstr "Liste des paramètres applicatif"
 
 msgid "applications"
-msgstr "les applications"
+msgstr "Les applications"
 
 msgid "appname"
 msgstr "Application"
@@ -79,7 +79,7 @@ msgid "butmodify"
 msgstr "Modifier"
 
 msgid "current user parameters"
-msgstr "mes paramètres"
+msgstr "Mes paramètres"
 
 msgid "delconfirm"
 msgstr "Voulez-vous supprimer"
@@ -228,7 +228,7 @@ msgid "update"
 msgstr "mise à jour"
 
 msgid "user parameters"
-msgstr "paramètres utilisateur"
+msgstr "Paramètres utilisateur"
 
 msgid "user parameters list"
 msgstr "Liste des paramètres utilisateur"

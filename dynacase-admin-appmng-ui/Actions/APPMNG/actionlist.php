@@ -22,7 +22,7 @@ include_once ("Class.QueryGen.php");
 include_once ("Class.Action.php");
 include_once ("Class.SubForm.php");
 // -----------------------------------
-function actionlist(&$action)
+function actionlist(Action &$action)
 {
     // -----------------------------------
     // Set the globals elements
@@ -71,7 +71,6 @@ function actionlist(&$action)
     }
     
     $action->lay->SetBlockData("SELAPPLI", $tab);
-    $action->parent->AddJsRef("change_acl.js");
     // Set the table element
     $query = new QueryGen("", "Action", $action);
     
