@@ -22,6 +22,34 @@ AC_SUBST(APPNAME)
 APPNAME=DYNACASE_ADMIN_UIS
 ac_default_prefix=/var/www/dynacase/
 
+
+for apps in `find .  -name '*.app'  -print`; do
+    app=`basename $apps | cut -f1 -d.`
+#    echo $app
+    versionName="VERSION_"${app}
+    releaseName="RELEASE_"${app}
+#    echo $versionName
+   # AC_SUBST([${versionName}])
+   # AC_SUBST($releaseName)
+    lapp=`echo $app | tr [A-Z] [a-z]`
+    vn=`cat dynacase-admin-$lapp-ui/VERSION`
+    vr=`cat dynacase-admin-$lapp-ui/RELEASE`
+    eval "VERSION_$app=$vn"; 
+    eval "RELEASE_$app=$vr"; 
+done
+AC_SUBST(VERSION_ACCESS)
+AC_SUBST(RELEASE_ACCESS)
+AC_SUBST(VERSION_APPMNG)
+AC_SUBST(RELEASE_APPMNG)
+AC_SUBST(VERSION_FUSERS)
+AC_SUBST(RELEASE_FUSERS)
+AC_SUBST(VERSION_VAULT)
+AC_SUBST(RELEASE_VAULT)
+AC_SUBST(VERSION_DOCADMIN)
+AC_SUBST(RELEASE_DOCADMIN)
+
+
+
 AC_SUBST(PUBRULE)
 PUBRULE=
 AC_ARG_WITH(pubrule, [  --with-pubrule=dir	Path to PubRule], PUBRULE=$withval)
