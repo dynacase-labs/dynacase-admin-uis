@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<module name="dynacase-admin-fusers-ui" disabled="no" version="@VERSION_FUSERS@-@RELEASE-FUSERS@"
+<module name="dynacase-admin-fusers-ui" disabled="no" version="@VERSION_FUSERS@-@RELEASE_FUSERS@"
     release="0">
 
     <description>UI to manage users.
