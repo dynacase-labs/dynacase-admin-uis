@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<module name="dynacase-admin-appmng-ui" disabled="no" version="@VERSION_APPMNG@-@RELEASE_APPMNG@"
-    release="0">
+<module name="dynacase-admin-appmng-ui" disabled="no" version="@VERSION_APPMNG@"
+    release="@RELEASE_APPMNG@" license="@LICENSE@">
 
     <description>UI to manage applications.
     </description>
