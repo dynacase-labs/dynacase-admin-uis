@@ -12,25 +12,29 @@ export PACKAGE utildir pubdir applib appname
 
 include $(utildir)/PubRule
 
-
 ## make webinst
 webinst-access-ui:
+	cp LICENSE dynacase-admin-access-ui/
 	make -C dynacase-admin-access-ui webinst
 	mv dynacase-admin-access-ui/*webinst .
 
 webinst-appmng-ui:
+	cp LICENSE dynacase-admin-appmng-ui/
 	make -C dynacase-admin-appmng-ui webinst
 	mv dynacase-admin-appmng-ui/*webinst .
 
 webinst-docadmin-ui:
+	cp LICENSE dynacase-admin-docadmin-ui/
 	make -C dynacase-admin-docadmin-ui webinst
 	mv dynacase-admin-docadmin-ui/*webinst .
 
 webinst-fusers-ui:
+	cp LICENSE dynacase-admin-fusers-ui/
 	make -C dynacase-admin-fusers-ui webinst
 	mv dynacase-admin-fusers-ui/*webinst .
 
 webinst-vault-ui:
+	cp LICENSE dynacase-admin-vault-ui/
 	make -C dynacase-admin-vault-ui webinst
 	mv dynacase-admin-vault-ui/*webinst .
 
