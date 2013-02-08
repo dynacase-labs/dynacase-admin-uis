@@ -11,7 +11,7 @@ GZIP_ENV = --best
 export PACKAGE utildir pubdir applib appname
 
 include $(utildir)/PubRule
-
+publish: $(pubdir)
 ## make webinst
 webinst-access-ui:
 	cp LICENSE dynacase-admin-access-ui/
@@ -57,7 +57,6 @@ po-vault-ui:
 	make -C dynacase-admin-vault-ui po
 
 po: po-access-ui po-appmng-ui po-docadmin-ui po-fusers-ui po-vault-ui
-	:
 
 ## make clean
 clean-access-ui:
