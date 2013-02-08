@@ -57,7 +57,24 @@ po-vault-ui:
 	make -C dynacase-admin-vault-ui po
 
 po: po-access-ui po-appmng-ui po-docadmin-ui po-fusers-ui po-vault-ui
+	:
 
-clean:
+## make clean
+clean-access-ui:
+	make -C dynacase-admin-access-ui clean
+
+clean-appmng-ui:
+	make -C dynacase-admin-appmng-ui clean
+
+clean-docadmin-ui:
+	make -C dynacase-admin-docadmin-ui clean
+
+clean-fusers-ui:
+	make -C dynacase-admin-fusers-ui clean
+
+clean-vault-ui:
+	make -C dynacase-admin-vault-ui clean
+
+clean: clean-access-ui clean-appmng-ui clean-docadmin-ui clean-fusers-ui clean-vault-ui
 	/bin/rm -f *.*~ config.* Makefile configure $(appname)_init.php info.xml $(PACKAGE)-*webinst
 	/bin/rm -fr autom4te.cache
