@@ -15,17 +15,13 @@
  */
 /**
  */
-
-include_once ("Class.SubForm.php");
-include_once ("Class.Action.php");
 // -----------------------------------
-function action_edit(Action &$action)
+function action_edit(Action & $action)
 {
     // -----------------------------------
     // Get all the params
     $id = $action->getArgument("id");
-    $appl_id = $action->Read("action_appl_id");
-    $ActionCour=null;
+    $ActionCour = null;
     if ($id == "") {
         $action->lay->Set("name", "");
         $action->lay->Set("short_name", "");
@@ -34,12 +30,12 @@ function action_edit(Action &$action)
         $action->lay->Set("root", "");
         $action->lay->Set("toc", "");
         $action->lay->Set("id", "");
-        $action->lay->Set("TITRE", $action->text("titlecreateaction"));
-        $action->lay->Set("BUTTONTYPE", $action->text("butcreate"));
-
+        $action->lay->Set("TITRE", _("titlecreateaction"));
+        $action->lay->Set("BUTTONTYPE", _("butcreate"));
+        
         $action->lay->set("openaccess", "");
     } else {
-        $ActionCour = new Action($action->GetParam("CORE_DB") , $id);
+        $ActionCour = new Action($action->dbaccess, $id);
         $action->lay->Set("id", $id);
         $action->lay->Set("name", $ActionCour->name);
         $action->lay->Set("short_name", $ActionCour->short_name);
@@ -47,25 +43,22 @@ function action_edit(Action &$action)
         $action->lay->Set("acl", $ActionCour->acl);
         $action->lay->Set("root", $ActionCour->root);
         $action->lay->Set("toc", $ActionCour->toc);
-        $action->lay->Set("TITRE", $action->text("titlemodifyaction"));
-        $action->lay->Set("BUTTONTYPE", $action->text("butmodify"));
+        $action->lay->Set("TITRE", _("titlemodifyaction"));
+        $action->lay->Set("BUTTONTYPE", _("butmodify"));
         $action->lay->set("openaccess", $ActionCour->openaccess);
     }
     
-    $tab = array();
-    if ($ActionCour->available == 'Y') {
-        $tab[0]["selected"] = "selected";
-        $tab[1]["selected"] = "";
-    } else {
-        $tab[0]["selected"] = "";
-        $tab[1]["selected"] = "selected";
-    }
-    $tab[0]["available"] = "Y";
-    $tab[1]["available"] = "N";
+    $tab = array(
+        array(
+            "available" => "Y"
+        ) ,
+        array(
+            "available" => "N"
+        )
+    );
+    $action->lay->set("select_available", $ActionCour->available);
     
     $action->lay->SetBlockData("SELECTAVAILABLE", $tab);
     unset($tab);
-    
-    $action->parent->AddJsRef("APPMNG/Layout/action_control.js");
 }
 ?>

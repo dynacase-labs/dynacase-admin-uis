@@ -15,91 +15,93 @@
  */
 /**
  */
-
-include_once ("Class.TableLayout.php");
-include_once ("Class.QueryDb.php");
-include_once ("Class.QueryGen.php");
-include_once ("Class.Action.php");
-include_once ("Class.SubForm.php");
 // -----------------------------------
-function actionlist(Action &$action)
+function actionlist(Action & $action)
 {
-    // -----------------------------------
-    // Set the globals elements
-    $baseurl = $action->GetParam("CORE_BASEURL");
-    $standurl = $action->GetParam("CORE_STANDURL");
+    $packUrl = $action->parent->getJsLink("APPMNG:appmng.js", true, "APPMNG");
+    $action->parent->getJsLink("APPMNG:actionlist.js", true, "APPMNG");
+    $jslinks = array(
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery/jquery.js")
+        ) ,
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery-ui/js/jquery-ui.js")
+        ) ,
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery-dataTables/js/jquery.dataTables.js")
+        ) ,
+        array(
+            "src" => $packUrl
+        )
+    );
+    $csslinks = array(
+        array(
+            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("APPMNG:appmng.css", true)
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
+        )
+    );
+    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    $action->lay->setBlockData("JS_LINKS", $jslinks);
+    $appl_info = array();
+    simpleQuery($action->dbaccess, "select id,name from application where name='ACCESS'", $appl_info, false, true);
+    $action->lay->set("id", $appl_info["name"]);
+    $action->lay->set("action_appl_id", $appl_info["id"]);
+}
+
+function appmngGetApps(Action & $action)
+{
+    $filterName = $action->getArgument("filterName");
+    $applist = array();
+    $condaTs = "";
     
-    $action->lay->set("ACTION_CHG", "ACTION_APPL_CHG");
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
-    
-    $err = $action->Read("err_add_parameter");
-    if ($err != "") {
-        $action->lay->Set("ERR_MSG", $err);
-        $action->Unregister("err_add_parameter");
-    } else {
-        $action->lay->Set("ERR_MSG", "");
+    if ($filterName) {
+        $name = pg_escape_string(mb_strtolower($filterName));
+        $cond = sprintf("WHERE (lower(name) ~'%s')", $name);
+        $condaTs.= $cond;
     }
-    // select the first user if not set
-    $appl_id = $action->Read("action_appl_id");
-    $action->log->debug("appl_id : $appl_id");
-    if ($appl_id == "") $appl_id = 0;
-    // affect the select form elements
-    $query = new QueryDb("", "Application");
-    $query->AddQuery("(objectclass != 'Y' ) OR ( objectclass isnull)");
-    $query->order_by = "name";
-    $applist = $query->Query();
-    unset($query);
+    simpleQuery($action->dbaccess, sprintf("select id,name from application $condaTs order by name") , $applist);
     $tab = array();
-    $appl_sel = "";
-    $i = 0;
-    reset($applist);
-    while (list($k, $v) = each($applist)) {
-        
-        if ($appl_id == 0) {
-            $appl_id = $v->id;
-            $action->Register("action_appl_id", $appl_id);
-        }
-        $tab[$i]["text"] = $v->name;
-        $tab[$i]["id"] = $v->id;
-        if ($appl_id == $v->id) {
-            $appl_sel = $v;
-            $tab[$i]["selected"] = "selected";
-        } else {
-            $tab[$i]["selected"] = "";
-        }
-        $i++;
+    foreach ($applist as $v) {
+        $tab[] = array(
+            "label" => $v["name"],
+            "value" => $v["id"]
+        );
     }
-    
-    $action->lay->SetBlockData("SELAPPLI", $tab);
-    // Set the table element
-    $query = new QueryGen("", "Action", $action);
-    
-    $query->AddQuery("id_application=$appl_id");
-    $query->slice = pow(2, 31);
-    $query->order_by = "name";
-    
-    $query->table->headsortfields = array(
-        "name" => "name"
+    if ((count($tab) == 0) && ($filterName != '')) $tab[] = array(
+        "label" => sprintf(_("no application match '%s'") , $filterName) ,
+        "value" => 0
     );
-    $query->table->headcontent = array(
-        "name" => $action->text("name")
-    );
-    $query->Query();
+    $action->lay->template = json_encode($tab);
+    $action->lay->noparse = true;
     
-    $query->table->fields = array(
-        "id",
-        "name",
-        "openaccess",
-        "short_name",
-        "script",
-        "layout",
-        "available",
-        "acl",
-        "root",
-        "toc",
-        "toc_order"
+    header('Content-type: application/json');
+    return $tab;
+}
+
+function appmngGetDatatableInfo(Action & $action)
+{
+    $sEcho = intval($action->getArgument('sEcho'));
+    $out = array(
+        "sEcho" => $sEcho
     );
+    $data = array();
+    $appl_id = intval($action->getArgument("action_appl_id"));
+    simpleQuery($action->dbaccess, sprintf("select * from action where id_application=%s order by name", pg_escape_string($appl_id)) , $data);
     
-    $action->lay->Set("TABLE", $query->table->Set());
+    $out["aaData"] = $data;
+    $out["iTotalRecords"] = count($data);
+    $out["iTotalDisplayRecords"] = $out["iTotalRecords"];
+    $action->lay->template = json_encode($out);
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 ?>

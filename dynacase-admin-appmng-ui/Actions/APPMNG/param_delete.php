@@ -15,18 +15,13 @@
  */
 /**
  */
-// ---------------------------------------------------------------
-// $Id: param_delete.php,v 1.7 2006/06/22 16:19:07 eric Exp $
-// $Source: /home/cvsroot/anakeen/freedom/core/Action/Appmng/param_delete.php,v $
-// ---------------------------------------------------------------
-include_once ("Class.Param.php");
 // -----------------------------------
-function param_delete(&$action)
+function param_delete(Action & $action)
 {
     // -----------------------------------
-    $name = GetHttpVars("id");
-    $appid = GetHttpVars("appid");
-    $atype = GetHttpVars("atype", PARAM_APP);
+    $name = $action->getArgument("id");
+    $appid = $action->getArgument("appid");
+    $atype = $action->getArgument("atype", PARAM_APP);
     
     $parametre = new Param($action->dbaccess, array(
         $name,
@@ -35,8 +30,11 @@ function param_delete(&$action)
     ));
     if ($parametre->isAffected()) {
         $action->log->info(_("Remove parameter") . $parametre->name);
-        $parametre->Delete();
-    } else $action->addLogMsg(sprintf(_("the '%s' parameter cannot be removed") , $name));
+        $err = $parametre->Delete();
+    } else {
+        $err = sprintf(_("the '%s' parameter cannot be removed") , $name);
+        $action->addLogMsg($err);
+    }
     // reopen a new session to update parameters cache
     if ($atype[0] == PARAM_USER) {
         $action->parent->session->close();
@@ -44,17 +42,12 @@ function param_delete(&$action)
         $action->parent->session->closeAll();
     }
     
-    redirect($action, "APPMNG", $action->Read("PARAM_ACT", "PARAM_CULIST"));
-}
-// -----------------------------------
-function param_udelete(&$action)
-{
-    // -----------------------------------
-    $atype = GetHttpVars("atype", PARAM_APP);
-    $appid = GetHttpVars("appid");
-    if ($atype[0] != PARAM_USER) $action->exitError(_("only user parameters can be deleted with its action"));
-    if (substr($atype, 1) != $action->user->id) $action->exitError(_("only current user parameters can be deleted with its action"));
+    $action->lay->template = json_encode(array(
+        "success" => $err ? false : true,
+        "error" => $err
+    ));
+    $action->lay->noparse = true;
     
-    param_delete(&$action);
+    header('Content-type: application/json');
 }
 ?>

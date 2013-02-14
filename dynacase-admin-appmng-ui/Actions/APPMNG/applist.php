@@ -15,95 +15,78 @@
  */
 /**
  */
-
-include_once ("Class.TableLayout.php");
-include_once ("Class.QueryGen.php");
-include_once ("Class.SubForm.php");
-include_once ("Class.Param.php");
 // -----------------------------------
-function applist(Action &$action)
+function applist(Action & $action)
 {
-    // -----------------------------------
-    // Set the globals elements
-    $baseurl = $action->GetParam("CORE_BASEURL");
-    $standurl = $action->GetParam("CORE_STANDURL");
+    $packUrl = $action->parent->getJsLink("APPMNG:appmng.js", true, "APPMNG");
+    $action->parent->getJsLink("APPMNG:applist.js", true, "APPMNG");
+    $jslinks = array(
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery/jquery.js")
+        ) ,
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery-ui/js/jquery-ui.js")
+        ) ,
+        array(
+            "src" => $action->parent->getJsLink("lib/jquery-dataTables/js/jquery.dataTables.js")
+        ) ,
+        array(
+            "src" => $packUrl
+        )
+    );
+    $csslinks = array(
+        array(
+            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("APPMNG:appmng.css", true)
+        ) ,
+        array(
+            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
+        )
+    );
+    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    $action->lay->setBlockData("JS_LINKS", $jslinks);
+    $action->lay->Set("IMGHELP", $action->parent->getImageLink("help.gif"));
+    $action->lay->Set("IMGPRINT", $action->parent->getImageLink("print.gif"));
+    $action->lay->Set("IMGEDIT", $action->parent->getImageLink("edit.gif"));
+    $action->lay->Set("IMGSEARCH", $action->parent->getImageLink("search.gif"));
+    $action->lay->Set("APPLIST", _("Application list"));
+}
+
+function appmngGetAppDatatableInfo(Action & $action)
+{
+    $sEcho = intval($action->getArgument('sEcho'));
+    $out = array(
+        "sEcho" => $sEcho
+    );
+    $data = array();
     
-    $err = $action->Read("USERS_ERROR");
-    if ($err != "") {
-        $action->lay->Set("ERR_MSG", $err);
-        $action->Unregister("USERS_ERROR");
-    } else {
-        $action->lay->Set("ERR_MSG", "");
-    }
-    // Set the form element
-    $form = new SubForm("edit", 350, 330, $standurl . "app=APPMNG&action=APP_MOD", $standurl . "app=APPMNG&action=APP_EDIT");
-    $form->SetParam("id", "-1");
-    $form->SetParam("name");
-    $form->SetParam("short_name");
-    $form->SetParam("description");
-    $form->SetParam("available");
-    $form->SetParam("displayable");
-    $form->SetParam("access_free");
-    $form->SetParam("ssl");
-    $form->SetParam("machine");
-    
-    $form->SetKey("id");
-    
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
-    $action->parent->AddJsCode($form->GetMainJs());
-    $action->lay->set("MAINFORM", $form->GetMainForm());
-    
-    if ($action->HasPermission("ADMIN")) {
-        $add_icon = new Layout($action->GetLayoutFile("add_icon.xml") , $action);
-        $add_icon->set("JSCALL", $form->GetEmptyJsMainCall());
-        $action->lay->set("ADD_ICON", $add_icon->gen());
-    } else {
-        $action->lay->set("ADD_ICON", "");
-    }
-    // Set the table element
-    $query = new QueryGen("", "Application", $action);
-    $query->addQuery("(objectclass != 'Y' ) OR ( objectclass isnull)");
-    $query->slice = 100;
-    $query->order_by = 'name';
-    $query->Query();
+    simpleQuery($action->dbaccess, sprintf("select * from application order by name") , $data);
     // Affect the modif icons
-    foreach ($query->table->array as $k => $v) {
+    foreach ($data as $k => $v) {
         
-        $id = $query->table->array[$k]["id"];
+        $id = $v["id"];
         $p = new Param($action->dbaccess, array(
             "VERSION",
             PARAM_APP,
             $id
         ));
         $version = (isset($p->val) ? $p->val : "");
-        
-        $query->table->array[$k]["update"] = "";
-        $query->table->array[$k]["edit"] = "";
-        $query->table->array[$k]["delete"] = "";
-        $query->table->array[$k]["version"] = $version;
-        $query->table->array[$k]["description"] = $action->text($query->table->array[$k]["description"]);
-        $query->table->array[$k]["appicon"] = $action->parent->getImageLink($query->table->array[$k]["icon"]);
+        $data[$k]["version"] = $version;
+        $data[$k]["description"] = _($v["description"]);
+        $data[$k]["appicon"] = $action->parent->getImageLink($v["icon"], true, 18);
     }
     
-    $query->table->fields = array(
-        "id",
-        "update",
-        "edit",
-        "delete",
-        "name",
-        "appicon",
-        "version",
-        "description",
-        "available",
-        "access_free",
-        "displayable"
-    );
+    $out["aaData"] = $data;
+    $out["iTotalRecords"] = count($data);
+    $out["iTotalDisplayRecords"] = $out["iTotalRecords"];
+    $action->lay->template = json_encode($out);
+    $action->lay->noparse = true;
     
-    $action->lay->Set("TABLE", $query->table->Set());
-    $action->lay->Set("IMGHELP", $action->parent->getImageLink("help.gif"));
-    $action->lay->Set("IMGPRINT", $action->parent->getImageLink("print.gif"));
-    $action->lay->Set("IMGEDIT", $action->parent->getImageLink("edit.gif"));
-    $action->lay->Set("IMGSEARCH", $action->parent->getImageLink("search.gif"));
-    $action->lay->Set("APPLIST", _("Application list"));
+    header('Content-type: application/json');
 }
 ?>

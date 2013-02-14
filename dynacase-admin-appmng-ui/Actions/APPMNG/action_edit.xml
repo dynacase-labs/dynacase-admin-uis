@@ -1,35 +1,9 @@
-<html>
-<head>
-<LINK REL="stylesheet" type="text/css" HREF="[CORE_SBASEURL]app=CORE&action=CORE_CSS" >
-[JS:REF]
-<script language="JavaScript">
-<!--
-[JS:CODE]
-//-->
-</script>
+<form name="edit">
 
-</head>
-
-<body>
-
-<form name="edit" method="POST"  action="?app=APPMNG&action=ACTION_MOD">
-<input type="hidden" name="id" value="[id]">
-
-<table align="center"  border="0" cellspacing="1" cellpadding="1">
-<tr>
-<td class="CORETblHeadCell">
+<input type="hidden" name="id" value="[id]"/>
 
   <table align="center"  border="0" cellspacing="0" cellpadding="2">
 
-  <tr>
-    <td colspan="4" align="center" class="CORETblHeadCell"><span class="CORETblHead">
-    [TITRE] 
-    </span></td>
-  </tr>
-  <tr>
-    <td colspan="4" align="left" class="CORETblCell">&nbsp;</td>
-  </tr>
-  
   <tr>
     <td valign="center" align="right" class="CORETblCell"><span class="CORETbl">[TEXT:name] : </span></td>
     <td colspan="3" valign="center" align="left" class="CORETblCell"><span class="CORETbl">
@@ -54,14 +28,8 @@
   <tr>
     <td valign="center" align="right" class="CORETblCell"><span class="CORETbl">[TEXT:available] : </span></td>
     <td colspan="1" valign="center" align="left" class="CORETblCell"><span class="CORETbl">
-    <SELECT NAME="available" SIZE=1>
-      [BLOCK SELECTAVAILABLE]
-
-        <option value="[available]" [selected]>[available]</option>
-
-      [ENDBLOCK SELECTAVAILABLE]
-
-    </SELECT>
+        <input type="hidden" name="available" value="[select_available]" id="input_select"/>
+        <button id="select" class="select" data-menu="menuSelectable">[select_available]</button>
     </span></td>
 
     <td valign="center" align="right" class="CORETblCell"><span class="CORETbl">[TEXT:acl] : </span></td>
@@ -86,28 +54,15 @@
     <td colspan="1" valign="center" align="left" class="CORETblCell"><span class="CORETbl">
       <font size="-1">[openaccess]</font>
     </span></td>
-
-    <td valign="center" align="right" class="CORETblCell"><span class="CORETbl"> </span></td>
-    <td colspan="1" valign="center" align="left" class="CORETblCell"></td>
   </tr>
- 
 
-  <tr>
-
-    <td colspan="4" align="center" class="CORETblHeadCell">
-      <font size="-1"><input class="CORETblHead" type="reset" onClick="self.close()" name="Annuler" value="[TEXT:butclosew]">
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <input class="CORETblHead" type="submit" onclick="setopenertarget(this)"
-         name="Creer" value="[BUTTONTYPE]">
-      </font>
-    </td>
-
-  </tr>
   </table>
+    <ul id="menuSelectable" class="menuSelectable" data-button="select">
+        [BLOCK SELECTAVAILABLE]
 
-</td>
-</tr>
-</table>
+          <li><a href="#">[available]</a></li>
+
+        [ENDBLOCK SELECTAVAILABLE]
+
+      </ul>
 </form>
-</body>
-</head>

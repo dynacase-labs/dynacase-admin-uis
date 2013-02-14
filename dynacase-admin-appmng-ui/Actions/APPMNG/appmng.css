@@ -1,0 +1,69 @@
+.title {
+    margin-bottom: 5px;
+}
+a {
+    text-decoration: none;
+    color: #0088CC;
+}
+.greenlight{
+    background-color: #7cfc00;
+}
+.redalert{
+    background-color: red;
+}
+.imgappmng{
+    vertical-align: middle;
+    height: 18px;
+}
+.deletebutton {
+    height: 18px;
+}
+.searchField {
+    width: 100%;
+}
+.ui-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+}
+.ui-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+.DataTables_sort_icon {
+    float: left;
+    margin-top: 5px;
+}
+table.dataTable thead th {
+    white-space: normal !important;
+}
+table.dataTable tr.odd {
+    background-color: #E6E6E8;
+}
+
+table.dataTable tr.odd td.sorting_1 {
+    background-color: #CBCBCB;
+}
+
+table.dataTable tr.even td.sorting_1 {
+    background-color: #E6E6E8;
+}
+.loadingImg {
+    background: url('[IMG:loading.gif]') no-repeat left white;
+}
+.update, .edit, .delete{
+    height: 2.2em;
+}
+.edit {
+    margin-left: -1px;
+}
+.delete {
+    margin-left: -2px;
+}

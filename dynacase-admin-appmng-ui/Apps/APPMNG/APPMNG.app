@@ -9,30 +9,21 @@ $app_desc = array(
     "icon"        => "appmng.png", //Icon
     "displayable" => "N", //Should be displayed on an app list (Y,N)
     "iorder"      => 10, // install order
-    "tag"         => "ADMIN" // install order
+    "tag"         => "ADMIN",// install order
+    "with_frame" => "Y"
 );
 
 $app_acl = array(
     array(
         "name"        => "ADMIN",
         "description" => N_("SuperUser permission"),
-        "admin"       => TRUE),
-    array(
-        "name"          => "USER",
-        "description"   => N_("user preference"),
-        "group_default" => "Y")
+        "admin"       => TRUE)
 );
 
 $action_desc = array(
     array(
         "name" => "ADMIN_ACTIONS_LIST",
         "short_name" => N_("appmng:ADMIN_ACTIONS_LIST short_name"),
-    ),
-    array(
-        "name"       => "STYLELIST",
-        "short_name" => N_("styles parameters"),
-        "toc"        => "N",
-        "acl"        => "ADMIN"
     ),
     array(
         "name"       => "PARAM_ALIST",
@@ -47,32 +38,6 @@ $action_desc = array(
         "toc"        => "Y",
         "toc_order"  => 5,
         "acl"        => "ADMIN"
-    ),
-    array(
-        "name"       => "APPPREFS",
-        "short_name" => N_("current user parameters"),
-        "toc"        => "N",
-        "acl"        => "USER",
-        "function"   => "param_culist",
-        "script"     => "param_culist.php",
-        "layout"     => "param_culist.xml",
-    ),
-    array(
-        "name"       => "ADMIN",
-        "short_name" => N_("Parameters configuration"),
-        "toc"        => "N",
-        "acl"        => "USER",
-        "function"   => "param_culist",
-        "script"     => "param_culist.php",
-        "layout"     => "param_culist.xml",
-    ),
-    array(
-        "name"       => "PARAM_CULIST",
-        "short_name" => N_("current user parameters"),
-        "toc"        => "Y",
-        "toc_order"  => 2,
-        "root"       => "Y",
-        "acl"        => "USER"
     ),
     array(
         "name"       => "ACTIONLIST",
@@ -116,15 +81,7 @@ $action_desc = array(
     ),
     array(
         "acl"  => "ADMIN",
-        "name" => "APP_STOP"
-    ),
-    array(
-        "acl"  => "ADMIN",
         "name" => "ACTION_EDIT"
-    ),
-    array(
-        "acl"  => "ADMIN",
-        "name" => "PARAM_EDIT"
     ),
     array(
         "acl"        => "ADMIN",
@@ -137,27 +94,34 @@ $action_desc = array(
         "name"       => "PARAM_MOD"
     ),
     array(
-        "acl"        => "USER",
-        "short_name" => N_("delete user parameters"),
-        "name"       => "PARAM_UDELETE",
-        "function"   => "param_udelete",
-        "script"     => "param_delete.php"
+        "name" => "GET_APPS",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetApps",
+        "script"     => "actionlist.php"
     ),
     array(
-        "acl"        => "USER",
-        "short_name" => N_("modify user parameters"),
-        "name"       => "PARAM_UMOD",
-        "function"   => "param_umod",
-        "layout"     => "param_mod.xml",
-        "script"     => "param_mod.php"
+        "name" => "GET_DATATABLE_INFO",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetDatatableInfo",
+        "script"     => "actionlist.php"
     ),
     array(
-        "name" => "ACTION_APPL_CHG",
-        "acl"  => "ADMIN"
+        "name" => "GET_APP_DATATABLE_INFO",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetAppDatatableInfo",
+        "script"     => "applist.php"
     ),
     array(
-        "name" => "PARAM_APPL_CHG",
-        "acl"  => "ADMIN"
+        "name" => "GET_PARAM_LIST_DATATABLE_INFO",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetParamListDatatableInfo",
+        "script"     => "param_list.php"
+    ),
+    array(
+        "name" => "GET_USERS",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetUsers",
+        "script"     => "param_ulist.php"
     )
 );
 

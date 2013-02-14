@@ -15,39 +15,21 @@
  */
 /**
  */
-// ---------------------------------------------------------------
-// $Id: app_delete.php,v 1.2 2003/08/18 15:46:41 eric Exp $
-// $Source: /home/cvsroot/anakeen/freedom/core/Action/Appmng/app_delete.php,v $
-// ---------------------------------------------------------------
-// $Log: app_delete.php,v $
-// Revision 1.2  2003/08/18 15:46:41  eric
-// phpdoc
-//
-// Revision 1.1  2002/01/08 12:41:33  eric
-// first
-//
-// Revision 1.3  2001/01/29 15:50:59  marianne
-// prise en compte de la gestion des parametres
-//
-// Revision 1.2  2000/11/02 18:39:08  marc
-// OK
-//
-// Revision 1.1  2000/11/02 18:35:14  marc
-// Creation (log info : application )
-//
-//
-// ---------------------------------------------------------------
-include_once ("Class.TableLayout.php");
-include_once ("Class.QueryDb.php");
 // -----------------------------------
-function app_delete(&$action)
+function app_delete(Action & $action)
 {
     // -----------------------------------
-    $appsel = GetHttpVars("appsel");
+    $appsel = $action->getArgument("appsel");
     
     $application = new Application("", $appsel);
     $action->log->info("Remove " . $application->name);
-    $application->DeleteApp();
-    redirect($action, "APPMNG", "");
+    $err = $application->DeleteApp();
+    $action->lay->template = json_encode(array(
+        "success" => $err ? false : true,
+        "error" => $err
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 ?>
