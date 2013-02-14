@@ -1,0 +1,28 @@
+.gparam {
+    font-weight: bold
+}
+
+.aparam {
+
+}
+
+a.gparam, a.aparam {
+    display: none;
+}
+
+.highlight {
+    background-color: [ CORE_BGCOLORHIGH ];
+    cursor: pointer;
+}
+
+.static {
+    cursor: not-allowed;
+}
+
+SPAN.changed {
+    background-color: [ COLOR_B5 ];
+}
+
+.imgApp {
+    vertical-align: middle;
+}

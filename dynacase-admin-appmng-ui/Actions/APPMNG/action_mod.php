@@ -15,41 +15,42 @@
  */
 /**
  */
-
-include_once ("Class.SubForm.php");
-include_once ("Class.Action.php");
 // -----------------------------------
-function action_mod(&$action)
+function action_mod(Action & $action)
 {
     // -----------------------------------
     // Get all the params
-    $id = GetHttpVars("id");
-    $appl_id = $action->Read("action_appl_id");
+    $id = $action->getArgument("id");
+    $appl_id = $action->getArgument("action_appl_id");
     
     if ($id == "") {
-        $ActionCour = new Action($action->GetParam("CORE_DB"));
+        $ActionCour = new Action($action->dbaccess);
     } else {
-        $ActionCour = new Action($action->GetParam("CORE_DB") , array(
+        $ActionCour = new Action($action->dbaccess, array(
             $id,
             $appl_id
         ));
     }
     
-    $ActionCour->available = GetHttpVars("available");
-    
+    $ActionCour->available = $action->getArgument("available");
+    $err = "";
     if ($id == "") {
         $res = $ActionCour->Add();
         if ($res != "") {
-            $txt = $action->text("err_add_action") . " : $res";
-            $action->Register("USERS_ERROR", AddSlashes($txt));
+            $err = _("err_add_action") . " : $res";
         }
     } else {
         $res = $ActionCour->Modify();
         if ($res != "") {
-            $txt = $action->text("err_mod_action") . " : $res";
-            $action->Register("USERS_ERROR", AddSlashes($txt));
+            $err = _("err_mod_action") . " : $res";
         }
     }
-    redirect($action, "APPMNG", "ACTIONLIST");
+    $action->lay->template = json_encode(array(
+        "success" => $err ? false : true,
+        "error" => $err
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 ?>

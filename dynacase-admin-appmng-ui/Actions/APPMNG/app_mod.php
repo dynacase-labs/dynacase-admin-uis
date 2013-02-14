@@ -15,9 +15,6 @@
  */
 /**
  */
-
-include_once ("Class.SubForm.php");
-include_once ("Class.Application.php");
 // -----------------------------------
 function app_mod(Action & $action)
 {
@@ -26,28 +23,31 @@ function app_mod(Action & $action)
     $id = $action->getArgument("id");
     
     if ($id == "") {
-        $AppCour = new Application($action->GetParam("CORE_DB"));
+        $AppCour = new Application($action->dbaccess);
     } else {
-        $AppCour = new Application($action->GetParam("CORE_DB") , $id);
+        $AppCour = new Application($action->dbaccess, $id);
     }
     $AppCour->displayable = $action->getArgument("displayable");
     $AppCour->available = $action->getArgument("available");
-    $AppCour->machine = $action->getArgument("machine");
-    $AppCour->ssl = $action->getArgument("ssl");
     
+    $err = "";
     if ($id == "") {
         $res = $AppCour->Add();
         if ($res != "") {
-            $txt = $action->text("err_add_application") . " : $res";
-            $action->Register("USERS_ERROR", AddSlashes($txt));
+            $err = _("err_add_application") . " : $res";
         }
     } else {
         $res = $AppCour->Modify();
         if ($res != "") {
-            $txt = $action->text("err_mod_application") . " : $res";
-            $action->Register("USERS_ERROR", AddSlashes($txt));
+            $err = _("err_mod_application") . " : $res";
         }
     }
-    redirect($action, "APPMNG", "");
+    $action->lay->template = json_encode(array(
+        "success" => $err ? false : true,
+        "error" => $err
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 ?>

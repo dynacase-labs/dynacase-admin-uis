@@ -15,45 +15,22 @@
  */
 /**
  */
-// ---------------------------------------------------------------
-// $Id: app_update.php,v 1.2 2003/08/18 15:46:41 eric Exp $
-// $Source: /home/cvsroot/anakeen/freedom/core/Action/Appmng/app_update.php,v $
-// ---------------------------------------------------------------
-// $Log: app_update.php,v $
-// Revision 1.2  2003/08/18 15:46:41  eric
-// phpdoc
-//
-// Revision 1.1  2002/01/08 12:41:33  eric
-// first
-//
-// Revision 1.4  2001/07/25 12:51:12  eric
-// ajout fonction updateall
-//
-// Revision 1.3  2000/11/02 18:39:08  marc
-// OK
-//
-// Revision 1.2  2000/11/02 18:35:14  marc
-// Creation (log info : application )
-//
-// Revision 1.1.1.1  2000/10/16 08:52:39  yannick
-// Importation initiale
-//
-//
-//
-// ---------------------------------------------------------------
-include_once ("Class.TableLayout.php");
-include_once ("Class.QueryDb.php");
 // -----------------------------------
-function app_update(&$action)
+function app_update(Action & $action)
 {
     // -----------------------------------
-    $appsel = GetHttpVars("appsel");
+    $appsel = $action->getArgument("appsel");
     $application = new Application("", $appsel);
     $action->log->info("Update " . $application->name);
     $application->Set($application->name, $action->parent);
     $application->UpdateApp();
     
-    redirect($action, "APPMNG", "");
+    $action->lay->template = json_encode(array(
+        "success" => true
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 // -----------------------------------
 function app_updateAll(&$action)
@@ -62,6 +39,11 @@ function app_updateAll(&$action)
     $application = new Application();
     $application->UpdateAllApp();
     
-    redirect($action, "APPMNG", "");
+    $action->lay->template = json_encode(array(
+        "success" => true
+    ));
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
 ?>

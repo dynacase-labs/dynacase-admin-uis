@@ -1,0 +1,16 @@
+.gparam, .aparam{
+   font-weight:medium;
+}
+.uparam {
+   font-weight:bold;
+}
+.sparam {
+   font-weight:medium;
+   font-style:italic;
+}
+a.gparam, a.aparam, a.sparam {
+   display:none;
+}
+.imgApp {
+    vertical-align: middle;
+}

@@ -1,36 +1,26 @@
-<!-- 
-  $Id: param_alist.xml,v 1.4 2005/04/14 09:53:50 marc Exp $
-  $Source: /home/cvsroot/anakeen/freedom/core/Action/Appmng/param_alist.xml,v $
--->
+<html>
+    <head>
+        <title>[app_short_name]</title>
+        [BLOCK CSS_LINKS]
+        <link href="[src]" type="text/css" rel="stylesheet"></link>
+        [ENDBLOCK CSS_LINKS]
+        [BLOCK JS_LINKS]
+        <script type="text/javascript" src="[src]"></script>
+        [ENDBLOCK JS_LINKS]
+    </head>
+    <body>
+        <table width="100%" align="center" border="0" cellspacing="0"
+               cellpadding="0">
+            <tr>
+                <td class="CORETblHeadCell"></td>
 
-<style>
-.gparam {   
-   font-weight:bold
-}
-.aparam {   
+                <td class="CORETblHeadCell">
+                    <span class="CORETblHead">&nbsp;[TEXT:application parameters list]
+                    </span>
+                </td>
+            </tr>
+        </table>
 
-}
-IMG.gparam, IMG.aparam {   
-   display:none;
-}
-</style>
-
-<table width="100%" align="center"  border="0" cellspacing="0" cellpadding="0">
-  <tr>
-    <td class="CORETblHeadCell"></td>
-  
-    <td class="CORETblHeadCell"><span class="CORETblHead">&nbsp;[TEXT:application parameters list]</span></td>
-    <td valign="baseline" align="right" class="CORETblHeadCell">
-      <span class="CORETblHead">
-        <a href="#" onclick="showAllParam()">
-          <img height="22" alt="[TEXT:print]" title="[TEXT:view all]" border="0" src="[IMG:view.gif]"/>
-        </a>
-        <a href="#" onclick="self.print()">
-          <img height="22" alt="[TEXT:print]" title="[TEXT:print]" border="0" src="[IMG:print.gif]"/>
-        </a>
-      </span>
-    </td>
-  </tr>
-</table>
-
-[ZONE APPMNG:PARAM_LIST?pview=allapp]
+        [ZONE APPMNG:PARAM_LIST?pview=allapp]
+    </body>
+</html>
