@@ -9,7 +9,7 @@ $(function () {
         bSort:false,
         sAjaxSource:"?app=APPMNG&action=GET_PARAM_LIST_DATATABLE_INFO",
         bDeferRender:true,
-        sDom:'rt<"F"ip>',
+        sDom:'rt',
         fnServerParams:function (aoData) {
             $(this).find("th").each(function (i) {
                 var value = $(this).find("input").val();

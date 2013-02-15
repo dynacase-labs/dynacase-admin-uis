@@ -16,9 +16,6 @@
                     <input type="hidden" id="searchId" value="[action_appl_id]"/>
                     <input type="text" id="id" value="[id]"/>
                 </td>
-                <td class="CORETblHeadCell">
-                    <span class="CORETblHead">&nbsp;[TEXT:titleaction]</span>
-                </td>
             </tr>
         </table>
 
