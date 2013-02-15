@@ -18,8 +18,8 @@
 // -----------------------------------
 function applist(Action & $action)
 {
-    $packUrl = $action->parent->getJsLink("APPMNG:appmng.js", true, "APPMNG");
-    $action->parent->getJsLink("APPMNG:applist.js", true, "APPMNG");
+    $packUrl = $action->parent->getJsLink("APPMNG:appmng.js", true, "APPMNGAPP");
+    $action->parent->getJsLink("APPMNG:applist.js", true, "APPMNGAPP");
     $jslinks = array(
         array(
             "src" => $action->parent->getJsLink("lib/jquery/jquery.js")

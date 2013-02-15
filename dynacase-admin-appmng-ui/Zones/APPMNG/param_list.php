@@ -41,11 +41,12 @@ function appmngGetParamListDatatableInfo(Action & $action)
     
     $userid = $action->getArgument("userid");
     $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
-    $type = $action->getArgument("type") == "system" ? "=" : "!=";
+    $type = $action->getArgument("type");
     $tparam = array();
     $userParams = array();
     $paramType = "";
     
+    $type = ($type == "system") ? "~" : "!~";
     $filterQuery = "";
     for ($index = 0; $index < $action->getArgument('iColumns'); $index++) {
         $search = $action->getArgument('sSearch_' . $index);
@@ -62,7 +63,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $withStatic = $withStatic ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
-        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and application.tag%s'SYSTEM' %s order by application.name, paramv.name, paramv.type desc", PARAM_USER . $userid, $withStatic, $type, $filterQuery) , $userParams);
+        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and application.tag%sE'\\\\ySYSTEM\\\\y' %s order by application.name, paramv.name, paramv.type desc", PARAM_USER . $userid, $withStatic, $type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
     
@@ -70,8 +71,9 @@ function appmngGetParamListDatatableInfo(Action & $action)
         /**
          * Getting all parameters
          */
-        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and application.tag%s'SYSTEM' %s %s order by application.name, paramv.name, paramv.type desc", PARAM_GLB, PARAM_APP, $withStatic, $type, $filterQuery, $paramType) , $tparam);
+        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and application.tag%sE'\\\\ySYSTEM\\\\y' %s %s order by application.name, paramv.name, paramv.type desc", PARAM_GLB, PARAM_APP, $withStatic, $type, $filterQuery, $paramType) , $tparam);
     }
+    
     $vsection = "appid";
     
     $precApp = 0;
@@ -99,7 +101,6 @@ function appmngGetParamListDatatableInfo(Action & $action)
             if ($pview == "alluser" && !empty($userParams)) {
                 foreach ($userParams as $uparams) {
                     if ($uparams["name"] === $v["name"]) {
-                        error_log("param found for === " . $v["name"]);
                         $tincparam = $uparams;
                         break;
                     }
