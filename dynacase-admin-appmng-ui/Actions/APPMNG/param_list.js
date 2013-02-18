@@ -74,17 +74,17 @@ $(function () {
             {
                 "aTargets":['description'],
                 "mDataProp":"descr",
+                "sWidth":"15%",
                 bUseRendered:false,
-                "sWidth":"40%",
                 fnRender:function (data) {
-                    return '<span class="' + data.aData.classtype + '">' + data.aData.descr + '</span>';
+                    return '<div class="' + data.aData.classtype + ' column">' + data.aData.descr + '</div>';
                 }
             },
             {
                 "aTargets":['groupby'],
                 "bSearchable":true,
                 "mDataProp":"appname",
-                "sWidth":"75px",
+                "sWidth":"5%",
                 bUseRendered:false,
                 fnRender:function (data) {
                     var elem = data.aData.appname;
@@ -98,17 +98,18 @@ $(function () {
             },
             {
                 "aTargets":['name'],
-                "sWidth":"20%",
+                "sWidth":"15%",
                 "bSearchable":true,
                 "mDataProp":"name",
                 bUseRendered:false,
                 fnRender:function (data) {
-                    return '<span class="' + data.aData.classtype + '">' + data.aData.name + '</span>';
+                    return '<div class="' + data.aData.classtype + ' column">' + data.aData.name + '</div>';
                 }
             },
             {
                 "aTargets":['valeur'],
                 "mDataProp":"val",
+                "sClass": "values",
                 bUseRendered:false,
                 fnRender:function (data) {
                     var onclick = "movediv(this,'" + data.aData.name + "','" + data.aData.type + "','" + data.aData.appid + "','" + data.aData.kind + "',this.getAttribute('avalue'))";
@@ -119,7 +120,7 @@ $(function () {
                         val = modified[id]["value"];
                         rowclass += " " + modified[id]["class"];
                     }
-                    return '<span id="v' + data.aData.name + '" avalue="' + data.aData.sval + '" class="' + rowclass + '" onclick="' + onclick + '">' + val + '</span>';
+                    return '<div id="v' + data.aData.name + '" avalue="' + data.aData.sval + '" class="' + rowclass + ' column" onclick="' + onclick + '">' + val + '</div>';
                 }
             }
         ]
@@ -171,7 +172,7 @@ $(function () {
                 if (editedParam) {
                     editedParam.setAttribute('avalue', data.data.value);
                     editedParam.style.display = 'inline';
-                    if (editedParam.tagName == 'SPAN') {
+                    if (editedParam.tagName == 'DIV') {
                         if (data.data.value == null) {
                             data.data.value = '';
                         }
