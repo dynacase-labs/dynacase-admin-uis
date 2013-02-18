@@ -13,10 +13,10 @@
 <div id="tabs">
 <ul>
     <li>
-        <a href="#systemparam_wrapper">[TEXT:Param system]</a>
+        <a href="#otherparam_wrapper">[TEXT:Other param]</a>
     </li>
     <li>
-        <a href="#otherparam_wrapper">[TEXT:Other param]</a>
+        <a href="#systemparam_wrapper">[TEXT:Param system]</a>
     </li>
 </ul>
 <input type="hidden" id="actiondel" value="[ACTIONDEL]"/>

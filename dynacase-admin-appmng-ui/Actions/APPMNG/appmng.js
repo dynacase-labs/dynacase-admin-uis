@@ -128,7 +128,7 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
         iDisplayLength:displayLength,
         sAjaxSource:url,
         bDeferRender:true,
-        sDom:'rt<"F"ip>',
+        sDom:'rt',
         fnServerParams:fnServerParams,
         "aaSorting":[
             [sortColumn, 'asc']
