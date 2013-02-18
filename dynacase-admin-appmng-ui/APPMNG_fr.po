@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-15 18:30+0100\n"
-"PO-Revision-Date: 2013-02-15 18:17+0100\n"
+"POT-Creation-Date: 2013-02-18 16:41+0100\n"
+"PO-Revision-Date: 2013-02-18 16:42+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "MIME-Version: 1.0\n"
@@ -42,13 +42,13 @@ msgstr "Aucun résultat correspondant au filtre trouvé"
 msgid "No result"
 msgstr "Aucun résultat trouvé"
 
-#: tempCatalog.php:54
+#: tempCatalog.php:55
 msgid "Other param"
 msgstr "Paramètres des applications"
 
-#: tempCatalog.php:55
+#: tempCatalog.php:54
 msgid "Param system"
-msgstr "Paramètres système"
+msgstr "Paramètres du système"
 
 #: Actions/APPMNG/param_delete.php:32
 msgid "Remove parameter"
@@ -88,7 +88,7 @@ msgstr "Les actions"
 
 #: Apps/APPMNG/APPMNG.app:30
 msgid "application parameters"
-msgstr "Paramètres applicatif"
+msgstr "Paramètres applicatifs"
 
 #: Apps/APPMNG/APPMNG.app:53
 msgid "applications"
@@ -267,7 +267,7 @@ msgstr "mise à jour"
 
 #: Apps/APPMNG/APPMNG.app:37
 msgid "user parameters"
-msgstr "Paramètres utilisateur"
+msgstr "Paramètres des utilisateurs"
 
 #: tempCatalog.php:59 tempCatalog.php:63
 msgid "val"

@@ -95,7 +95,8 @@ $(function () {
     }, function (nRow, aData, iDisplayIndex) {
         if (aData["root"] == "Y") {
             $('td:eq(5)', nRow).addClass('greenlight');
-        } else if (aData["available"] == "N") {
+        }
+        if (aData["available"] == "N") {
             $('td:eq(2)', nRow).addClass('redalert');
         }
         return nRow;

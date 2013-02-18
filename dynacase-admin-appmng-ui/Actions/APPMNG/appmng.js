@@ -124,6 +124,7 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
         bServerSide:true,
         bJQueryUI:true,
         bProcessing:true,
+        bSort: false,
         bPaginate:displayLength ? true : false,
         iDisplayLength:displayLength,
         sAjaxSource:url,

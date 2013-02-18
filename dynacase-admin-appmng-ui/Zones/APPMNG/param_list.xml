@@ -21,34 +21,6 @@
 </ul>
 <input type="hidden" id="actiondel" value="[ACTIONDEL]"/>
 
-<table id="systemparam" align="center" width="100%" border="0" cellspacing="0"
-       cellpadding="0" class="datatable" data-type="system"
-       data-userid="[userid]" data-pview="[pview]">
-
-    <!-- TABLEHEAD -->
-    <thead>
-        <tr>
-            <th class="CORETblCell groupby">
-                <input placeholder="[TEXT:appname]" value="" name="appname"
-                       class="searchField"/>
-            </th>
-            <th class="CORETblCell name">
-                <input class="searchField" placeholder="[TEXT:system name]" value=""
-                       name="name"/>
-            </th>
-            <th class="CORETblCell description">
-                <span class="CORETblBold">[TEXT:name]</span>
-            </th>
-            <th class="CORETblCell valeur">
-                <span class="CORETblBold">[TEXT:val]</span>
-            </th>
-        </tr>
-    </thead>
-    <!-- /TABLEHEAD -->
-    <tbody>
-
-    </tbody>
-</table>
 <table id="otherparam" align="center" width="100%" border="0" cellspacing="0"
        cellpadding="0" class="datatable" data-type="normal"
        data-userid="[userid]" data-pview="[pview]">
@@ -77,4 +49,33 @@
 
     </tbody>
 </table>
+<table id="systemparam" align="center" width="100%" border="0" cellspacing="0"
+       cellpadding="0" class="datatable" data-type="system"
+       data-userid="[userid]" data-pview="[pview]">
+
+    <!-- TABLEHEAD -->
+    <thead>
+        <tr>
+            <th class="CORETblCell groupby">
+                <input placeholder="[TEXT:appname]" value="" name="appname"
+                       class="searchField"/>
+            </th>
+            <th class="CORETblCell name">
+                <input class="searchField" placeholder="[TEXT:system name]" value=""
+                       name="name"/>
+            </th>
+            <th class="CORETblCell description">
+                <span class="CORETblBold">[TEXT:name]</span>
+            </th>
+            <th class="CORETblCell valeur">
+                <span class="CORETblBold">[TEXT:val]</span>
+            </th>
+        </tr>
+    </thead>
+    <!-- /TABLEHEAD -->
+    <tbody>
+
+    </tbody>
+</table>
+
 </div>
