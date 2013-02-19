@@ -88,10 +88,23 @@ $action_desc = array(
         "short_name" => N_("iuser choose main view column"),
         "acl" => "FUSERS",
         "root" => "N"
-    ), array(
+    ),
+    array(
         "name" => "FUSERS_MAIN",
         "short_name" => N_("iuser list main page"),
         "acl" => "FUSERS",
+        "root" => "N"
+    ),
+    array(
+        "name" => "FUSERS_DATATABLES_LAYOUT",
+        "short_name" => N_("get layout for datatable"),
+        "acl" => "FUSERS_MASTER",
+        "root" => "N"
+    ),
+    array(
+        "name" => "FUSERS_GET_DATATABLE_INFO",
+        "short_name" => N_("iuser list all"),
+        "acl" => "FUSERS_MASTER",
         "root" => "N"
     )
 );

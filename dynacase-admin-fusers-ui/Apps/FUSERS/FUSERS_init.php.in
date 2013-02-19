@@ -16,7 +16,7 @@ global $app_const;
 
 $app_const = array(
     "INIT" => "yes",
-    "VERSION" =>  "@VERSION_FUSERS@-@RELEASE_FUSERS@",
+    "VERSION" => "@VERSION_FUSERS@-@RELEASE_FUSERS@",
     
     "FUSERS_MAINLINE" => array(
         "kind" => "static",
@@ -28,6 +28,11 @@ $app_const = array(
         "kind" => "static",
         "val" => "",
         "descr" => N_("main view columns") ,
+        "user" => "Y"
+    ) ,
+    "FUSERS_DISPLAYLENGTH" => array(
+        "val" => "10",
+        "descr" => N_("datatable displaylength") ,
         "user" => "Y"
     )
 );

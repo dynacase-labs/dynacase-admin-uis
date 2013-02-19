@@ -1,6 +1,6 @@
 .fabbody, BODY.freedom {
 margin : 2px;
-background: [CORE_BGCOLOR]; 
+background: [CORE_BGCOLOR];
 color: [CORE_TEXTFGCOLOR];
 }
 
@@ -23,7 +23,7 @@ FIELDSET {
   -moz-border-radius: 8px;
 }
 LEGEND {
-  font-size : [SIZE_SMALL]; 
+  font-size : [SIZE_SMALL];
   font-weight : bold;
   background-color: [CORE_BGCOLORALTERN];
   -moz-border-radius: 8px
@@ -142,7 +142,7 @@ background-color: [CORE_BGCELLCOLOR];
 font-weight : bold;
 font-variant: small-caps;
 font-size : [SIZE_LARGE];
-} 
+}
 
 .fabresumesoc {
 font-style: italic;
@@ -153,7 +153,7 @@ text-transform : lowercase;
 text-transform:capitalize;
 }[ENDIF ISIE]
 
-DIV.fabresume  TBODY TR TD, DIV.fabresume  TBODY TR {  
+DIV.fabresume  TBODY TR TD, DIV.fabresume  TBODY TR {
   background-color:transparent;
 }
 /* Carte */
@@ -171,18 +171,18 @@ background-color: [CORE_BGCELLCOLOR];
 
 .fabctitlep {
 padding:10px 0px 0px 10px;
-} 
+}
 
 SPAN.fabctitle, .fabctitle {
 font-weight : bold;
 font-variant: small-caps;
 font-size : [SIZE_XX-LARGE];
-} 
+}
 .fabcsoc {
 font-weight : bold;
 font-variant: small-caps;
 font-size : [SIZE_X-LARGE];
-} 
+}
 
 SPAN.fabcrub, .fabcrub {
 font-size : [SIZE_LARGE];
@@ -192,13 +192,13 @@ font-weight : bold;
 font-weight : bold;
 font-size : [SIZE_X-LARGE];
 }
-.fabccom {   
+.fabccom {
 }
 .fablabel {
- 
+
 }
 SPAN.fabvalue, .fabvalue {
-font-weight : bold; 
+font-weight : bold;
 }
 
 .fabcciv {
@@ -285,4 +285,70 @@ TABLE.tab TD {
 }
 TABLE.noborder TD {
 	border:none;
+}
+
+TABLE.tableborder TBODY TR:hover {
+  background-color:[CORE_BGCOLORHIGH]!important;
+}
+TABLE.tableborder TBODY TR TD{
+  cursor:pointer;
+}
+
+table.dataTable tr td { border-bottom: 1px solid #eee; }
+table.dataTable tr.odd, table.dataTable tr.even { background-color: #fff; }
+table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { background-color: #FFFDF2; }
+
+.search {
+    float: left;
+    width: 95%;
+    margin-left: 10px;
+}
+.search .ui-icon-search {
+    display: inline;
+    position: absolute;
+    right: auto !important;
+}
+
+.searchField {
+    padding-left: 20px;
+    width: 100%;
+    border-bottom: 1px solid white !important;
+    border-right: 1px solid white !important;
+    border-top: 1px solid #DDD !important;
+    border-left: 1px solid #DDD !important;
+    background-color: #F0F0F0;
+}
+
+.fg-toolbar {
+    margin-bottom: 1em;
+}
+
+@media screen, print {
+	/* Turn off list bullets */
+	ul.mktree  li { list-style: none; }
+	/* Control how "spaced out" the tree is */
+	ul.mktree, ul.mktree ul , ul.mktree li { margin-left:10px; padding:0px; }
+	/* Provide space for our own "bullet" inside the LI */
+	ul.mktree  li           .bullet { padding-left: 15px; }
+
+	/* Show "bullets" in the links, depending on the class of the LI that the link's in */
+	ul.mktree  li.liOpen    .bullet { cursor: pointer; background: url([IMG:minus.png])  center left no-repeat; }
+	ul.mktree  li.liClosed  .bullet { cursor: pointer; background: url([IMG:plus.png])   center left no-repeat; }
+	ul.mktree  li.liBullet  .bullet { cursor: default; background: url([IMG:bullet.gif]) center left no-repeat; }
+	/* Sublists are visible or not based on class of parent LI */
+	ul.mktree  li.liOpen    ul { display: block; }
+	ul.mktree  li.liClosed  ul { display: none; }
+[IFNOT ISIE]
+    div.mktreetop {   padding-left : 20px; }
+       div.mktreetop ul.mktree  li  .bullet { margin-left : -20px; }[ENDIF ISIE]
+
+}
+
+.tableRow {
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: #0088CC;
 }

@@ -1,0 +1,34 @@
+<input type="hidden" id="fusersType" value="[fuserType]"/>
+<input type="hidden" id="fusersGroup" value="[fuserGroup]"/>
+<input type="hidden" id="fusersDisplayLength" value="[fuserDisplayLength]"/>
+<div id="buttonset">
+<a href="[CORE_STANDURL]&app=FDL&action=OPENDOC&mod=create&famid=[idmain]" id="mainaction" data-id="[idmain]"><img src="[imgsrcmain]"/>[TEXT:Create ][titlemain]</a>
+<button id="otheraction" style="[style]">[TEXT:Select an action]</button>
+</div>
+
+<table class="dataTable">
+<thead id="header">
+    <tr>
+        [BLOCK thead]
+        <th class="[id]">
+            <div class="search">
+                <span class="ui-icon ui-icon-search"></span>
+                <input type="text" class="searchField" placeholder="[name]"
+                       id="[id]"
+                       value="[value]"/>
+            </div>
+        </th>
+        [ENDBLOCK thead]
+    </tr>
+</thead>
+<tbody>
+</tbody>
+</table>
+
+<ul id="menu">
+[BLOCK urgtype]
+<li>
+    <a href="[CORE_STANDURL]&app=FDL&action=OPENDOC&mod=create&famid=[id]" data-id="[id]"><img src="[imgsrc]"/>[title]</a>
+</li>
+[ENDBLOCK urgtype]
+</ul>
