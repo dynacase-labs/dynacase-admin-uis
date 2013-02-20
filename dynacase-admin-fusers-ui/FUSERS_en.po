@@ -8,197 +8,262 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"POT-Creation-Date: 2013-02-19 17:50+0100\n"
 "PO-Revision-Date: 2013-01-16 16:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
-"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#, php-format
+#: Actions/FUSERS/fusers_list.php:115
+#, c-format
 msgid "<b>%d group(s) to refresh</b>"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:46
 msgid "Access to user refresh function"
 msgstr ""
 
-msgid "Add or modify item's category"
+#: Actions/FUSERS/fusers_list.php:80 Actions/FUSERS/fusers_list.php:83
+msgid "All groups"
 msgstr ""
 
-msgid "Admin"
+#: Actions/FUSERS/fusers_list.php:73 Actions/FUSERS/fusers_list.php:76
+msgid "All roles"
 msgstr ""
 
-msgid "Attribute"
+#: Actions/FUSERS/fusers_list.php:66 Actions/FUSERS/fusers_list.php:69
+msgid "All users"
 msgstr ""
 
-msgid "CSV Import Groups"
-msgstr ""
-
-msgid "CSV Import Users"
-msgstr ""
-
+#: tempCatalog.php:7
 msgid "Choose family to create"
 msgstr ""
 
-msgid "Create new group"
+#: tempCatalog.php:32
+msgid "Create "
 msgstr ""
 
-msgid "Family"
-msgstr ""
-
+#: tempCatalog.php:34
 msgid "Generic Management"
 msgstr ""
 
+#: tempCatalog.php:37
 msgid "Group"
 msgstr ""
 
-msgid "Groups"
+#: tempCatalog.php:1
+msgid "No matching record found"
 msgstr ""
 
-msgid "Import Groups"
-msgstr ""
-
-msgid "Import Users"
-msgstr ""
-
-msgid "Modify"
-msgstr ""
-
-msgid "Modify categories"
-msgstr ""
-
-#, php-format
+#: Actions/FUSERS/fusers_list.php:116
 msgid "No need to refresh group"
 msgstr ""
 
+#: tempCatalog.php:3
+msgid "No result"
+msgstr ""
+
+#: tempCatalog.php:38
 msgid "Others"
 msgstr ""
 
+#: tempCatalog.php:39
 msgid "Password"
 msgstr ""
 
+#: tempCatalog.php:21
 msgid "Refersh groups may take long time. Sure ?"
 msgstr ""
 
-msgid "Refersh users may take long time. Sure ?"
-msgstr ""
-
-msgid "Refresh Group members and mail"
-msgstr ""
-
+#: tempCatalog.php:20
 msgid "Refresh Groups members and mail"
 msgstr ""
 
+#: tempCatalog.php:17 tempCatalog.php:19
 msgid "Refresh LDAP"
 msgstr ""
 
+#: tempCatalog.php:18
 msgid "Refresh LDAP may take long time. Sure ?"
 msgstr ""
 
+#: tempCatalog.php:22
 msgid "Refresh groups"
 msgstr ""
 
-msgid "Refresh groups may take long time. Sure ?"
-msgstr ""
-
+#: tempCatalog.php:16
 msgid "Refresh users"
 msgstr ""
 
+#: tempCatalog.php:14
 msgid "Refresh users characteristics from system"
 msgstr ""
 
+#: tempCatalog.php:15
 msgid "Refresh users may take long time. Sure ?"
 msgstr ""
 
+#: tempCatalog.php:30
 msgid "Reset"
 msgstr ""
 
+#: tempCatalog.php:28
 msgid "Save"
 msgstr ""
 
+#: tempCatalog.php:33
+msgid "Select an action"
+msgstr ""
+
+#: tempCatalog.php:2
+msgid "Showing _START_ to _END_ of _TOTAL_ "
+msgstr ""
+
+#: tempCatalog.php:36
 msgid "System"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:41
 msgid "To create and modify users and groups"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:26
 msgid "Users"
 msgstr ""
 
+#: tempCatalog.php:23 Apps/FUSERS/FUSERS.app:27
 msgid "Users Management"
 msgstr ""
 
+#: tempCatalog.php:26
 msgid "choose colums"
 msgstr ""
 
+#: tempCatalog.php:5
 msgid "click here to create a new"
 msgstr ""
 
+#: Actions/FUSERS/fusers_datatables_layout.php:54
+msgid "desc"
+msgstr ""
+
+#: tempCatalog.php:13
 msgid "edit contact card"
 msgstr ""
 
+#: tempCatalog.php:12
 msgid "filter on"
 msgstr ""
 
+#: Actions/FUSERS/fusers_datatables_layout.php:26
+msgid "firstname"
+msgstr ""
+
+#: Apps/FUSERS/FUSERS.app:59
 msgid "fusers list window"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:53
 msgid "fusers root window"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:64
 msgid "fusers view/edit window"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:100
+msgid "get layout for datatable"
+msgstr ""
+
+#: Apps/FUSERS/FUSERS.app:88
 msgid "iuser choose main view column"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:106
+msgid "iuser list all"
+msgstr ""
+
+#: Apps/FUSERS/FUSERS.app:94
 msgid "iuser list main page"
 msgstr ""
 
+#: Actions/FUSERS/fusers_datatables_layout.php:40
+msgid "label"
+msgstr ""
+
+#: Actions/FUSERS/fusers_datatables_layout.php:22
+msgid "lastname"
+msgstr ""
+
+#: tempCatalog.php:8
 msgid "lines"
 msgstr ""
 
+#: tempCatalog.php:9
 msgid "lines per page"
 msgstr ""
 
+#: Actions/FUSERS/fusers_datatables_layout.php:18
+#: Actions/FUSERS/fusers_datatables_layout.php:50
+msgid "login"
+msgstr ""
+
+#: Actions/FUSERS/fusers_datatables_layout.php:30
+msgid "mail"
+msgstr ""
+
+#: Apps/FUSERS/FUSERS_init.php:30
 msgid "main view columns"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS_init.php:24
 msgid "main view line displayed"
 msgstr ""
 
+#: tempCatalog.php:10
 msgid "manage columns"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:81
 msgid "refresh groups"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:74
 msgid "refresh ldap entries"
 msgstr ""
 
+#: Apps/FUSERS/FUSERS.app:69
 msgid "refresh users intranet attributes"
 msgstr ""
 
+#: tempCatalog.php:31
 msgid "reset to default"
 msgstr ""
 
+#: tempCatalog.php:29
 msgid "save modifications"
 msgstr ""
 
+#: tempCatalog.php:11
 msgid "search all containing"
 msgstr ""
 
+#: tempCatalog.php:27
 msgid "select to view colum"
 msgstr ""
 
-msgid "users list"
+#: tempCatalog.php:4
+msgid "show _MENU_ per page"
 msgstr ""
 
+#: tempCatalog.php:24 tempCatalog.php:25 tempCatalog.php:35
 msgid "view detail"
 msgstr ""
 
+#: tempCatalog.php:6
 msgid "view sub families"
 msgstr ""

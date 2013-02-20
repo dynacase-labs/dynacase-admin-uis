@@ -10,16 +10,8 @@ include_once ("FDL/Lib.Dir.php");
 function fusers_list(Action & $action)
 {
     
-    $action->parent->AddJsRef($action->GetParam("CORE_PUBURL") . "/FDL/Layout/common.js");
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/subwindow.js");
-    
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/geometry.js");
-    $action->parent->AddJsRef($action->GetParam("CORE_JSURL") . "/AnchorPosition.js");
-    
-    $dbaccess = $action->GetParam("FREEDOM_DB");
+    $dbaccess = $action->dbaccess;
     // create group tree
-    $action->parent->AddJsRef($action->GetParam("CORE_PUBURL") . "/FDL/Layout/mktree.js");
-    
     $action->lay->set("isMaster", $action->parent->Haspermission("FUSERS_MASTER"));
     
     $user = new Account();
@@ -29,7 +21,7 @@ function fusers_list(Action & $action)
     // top group
     $q2 = new queryDb("", "Account");
     $mgroups = $q2->Query(0, 0, "TABLE", "select users.* from users where accounttype='G' and id not in (select iduser from groups, users u where groups.idgroup = u.id and u.accounttype='G')");
-    
+    $groupuniq = array();
     if ($groups) {
         foreach ($groups as $k => $v) {
             $groupuniq[$v["id"]] = $v;
@@ -42,14 +34,17 @@ function fusers_list(Action & $action)
     $group = new_doc($action->dbaccess, "IGROUP");
     $groupIcon = $group->getIcon('', 14);
     $action->lay->set("iconGroup", $groupIcon);
+    $tgroup = array();
     if ($mgroups) {
         $doc = createTmpDoc($dbaccess, 1);
         uasort($mgroups, "cmpgroup");
         foreach ($mgroups as $k => $v) {
             $cgroup = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
+            $fid = $v["fid"];
+            $v["onclick"] = "refreshRightSide('user','$fid')";
+            $v["onclickimg"] = "viewdoc('$fid')";
             $tgroup[$k] = $v;
             $tgroup[$k]["SUBUL"] = $cgroup;
-            $fid = $v["fid"];
             if ($fid) {
                 $tdoc = getTDoc($dbaccess, $fid);
                 $icon = $doc->getIcon($tdoc["icon"], 14);
@@ -63,7 +58,31 @@ function fusers_list(Action & $action)
             
         }
     }
+    
     $action->lay->setBlockData("LI", $tgroup);
+    $action->lay->setBlockData("ALL", array(
+        array(
+            "id" => "Users",
+            "login" => _("All users") ,
+            "icon" => $action->parent->getImageLink("dynacase-iuser.png", true, 14) ,
+            "onclick" => "refreshRightSide('user')",
+            "firstname" => _("All users")
+        ) ,
+        array(
+            "id" => "Roles",
+            "login" => _("All roles") ,
+            "icon" => $action->parent->getImageLink("role.png", true, 14) ,
+            "onclick" => "refreshRightSide('role')",
+            "firstname" => _("All roles")
+        ) ,
+        array(
+            "id" => "Groups",
+            "login" => _("All groups") ,
+            "icon" => $action->parent->getImageLink("igroup.png", true, 14) ,
+            "onclick" => "refreshRightSide('group')",
+            "firstname" => _("All groups")
+        )
+    ));
     $action->lay->setBlockData("SELECTGROUP", $groupuniq);
     
     $action->lay->set("expand", (count($groups) < 30));
@@ -109,9 +128,10 @@ function fusers_getChildsGroup($id, $groups, $groupIcon)
     $tlay = array();
     foreach ($groups as $k => $v) {
         if ($v["idgroup"] == $id) {
+            $fid = $v["fid"];
+            $v["onclick"] = "refreshRightSide('user','$fid')";
             $tlay[$k] = $v;
             $tlay[$k]["SUBUL"] = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
-            $fid = $v["fid"];
             if ($fid) {
                 $tdoc = getTDoc($dbaccess, $fid);
                 $icon = $doc->getIcon($tdoc["icon"], 14);
@@ -130,6 +150,7 @@ function fusers_getChildsGroup($id, $groups, $groupIcon)
     $lay->setBlockData("LI", $tlay);
     return $lay->gen();
 }
+
 function cmpgroup($a, $b)
 {
     return strcasecmp($a['lastname'], $b['lastname']);

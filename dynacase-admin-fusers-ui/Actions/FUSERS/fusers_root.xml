@@ -1,18 +1,30 @@
 <html>
-<head>
+    <head>
 
-<title>[TEXT:Users Management]</title>
-<link rel="shortcut icon" href="[DYNACASE_FAVICO]" >
+        <title>[TEXT:Users Management]</title>
+        <link rel="shortcut icon" href="[DYNACASE_FAVICO]">
+        [BLOCK CSS_LINKS]
+        <link href="[src]" type="text/css" rel="stylesheet"></link>
+        [ENDBLOCK CSS_LINKS]
+        [BLOCK JS_LINKS]
+        <script type="text/javascript" src="[src]"></script>
+        [ENDBLOCK JS_LINKS]
+    </head>
 
-</head>
+    <body>
+        <table name="ffusers" id="fgtop" style="width:100%;height:100%">
+            <tr>
+                <td name="flist"
+                    style="border-right:3px solid [CORE_FGCOLOR];width:350px" id="flist">
+                    [ZONE [APPNAME]:FUSERS_LIST]
+                </td>
+                <td name="finfo[APPNAME]"
+                    style="border-left:3px solid [CORE_FGCOLOR];vertical-align:top;" id="finfo">
 
-
-
-<frameset name="ffusers" id="fgtop" frameborder="1" framespacing="3" border="3"  cols="350px,*">
-     <frame name="flist" src="[CORE_STANDURL]&app=[APPNAME]&action=FUSERS_LIST" scrolling="needed" bordercolor="[CORE_FGCOLOR]">
-     <frame name="finfo[APPNAME]" src="[CORE_STANDURL]&app=GENERIC&action=GENERIC_LOGO&famid=128" scrolling="needed" bordercolor="[CORE_FGCOLOR]">
-</frameset>
-
+                </td>
+            </tr>
+        </table>
+    </body>
 
 
 </html>
