@@ -71,13 +71,15 @@ function fusers_datatables_layout(Action & $action)
             $list = getButtonList($action, "IGROUP");
             break;
     }
-    
+    array_pop($list);
     $action->lay->setBlockData("thead", $thead);
     $action->lay->set("fuserType", $type);
     $action->lay->set("fuserGroup", $group);
     $action->lay->set("fuserDisplayLength", $displayLength);
     $action->lay->set("style", (count($list) <= 0 ? "display:none;" : ""));
     $action->lay->setBlockData("urgtype", $list);
+    $action->lay->set("imgsrc", $action->parent->getImageLink("iuser.png", true, 18));
+    $action->lay->set("valuetype", "");
 }
 
 function getButtonList(Action & $action, $famid)
@@ -87,13 +89,49 @@ function getButtonList(Action & $action, $famid)
     $infos = $doc->getChildFam(-1, true);
     foreach ($infos as $info) {
         $list[] = array(
-            "id" => $info["id"],
-            "title" => $info["title"],
-            "imgsrc" => $action->parent->getImageLink($info["icon"], true, 14)
+            "value" => $info["id"],
+            "label" => $info["title"],
+            "imgsrc" => $action->parent->getImageLink($info["icon"], true, 14) ,
+            "imgclass" => ""
         );
     }
+    $list[] = array(
+        "value" => $doc->getPropertyValue("id") ,
+        "label" => $doc->getTitle() ,
+        "imgsrc" => $doc->getIcon("", 14) ,
+        "imgclass" => ""
+    );
     $action->lay->set("idmain", $doc->getPropertyValue("id"));
     $action->lay->set("titlemain", $doc->getTitle());
     $action->lay->set("imgsrcmain", $doc->getIcon("", 14));
     return $list;
+}
+
+function get_type_image(Action & $action)
+{
+    $out = array();
+    $type = $action->getArgument("type");
+    switch ($type) {
+        case "user":
+            $out = getButtonList($action, "IUSER");
+            break;
+
+        case "role":
+            $out = getButtonList($action, "ROLE");
+            break;
+
+        case "group":
+            $out = getButtonList($action, "IGROUP");
+            break;
+    }
+    $out[] = array(
+        "value" => "",
+        "imgsrc" => $action->parent->getImageLink("user.png", true, 18) ,
+        "label" => _("All") ,
+        "imgclass" => "ui-icon-empty"
+    );
+    $action->lay->template = json_encode($out);
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
 }
