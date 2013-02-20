@@ -31,7 +31,7 @@ $app_desc = array(
     "with_frame" => "Y", //Use multiframe ? (Y,N)
     "childof" => "", //
     "iorder" => 120, // install order
-    "tag" => "ADMIN"
+    "tag" => "ADMIN SYSTEM"
 );
 
 $app_acl = array(
