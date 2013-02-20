@@ -9,7 +9,7 @@ $app_desc = array(
     "icon"        => "appmng.png", //Icon
     "displayable" => "N", //Should be displayed on an app list (Y,N)
     "iorder"      => 10, // install order
-    "tag"         => "ADMIN",// install order
+    "tag"         => "ADMIN SYSTEM",// install order
     "with_frame" => "Y"
 );
 

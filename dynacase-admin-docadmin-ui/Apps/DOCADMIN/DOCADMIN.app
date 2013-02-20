@@ -10,7 +10,7 @@ $app_desc = array(
     "icon" => "docadmin.png",
     "displayable" => "Y",
     "iorder" => 10,
-    "tag" => "ADMIN",
+    "tag" => "ADMIN SYSTEM",
     "with_frame" => "Y"
 );
 
