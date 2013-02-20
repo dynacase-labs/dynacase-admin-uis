@@ -294,13 +294,15 @@ TABLE.tableborder TBODY TR TD{
   cursor:pointer;
 }
 
+table.dataTable { border-spacing: 0; border-collapse: collapse;}
+table.dataTable thead th { padding: 3px 3px;}
 table.dataTable tr td { border-bottom: 1px solid #eee; }
 table.dataTable tr.odd, table.dataTable tr.even { background-color: #fff; }
 table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { background-color: #FFFDF2; }
 
 .search {
     float: left;
-    width: 95%;
+    width: 85%;
     margin-left: 10px;
 }
 .search .ui-icon-search {
@@ -327,7 +329,8 @@ table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { back
 	/* Turn off list bullets */
 	ul.mktree  li { list-style: none; }
 	/* Control how "spaced out" the tree is */
-	ul.mktree, ul.mktree ul , ul.mktree li { margin-left:10px; padding:0px; }
+    ul.mktree {margin-left: 0;padding:0;}
+	ul.mktree ul , ul.mktree li { margin-left:10px; padding:0; }
 	/* Provide space for our own "bullet" inside the LI */
 	ul.mktree  li           .bullet { padding-left: 15px; }
 
@@ -352,3 +355,39 @@ a {
     text-decoration: none;
     color: #0088CC;
 }
+
+li {
+    white-space: nowrap;
+}
+.typeimg {
+    text-align: center;
+}
+
+.ui-icon-empty{
+    visibility: hidden;
+}
+.ui-combobox {
+    position: relative;
+    display: inline-block;
+}
+
+.ui-combobox-toggle {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin-left: -1px;
+    padding: 0;
+    /*height: 1.7em;
+     support: IE7
+    *top: 0.1em;*/
+}
+
+.ui-combobox-input {
+    margin: 0;
+    padding: 0.3em;
+}
+[IF ISIE]
+.ui-menu .ui-menu-item {
+    width:15em;
+}
+[ENDIF ISIE]

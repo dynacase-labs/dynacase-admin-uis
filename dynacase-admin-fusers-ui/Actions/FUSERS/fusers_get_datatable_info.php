@@ -44,7 +44,7 @@ function fusers_get_datatable_info(Action & $action)
             if ($displayLength != $limit) {
                 $action->setParamU("FUSERS_DISPLAYLENGTH", $limit);
             }
-            $dataAll = $s->onlyCount();
+            $out["iTotalRecords"] = $s->onlyCount();
             $s->reset();
             $sortArg = $action->getArgument(sprintf("iSortCol_%d", 0) , null);
             if ($sortArg !== null) {
@@ -59,7 +59,9 @@ function fusers_get_datatable_info(Action & $action)
                 $searchArray[] = $action->getArgument('mDataProp_' . $index);
                 if ($search) {
                     $field = $action->getArgument('mDataProp_' . $index);
-                    $s->addFilter(sprintf("%s ~* '%s'", $field, pg_escape_string($search)));
+                    if ($field == "icon") {
+                        $s->addFilter(sprintf("%s = '%s'", "fromid", pg_escape_string($search)));
+                    } else $s->addFilter(sprintf("%s ~* '%s'", $field, pg_escape_string($search)));
                     $filter++;
                 }
             }
@@ -75,11 +77,14 @@ function fusers_get_datatable_info(Action & $action)
             $out["iTotalDisplayRecords"] = count($data);
         } else {
             $out["errors"] = $err;
-            $out["iTotalDisplayRecords"] = 0;
+            $out["iTotalRecords"] = 0;
         }
         
-        if ($filter == 0 && $dataAll <= count($data)) $out["iTotalRecords"] = $out["iTotalDisplayRecords"];
-        else $out["iTotalRecords"] = $dataAll;
+        if ($filter == 0) $out["iTotalDisplayRecords"] = $out["iTotalRecords"];
+        else {
+            $s->reset();
+            $out["iTotalDisplayRecords"] = $s->onlyCount();
+        }
         $out['aaData'] = $data;
         $action->lay->template = json_encode($out);
         $action->lay->noparse = true;

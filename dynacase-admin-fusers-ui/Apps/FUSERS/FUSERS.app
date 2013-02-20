@@ -106,6 +106,14 @@ $action_desc = array(
         "short_name" => N_("iuser list all"),
         "acl" => "FUSERS_MASTER",
         "root" => "N"
+    ),
+    array(
+        "name" => "GET_TYPE_IMAGE",
+        "short_name" => N_("get image type"),
+        "acl" => "FUSERS_MASTER",
+        "script" => "fusers_datatables_layout.php",
+        "function" => "get_type_image",
+        "root" => "N"
     )
 );
 
