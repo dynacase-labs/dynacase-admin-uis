@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-20 15:20+0100\n"
+"POT-Creation-Date: 2013-02-21 13:53+0100\n"
 "PO-Revision-Date: 2013-01-16 16:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,11 +47,15 @@ msgstr ""
 msgid "Choose family to create"
 msgstr ""
 
-#: tempCatalog.php:37
+#: tempCatalog.php:35
+msgid "Create "
+msgstr ""
+
+#: tempCatalog.php:38
 msgid "Generic Management"
 msgstr ""
 
-#: tempCatalog.php:40
+#: tempCatalog.php:41
 msgid "Group"
 msgstr ""
 
@@ -71,11 +75,11 @@ msgstr ""
 msgid "No result"
 msgstr ""
 
-#: tempCatalog.php:41
+#: tempCatalog.php:42
 msgid "Others"
 msgstr ""
 
-#: tempCatalog.php:42
+#: tempCatalog.php:43
 msgid "Password"
 msgstr ""
 
@@ -119,7 +123,7 @@ msgstr ""
 msgid "Save"
 msgstr ""
 
-#: tempCatalog.php:35
+#: tempCatalog.php:36
 msgid "Select an action"
 msgstr ""
 
@@ -131,7 +135,7 @@ msgstr ""
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr ""
 
-#: tempCatalog.php:39
+#: tempCatalog.php:40
 msgid "System"
 msgstr ""
 
@@ -171,7 +175,7 @@ msgstr ""
 msgid "filter on"
 msgstr ""
 
-#: tempCatalog.php:36
+#: tempCatalog.php:37
 msgid "filter on type"
 msgstr ""
 
@@ -280,7 +284,7 @@ msgstr ""
 msgid "show _MENU_ per page"
 msgstr ""
 
-#: tempCatalog.php:27 tempCatalog.php:28 tempCatalog.php:38
+#: tempCatalog.php:27 tempCatalog.php:28 tempCatalog.php:39
 msgid "view detail"
 msgstr ""
 

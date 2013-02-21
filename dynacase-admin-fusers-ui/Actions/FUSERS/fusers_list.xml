@@ -4,8 +4,8 @@
 <UL id="gtreeall" class="mktree">
     [BLOCK ALL]
     <LI name="LI[id]">
-        <img class="click" title="[TEXT:view detail] ([login])" src="[icon]"
-             width="14px" onclick="[onclickimg]"/>
+        <img title="[TEXT:view detail] ([login])" src="[icon]"
+             width="14px" />
         <a onclick="[onclick]" href="#">
             <span title="[login]" id="SPAN[id]" name="SPAN[id]">[firstname]
             </span>

@@ -309,6 +309,7 @@ table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { back
     display: inline;
     position: absolute;
     right: auto !important;
+    top: 0.75em;
 }
 
 .searchField {
@@ -362,7 +363,9 @@ li {
 .typeimg {
     text-align: center;
 }
-
+#buttonset {
+    margin-bottom: 3px;
+}
 .ui-icon-empty{
     visibility: hidden;
 }
@@ -381,7 +384,10 @@ li {
      support: IE7
     *top: 0.1em;*/
 }
-
+.click:hover{
+    border: 1px solid #0088CC;
+    cursor: pointer;
+}
 .ui-combobox-input {
     margin: 0;
     padding: 0.3em;
