@@ -9,6 +9,7 @@
         [ENDBLOCK JS_LINKS]
     </head>
     <body>
+
         [ZONE APPMNG:PARAM_LIST?pview=allapp]
     </body>
 </html>

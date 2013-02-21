@@ -75,14 +75,7 @@ function param_ulist(Action & $action)
     );
     $action->lay->setBlockData("CSS_LINKS", $csslinks);
     $action->lay->setBlockData("JS_LINKS", $jslinks);
-    $value = "";
-    if ($userid) {
-        $u = new Account();
-        $u->select($userid);
-        $value = trim(sprintf("%s %s", $u->lastname, $u->firstname));
-    }
-    $action->lay->set("user_id", $userid);
-    $action->lay->set("userlabel", $value);
+    
     return;
 }
 
@@ -91,7 +84,7 @@ function appmngGetUsers(Action & $action)
     $filterName = $action->getArgument("filterName");
     
     $u = new Account();
-    $list = $u->GetUserList("TABLE", 0, 0, $filterName);
+    $list = $u->GetUserList("TABLE", 0, 25, $filterName);
     $data = array();
     // select the wanted user
     foreach ($list as $v) {

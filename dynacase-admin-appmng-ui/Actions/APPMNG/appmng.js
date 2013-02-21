@@ -53,7 +53,8 @@
                 if (item.imgsrc) {
                     html += '<img title="' + item.label + '" src="' + item.imgsrc + '" class="' + item.imgclass + '"/>';
                 } else {
-                    html += item.label
+                    var img =  item.img ?  item.img : "";
+                    html += img + item.label
                 }
                 html += "</a>";
                 return $("<li></li>")

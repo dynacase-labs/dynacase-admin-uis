@@ -25,6 +25,9 @@ $(function () {
                 },
                 {
                     "name":"type", "value":$(this).attr("data-type")
+                },
+                {
+                    "name":"appid", "value":$(this).attr("data-appid")
                 });
         },
         "oLanguage":{
@@ -40,40 +43,44 @@ $(function () {
                 },
                 text:false
             }).on("click", function () {
-                var $parent = $(this);
-                $("<div><span style='height:230px;'>[TEXT:delconfirmparam] "+$parent.attr("data-id")+" ?</span></div>").dialog({
-                    resizable:false,
-                    height:140,
-                    title: "[TEXT:delete]",
-                    modal:true,
-                    buttons:{
-                        "[TEXT:delete]":function () {
-                            $.post("?app=APPMNG", {
-                                "action":$("#actiondel").val(),
-                                "id":$parent.attr("data-id"),
-                                "appid":$parent.attr("data-appid"),
-                                "atype":$parent.attr("data-type")
-                            }, function () {
-                                delete modified[$parent.attr("data-id")];
-                                datatable.fnDraw();
-                            });
-                            $(this).dialog("close");
+                    var $parent = $(this);
+                    $("<div><span style='height:230px;'>[TEXT:delconfirmparam] " + $parent.attr("data-id") + " ?</span></div>").dialog({
+                        resizable:false,
+                        height:140,
+                        title:"[TEXT:delete]",
+                        modal:true,
+                        buttons:{
+                            "[TEXT:delete]":function () {
+                                $.post("?app=APPMNG", {
+                                    "action":$("#actiondel").val(),
+                                    "id":$parent.attr("data-id"),
+                                    "appid":$parent.attr("data-appid"),
+                                    "atype":$parent.attr("data-type")
+                                }, function () {
+                                    delete modified[$parent.attr("data-id")+$parent.attr("data-appid")];
+                                    datatable.fnDraw();
+                                });
+                                $(this).dialog("close");
+                            },
+                            "[TEXT:Cancel]":function () {
+                                $(this).dialog("close");
+                            }
                         },
-                        "[TEXT:Cancel]":function () {
-                            $(this).dialog("close");
+                        close:function () {
+                            $(this).dialog("destroy");
                         }
-                    },
-                    close:function () {
-                        $(this).dialog("destroy");
-                    }
+                    });
+                    return false;
                 });
-                return false;
-            });
+            $("div.static").parent().addClass("static");
+            var $appHeader = $(this).find(".appHeader");
+            var toDelete = $appHeader.children().eq(0).attr("colspan", "2").next().remove();
         },
         aoColumnDefs:[
             {
                 "aTargets":['description'],
                 "mDataProp":"descr",
+                "sClass":"desc",
                 "sWidth":"15%",
                 bUseRendered:false,
                 fnRender:function (data) {
@@ -84,7 +91,7 @@ $(function () {
                 "aTargets":['groupby'],
                 "bSearchable":true,
                 "mDataProp":"appname",
-                "sWidth":"5%",
+                "sWidth":"70px",
                 bUseRendered:false,
                 fnRender:function (data) {
                     var elem = data.aData.appname;
@@ -109,18 +116,21 @@ $(function () {
             {
                 "aTargets":['valeur'],
                 "mDataProp":"val",
-                "sClass": "values",
+                "sClass":"values",
                 bUseRendered:false,
                 fnRender:function (data) {
+                    if (!data.aData.appid) {
+                        return '<div class="column static"></div>';
+                    }
                     var onclick = "movediv(this,'" + data.aData.name + "','" + data.aData.type + "','" + data.aData.appid + "','" + data.aData.kind + "',this.getAttribute('avalue'))";
                     var id = data.aData["DT_RowId"];
-                    var val = (data.aData.val ? data.aData.val : "");
+                    var val = (data.aData.val ? data.aData.val : "&nbsp;");
                     var rowclass = data.aData.classtype;
                     if (modified[id]) {
                         val = modified[id]["value"];
                         rowclass += " " + modified[id]["class"];
                     }
-                    return '<div id="v' + data.aData.name + '" avalue="' + data.aData.sval + '" class="' + rowclass + ' column" onclick="' + onclick + '">' + val + '</div>';
+                    return '<div id="v' + id+'" avalue="' + data.aData.sval + '" class="' + rowclass + ' column" onclick="' + onclick + '">' + val + '</div>';
                 }
             }
         ]
@@ -128,6 +138,9 @@ $(function () {
     $("#tabs").tabs({
         select:function (event, ui) {
             $.fn.dataTableExt.iApiIndex = ui.index;
+            $("#appsearchId").attr("data-type", ui.index? "system": "normal").val("");
+            $("#appid").val("");
+            $(".datatable").attr("data-appid", "");
             datatable.fnDraw();
         }
     });
@@ -135,7 +148,7 @@ $(function () {
     findSearchString($datatable.find("thead").find("input"), ["appname", "name"], datatable);
 
     /**
-     * Combox for accountype
+     * Combox for user
      */
     $("#userid").combobox({
         autocomplete:{
@@ -162,6 +175,35 @@ $(function () {
         }
     });
 
+    $("#appid").combobox({
+        autocomplete:{
+            minLength:0,
+            source:function (request, response) {
+                var $appsearchid = $("#appsearchId");
+                $.getJSON("?app=APPMNG&action=GET_APPS_PARAMS", {
+                    "filterName":request.term,
+                    "pview": $appsearchid.attr("data-pview"),
+                    "type": $appsearchid.attr("data-type"),
+                    "userid": $("#searchId").val()
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                return false;
+            },
+            select:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                $(".datatable").attr("data-appid", ui.item.value);
+                datatable.fnFilter("");
+                return false;
+            }
+        }
+    });
+
     $("#fedit").on("submit", function () {
         var form = $(this).serialize();
         form += "&action=" + $(this).attr("data-action");
@@ -176,11 +218,11 @@ $(function () {
                         if (data.data.value == null) {
                             data.data.value = '';
                         }
-                        modified[data.data.id] = {
+                        modified[data.data.id+data.data.appid] = {
                             "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
                             "class":'changed'
                         };
-                        editedParam.innerHTML = modified[data.data.id]["value"];
+                        editedParam.innerHTML = modified[data.data.id+data.data.appid]["value"];
                         editedParam.className += ' changed';
                     }
                 }
@@ -227,11 +269,10 @@ function bluringInput() {
 }
 function movediv(th, Aname, Atype, Appid, Kind, Value) {
     if (submiting) return; // wait return of submit
-    if (Kind == 'static' || Kind == 'readonly') {
+    if (Kind == 'static' || Kind == 'readonly' || !Kind) {
         alert('[TEXT:unmodifiable parameter]');
         return;
     }
-
     if ((editedParam != '') && (editedParam.id == th.id)) {
         return;
     }

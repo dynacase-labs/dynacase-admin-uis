@@ -74,6 +74,7 @@ function param_mod(Action & $action)
         $data["value"] = $ParamCour->val;
     }
     $data["id"] = $name;
+    $data["appid"] = $ParamCour->appid;
     $action->lay->template = json_encode(array(
         "success" => $err ? false : true,
         "error" => $err,
