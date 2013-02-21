@@ -15,10 +15,6 @@ a.gparam, a.aparam {
     cursor: pointer;
 }
 
-.static {
-    cursor: not-allowed;
-}
-
 SPAN.changed {
     background-color: [ COLOR_B5 ];
 }
@@ -34,4 +30,8 @@ SPAN.changed {
 
 .values {
     width: 50% !important;
+}
+
+#appid {
+    width: 205px;
 }
