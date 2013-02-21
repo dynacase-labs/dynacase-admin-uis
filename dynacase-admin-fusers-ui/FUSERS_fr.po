@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-20 15:20+0100\n"
+"POT-Creation-Date: 2013-02-21 13:53+0100\n"
 "PO-Revision-Date: 2013-02-20 11:17+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,11 +47,15 @@ msgstr "Tous les utilisateurs"
 msgid "Choose family to create"
 msgstr "Choisissez une famille de document à créer"
 
-#: tempCatalog.php:37
+#: tempCatalog.php:35
+msgid "Create "
+msgstr "Créer un "
+
+#: tempCatalog.php:38
 msgid "Generic Management"
 msgstr "Gestion générique"
 
-#: tempCatalog.php:40
+#: tempCatalog.php:41
 msgid "Group"
 msgstr "Groupe"
 
@@ -71,11 +75,11 @@ msgstr "Tous les groupes sont actualisés"
 msgid "No result"
 msgstr "Aucun résultat"
 
-#: tempCatalog.php:41
+#: tempCatalog.php:42
 msgid "Others"
 msgstr "Autres"
 
-#: tempCatalog.php:42
+#: tempCatalog.php:43
 msgid "Password"
 msgstr "Mot de passe"
 
@@ -121,7 +125,7 @@ msgstr "Réinitialisation"
 msgid "Save"
 msgstr "Sauver"
 
-#: tempCatalog.php:35
+#: tempCatalog.php:36
 msgid "Select an action"
 msgstr "Autre type"
 
@@ -133,7 +137,7 @@ msgstr "Tout afficher"
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
 
-#: tempCatalog.php:39
+#: tempCatalog.php:40
 msgid "System"
 msgstr "Système"
 
@@ -173,7 +177,7 @@ msgstr "éditer la fiche"
 msgid "filter on"
 msgstr "Filtrer sur"
 
-#: tempCatalog.php:36
+#: tempCatalog.php:37
 msgid "filter on type"
 msgstr "Filtrer sur le type"
 
@@ -282,7 +286,7 @@ msgstr "selection pour voir les colonnes"
 msgid "show _MENU_ per page"
 msgstr "Affiche _MENU_ par page"
 
-#: tempCatalog.php:27 tempCatalog.php:28 tempCatalog.php:38
+#: tempCatalog.php:27 tempCatalog.php:28 tempCatalog.php:39
 msgid "view detail"
 msgstr "voir détails"
 
@@ -304,9 +308,6 @@ msgstr "Voir les sous-familles"
 
 #~ msgid "CSV Import Users"
 #~ msgstr "Importation utilisateurs par CSV"
-
-#~ msgid "Create "
-#~ msgstr "Créer un "
 
 #~ msgid "Create new group"
 #~ msgstr "Créer un nouveau groupe"

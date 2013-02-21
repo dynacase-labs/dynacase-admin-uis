@@ -42,7 +42,7 @@ function fusers_list(Action & $action)
             $cgroup = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
             $fid = $v["fid"];
             $v["onclick"] = "refreshRightSide('user','$fid')";
-            $v["onclickimg"] = "viewdoc('$fid')";
+            $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
             $tgroup[$k] = $v;
             $tgroup[$k]["SUBUL"] = $cgroup;
             if ($fid) {
@@ -130,6 +130,7 @@ function fusers_getChildsGroup($id, $groups, $groupIcon)
         if ($v["idgroup"] == $id) {
             $fid = $v["fid"];
             $v["onclick"] = "refreshRightSide('user','$fid')";
+            $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
             $tlay[$k] = $v;
             $tlay[$k]["SUBUL"] = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
             if ($fid) {

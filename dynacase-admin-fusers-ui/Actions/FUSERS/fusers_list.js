@@ -44,7 +44,7 @@
                     },
                     "mousedown":function () {
                         wasOpen = input.autocomplete("widget").is(":visible");
-                    }}).css("cursor", "pointer");
+                    }}).css("cursor", "pointer").removeClass("ui-corner-left").addClass("ui-corner-all");
             }
 
             input.data("autocomplete")._renderItem = function (ul, item) {
@@ -374,22 +374,50 @@ function findSearchString($elements, fields, dataTable) {
 
 function displayWindow(height, width, ref, type) {
     var dialog = $("#dialogmodal");
+    var $width = $(window).width() * 0.8;
+    var $height = $(window).height() * 0.8;
     if (dialog.length <= 0) {
-        dialog = $('<div id="dialogmodal"><iframe src="' + ref + '" frameborder="0" style="width: 100%; height: 100%;"></iframe></div>').appendTo('body');
+        dialog = $('<iframe id="dialogmodal" style="padding: 0;" src="' + ref + '" frameborder="0"></iframe>').appendTo('body');
+    } else {
+        dialog.attr("src", ref);
     }
     dialog.dialog({
+        autoOpen:true,
         modal:true,
-        draggable:true,
+        draggable:false,
         resizable:true,
-        height:height,
-        width:width,
+        height:$height,
+        width:$width,
+        overlay:{
+            opacity:0.5,
+            background:"black"
+        },
         position:"center",
-        close:function (event, ui) {
-            $("#dialogmodal").remove();
-            datatable.fnDraw();
-            if (type == "group") refreshLeftSide();
+        beforeClose:function () {
+            $(this).attr("src", "Images/1x1.gif");
+            return false;
         }
-    });
+    }).width($width).height($height).on("load", function () {
+            var $this = $(this), doc, oldFrame;
+            doc = this.contentDocument || this.contentWindow.document;
+            if (doc) {
+                dialog.dialog("option", "title", doc.title || "");
+            }
+            if (doc && doc.location && doc.location.href &&
+                doc.location.href.toLowerCase().indexOf("images/1x1.gif") > -1) {
+                oldFrame = $("#oldFrame");
+                if (oldFrame.length === 0) {
+                    oldFrame = $('<div id="oldFrame" style="display : none;"></div>');
+                    $("body").append(oldFrame);
+                }
+                oldFrame.empty();
+                /**detach and reattach iframe to handle ff infinite load bug**/
+                $this.remove();
+                datatable.fnDraw();
+                if (type == "group") refreshLeftSide();
+                oldFrame.append($this);
+            }
+        });
 }
 
 function refreshLeftSide() {
@@ -399,7 +427,7 @@ function refreshLeftSide() {
         focuskey(true);
     });
 }
-$(window).on("load", function(e) {
+$(window).on("load", function (e) {
     convertTrees();
     focuskey(e);
     refreshRightSide('user');
