@@ -22,12 +22,27 @@ function param_list(Action & $action)
     // Get Param
     $userid = $action->getArgument("userid");
     $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
+    $mode = $action->getArgument("searchuser");
+    
+    if ($mode) {
+        $value = "";
+        if ($userid) {
+            $u = new Account();
+            $u->select($userid);
+            $value = trim(sprintf("%s %s", $u->lastname, $u->firstname));
+        }
+        $action->lay->set("user_id", $userid);
+        $action->lay->set("userlabel", $value);
+    }
     // can chg action because of acl USER/ADMIN
     $action->lay->Set("ACTIONDEL", "PARAM_DELETE");
     $action->lay->Set("ACTIONMOD", "PARAM_MOD");
     
     $action->lay->set("userid", $userid);
     $action->lay->set("pview", $pview);
+    $action->lay->set("searchuser", $mode);
+    $action->lay->set("applabel", "");
+    $action->lay->set("app_id", "");
 }
 
 function appmngGetParamListDatatableInfo(Action & $action)
@@ -42,27 +57,32 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $userid = $action->getArgument("userid");
     $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
     $type = $action->getArgument("type");
+    $appid = $action->getArgument("appid");
+    
     $tparam = array();
     $userParams = array();
     $paramType = "";
     $second_type = ($type == "system") ? "" : "or application.tag IS NULL";
     $type = ($type == "system") ? "~" : "!~";
     $filterQuery = "";
+    if ($appid) {
+        $filterQuery = sprintf(" and application.id=%d", pg_escape_string($appid));
+    }
     for ($index = 0; $index < $action->getArgument('iColumns'); $index++) {
         $search = $action->getArgument('sSearch_' . $index);
         if ($search) {
             $field = $action->getArgument('mDataProp_' . $index);
-            if ($field == "appname") {
-                $filterQuery.= sprintf(" and application.name ~* '%s'", pg_escape_string($search));
-            } else if ($field == "name") {
+            if ($field == "name") {
                 $filterQuery.= sprintf(" and paramv.name ~* '%s'", pg_escape_string($search));
             }
         }
         $filter++;
     }
+    
     $withStatic = $withStatic ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
+        $withStatic = "";
         if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
@@ -79,6 +99,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $precApp = 0;
     $data = array();
     $appName = "";
+    $appId = 0;
     foreach ($tparam as $v) {
         if (isset($v[$vsection])) {
             $tincparam = array();
@@ -93,14 +114,15 @@ function appmngGetParamListDatatableInfo(Action & $action)
                 $appinc["appname"] = $app1->name;
                 $appinc["appicon"] = $action->parent->getImageLink($app1->icon, true, 25);
                 $appinc["descr"] = $action->text($app1->short_name);
-                $appinc["DT_RowClass"] = "ui-widget-header";
+                $appinc["DT_RowClass"] = "appHeader";
                 $appinc["DT_RowId"] = $app1->name;
                 $data[] = $appinc;
                 $appName = $app1->name;
+                $appid = $app1->id;
             }
             if ($pview == "alluser" && !empty($userParams)) {
                 foreach ($userParams as $uparams) {
-                    if ($uparams["name"] === $v["name"]) {
+                    if ($uparams["name"] === $v["name"] && $uparams["appid"] === $v["appid"]) {
                         $tincparam = $uparams;
                         break;
                     }
@@ -123,6 +145,9 @@ function appmngGetParamListDatatableInfo(Action & $action)
             ) , $tincparam["val"]);
             
             $tincparam["colorstatic"] = ($tincparam["kind"] == "static" || $tincparam["kind"] == "readonly") ? "#666666" : "";
+            if ($tincparam["kind"] == "static" || $tincparam["kind"] == "readonly") {
+                $tincparam["classtype"].= " static";
+            }
             // force type user if user mode
             if ($userid > 0) $tincparam["type"] = PARAM_USER . $userid;
             
@@ -130,7 +155,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
             else $tincparam["descr"] = _($tincparam["descr"]);
             $tincparam["tooltip"] = $tincparam["name"] . " : " . $tincparam["descr"];
             $tincparam["appname"] = $appName;
-            $tincparam["DT_RowId"] = $tincparam["name"];
+            $tincparam["DT_RowId"] = $tincparam["name"] . $appid;
             $data[] = $tincparam;
         }
     }
@@ -141,6 +166,61 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $action->lay->noparse = true;
     
     header('Content-type: application/json');
+}
+
+function appmngGetAppsParam(Action & $action)
+{
+    $filterName = $action->getArgument("filterName");
+    $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
+    $type = $action->getArgument("type");
+    $userid = $action->getArgument("userid");
+    
+    $applist = array();
+    $tab = array();
+    $cond = "";
+    if ($filterName) {
+        $cond = sprintf(" and (lower(application.name) ~'%s')", pg_escape_string(mb_strtolower($filterName)));
+    }
+    if ($pview !== "alluser") {
+        $cond.= " and kind!='static' and kind!='readonly'";
+    } else {
+        $cond.= " and paramdef.isuser='Y'";
+    }
+    
+    $system = "~";
+    $null = "";
+    if ($type !== "system") {
+        $system = "!~";
+        $null = "or application.tag IS NULL";
+    }
+    simpleQuery($action->dbaccess, sprintf("select DISTINCT application.name, application.id, application.icon from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name asc", $system, $null, $cond) , $applist);
+    
+    foreach ($applist as $v) {
+        $tab[] = array(
+            "label" => $v["name"],
+            "value" => $v["id"],
+            "img" => '<img title="' . $v["name"] . '" src="' . $action->parent->getImageLink($v["icon"], true, 18) . '" />'
+        );
+    }
+    
+    if ((count($tab) == 0) && ($filterName != '')) {
+        $tab[] = array(
+            "label" => sprintf(_("no application match '%s'") , $filterName) ,
+            "value" => 0
+        );
+    } else {
+        $tab[] = array(
+            "label" => "",
+            "value" => "",
+            "img" => '<img title="' . _("all applications") . '" src="' . $action->parent->getImageLink("appmng.png", true, 18) . '" class="ui-icon-empty"/>'
+        );
+    }
+    
+    $action->lay->template = json_encode($tab);
+    $action->lay->noparse = true;
+    
+    header('Content-type: application/json');
+    return $tab;
 }
 
 function cmpappid($a, $b)

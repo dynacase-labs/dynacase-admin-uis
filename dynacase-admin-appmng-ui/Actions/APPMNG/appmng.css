@@ -1,26 +1,53 @@
 .title {
     margin-bottom: 5px;
 }
+
 a {
     text-decoration: none;
     color: #0088CC;
 }
-.greenlight{
+
+.values {
+    cursor: pointer;
+}
+
+.ui-icon-empty {
+    visibility: hidden;
+}
+
+.static {
+    cursor: auto !important;
+    color: red;
+}
+
+.greenlight {
     background-color: #7cfc00;
 }
-.redalert{
+
+.redalert {
     background-color: red;
 }
-.imgappmng{
+
+.imgappmng {
     vertical-align: middle;
     height: 18px;
 }
+
 .deletebutton {
     height: 18px;
 }
+
+.appHeader {
+    background: url("lib/jquery-ui/css/smoothness/images/ui-bg_highlight-soft_75_cccccc_1x100.png") repeat-x scroll 50% 50% #CCCCCC;
+    border: 1px solid #AAAAAA;
+    color: #222222;
+    font-weight: bold;
+}
+
 .searchField {
     width: 100%;
 }
+
 .ui-combobox {
     position: relative;
     display: inline-block;
@@ -31,39 +58,87 @@ a {
     top: 0;
     bottom: 0;
     margin-left: -1px;
-    padding: 0;
+    padding: 0 !important;
 }
+
 .ui-combobox-input {
     margin: 0;
     padding: 0.3em;
 }
-.DataTables_sort_icon {
+
+.searchappbutton {
+    float: right !important;
+    margin-right: 40px !important;
+}
+
+.searchuserbutton {
+    margin-bottom: 3px;
+}
+
+table.datatable {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+table.datatable thead th {
+    padding: 3px 3px;
+}
+
+table.datatable tr td {
+    border-bottom: 1px solid #eee;
+}
+
+table.datatable tr.odd, table.datatable tr.even {
+    background-color: #fff;
+}
+
+table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
+    background-color: #FFFDF2;
+}
+
+.search {
     float: left;
-    margin-top: 5px;
-}
-table.dataTable thead th {
-    white-space: normal !important;
-}
-table.dataTable tr.odd {
-    background-color: #E6E6E8;
+    width: 85%;
+    margin-left: 10px;
 }
 
-table.dataTable tr.odd td.sorting_1 {
-    background-color: #CBCBCB;
+.search .ui-icon-search {
+    display: inline;
+    position: absolute;
+    right: auto !important;
 }
 
-table.dataTable tr.even td.sorting_1 {
-    background-color: #E6E6E8;
+.searchField {
+    padding-left: 20px;
+    width: 100%;
+    border-bottom: 1px solid white !important;
+    border-right: 1px solid white !important;
+    border-top: 1px solid #DDD !important;
+    border-left: 1px solid #DDD !important;
+    background-color: #F0F0F0;
 }
+
 .loadingImg {
     background: url('[IMG:loading.gif]') no-repeat left white;
 }
-.update, .edit, .delete{
+
+.update, .edit, .delete {
     height: 2.2em;
 }
+
 .edit {
     margin-left: -1px;
 }
+
 .delete {
     margin-left: -2px;
 }
+
+[IF ISIE]
+.ui-menu .ui-menu-item {
+    width:15em;
+}
+.ui-combobox-toggle {
+    height: 20px;
+}
+[ENDIF ISIE]

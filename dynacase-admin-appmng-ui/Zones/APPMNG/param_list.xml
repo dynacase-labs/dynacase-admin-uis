@@ -10,6 +10,14 @@
         </form>
     </div>
 </div>
+<div class="searchuserbutton">
+[IF searchuser]
+<input type="hidden" id="searchId" value="[user_id]"/>
+<input placeholder="[TEXT:select a user]" title="[TEXT:select a user]" type="text" id="userid"
+       value="[userlabel]" name="userid"/>
+[ENDIF searchuser]
+</div>
+
 <div id="tabs">
 <ul>
     <li>
@@ -18,23 +26,32 @@
     <li>
         <a href="#systemparam_wrapper">[TEXT:Param system]</a>
     </li>
+    <li class="searchappbutton">
+        <input type="hidden" id="appsearchId" value="[app_id]" data-type="normal"
+               data-pview="[pview]"/>
+        <input placeholder="[TEXT:select an application]" title="[TEXT:select an application]" type="text" id="appid"
+               value="[applabel]" name="appid"/>
+    </li>
 </ul>
 <input type="hidden" id="actiondel" value="[ACTIONDEL]"/>
 
 <table id="otherparam" align="center" width="100%" border="0" cellspacing="0"
        cellpadding="0" class="datatable" data-type="normal"
-       data-userid="[userid]" data-pview="[pview]">
+       data-userid="[userid]" data-pview="[pview]" data-appid="[app_id]">
 
     <!-- TABLEHEAD -->
     <thead>
         <tr>
             <th class="CORETblCell groupby">
-                <input class="searchField" placeholder="[TEXT:appname]" value=""
-                       name="appname"/>
+                <span class="CORETblBold">[TEXT:appname]</span>
             </th>
             <th class="CORETblCell name">
-                <input class="searchField" placeholder="[TEXT:system name]" value=""
-                       name="name"/>
+                <div class="search">
+                    <span class="ui-icon ui-icon-search"></span>
+                    <input class="searchField" placeholder="[TEXT:system name]"
+                           value=""
+                           name="name"/>
+                </div>
             </th>
             <th class="CORETblCell description">
                 <span class="CORETblBold">[TEXT:name]</span>
@@ -51,18 +68,21 @@
 </table>
 <table id="systemparam" align="center" width="100%" border="0" cellspacing="0"
        cellpadding="0" class="datatable" data-type="system"
-       data-userid="[userid]" data-pview="[pview]">
+       data-userid="[userid]" data-pview="[pview]" data-appid="[app_id]">
 
     <!-- TABLEHEAD -->
     <thead>
         <tr>
             <th class="CORETblCell groupby">
-                <input placeholder="[TEXT:appname]" value="" name="appname"
-                       class="searchField"/>
+                <span class="CORETblBold">[TEXT:appname]</span>
             </th>
             <th class="CORETblCell name">
-                <input class="searchField" placeholder="[TEXT:system name]" value=""
-                       name="name"/>
+                <div class="search">
+                    <span class="ui-icon ui-icon-search"></span>
+                    <input class="searchField" placeholder="[TEXT:system name]"
+                           value=""
+                           name="name"/>
+                </div>
             </th>
             <th class="CORETblCell description">
                 <span class="CORETblBold">[TEXT:name]</span>

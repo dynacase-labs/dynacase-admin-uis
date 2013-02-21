@@ -67,12 +67,13 @@ function appmngGetApps(Action & $action)
         $cond = sprintf("WHERE (lower(name) ~'%s')", $name);
         $condaTs.= $cond;
     }
-    simpleQuery($action->dbaccess, sprintf("select id,name from application $condaTs order by name") , $applist);
+    simpleQuery($action->dbaccess, sprintf("select id,name,icon from application $condaTs order by name") , $applist);
     $tab = array();
     foreach ($applist as $v) {
         $tab[] = array(
             "label" => $v["name"],
-            "value" => $v["id"]
+            "value" => $v["id"],
+            "img" => '<img title="' . $v["name"] . '" src="' . $action->parent->getImageLink($v["icon"], true, 18) . '" />'
         );
     }
     if ((count($tab) == 0) && ($filterName != '')) $tab[] = array(

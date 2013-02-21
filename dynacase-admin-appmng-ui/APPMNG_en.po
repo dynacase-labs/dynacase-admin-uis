@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-18 16:41+0100\n"
+"POT-Creation-Date: 2013-02-21 11:08+0100\n"
 "PO-Revision-Date: 2013-01-16 16:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -26,19 +26,19 @@ msgstr ""
 msgid "Application manager"
 msgstr ""
 
-#: tempCatalog.php:34
+#: tempCatalog.php:33
 msgid "Cancel"
 msgstr ""
 
-#: tempCatalog.php:21 tempCatalog.php:22 tempCatalog.php:52 tempCatalog.php:53
+#: tempCatalog.php:20 tempCatalog.php:21 tempCatalog.php:51 tempCatalog.php:52
 msgid "Close"
 msgstr ""
 
-#: tempCatalog.php:17 tempCatalog.php:28
+#: tempCatalog.php:16 tempCatalog.php:27
 msgid "No matching record found"
 msgstr ""
 
-#: tempCatalog.php:19 tempCatalog.php:30
+#: tempCatalog.php:18 tempCatalog.php:29
 msgid "No result"
 msgstr ""
 
@@ -46,7 +46,7 @@ msgstr ""
 msgid "Other param"
 msgstr ""
 
-#: tempCatalog.php:54
+#: tempCatalog.php:56
 msgid "Param system"
 msgstr ""
 
@@ -54,11 +54,11 @@ msgstr ""
 msgid "Remove parameter"
 msgstr ""
 
-#: tempCatalog.php:16
+#: tempCatalog.php:15
 msgid "Show All Items"
 msgstr ""
 
-#: tempCatalog.php:18 tempCatalog.php:29
+#: tempCatalog.php:17 tempCatalog.php:28
 msgid "Showing _TOTAL_ result"
 msgstr ""
 
@@ -66,11 +66,11 @@ msgstr ""
 msgid "SuperUser permission"
 msgstr ""
 
-#: tempCatalog.php:37
+#: tempCatalog.php:36
 msgid "UpdateAll"
 msgstr ""
 
-#: tempCatalog.php:39
+#: tempCatalog.php:38
 msgid "Version"
 msgstr ""
 
@@ -78,12 +78,16 @@ msgstr ""
 msgid "What Application Management"
 msgstr ""
 
-#: tempCatalog.php:5 tempCatalog.php:12
+#: tempCatalog.php:4 tempCatalog.php:11
 msgid "acl"
 msgstr ""
 
 #: Apps/APPMNG/APPMNG.app:44
 msgid "actions"
+msgstr ""
+
+#: Zones/APPMNG/param_list.php:213
+msgid "all applications"
 msgstr ""
 
 #: Apps/APPMNG/APPMNG.app:30
@@ -98,11 +102,11 @@ msgstr ""
 msgid "appmng:ADMIN_ACTIONS_LIST short_name"
 msgstr ""
 
-#: tempCatalog.php:38 tempCatalog.php:56 tempCatalog.php:60
+#: tempCatalog.php:37 tempCatalog.php:59 tempCatalog.php:63
 msgid "appname"
 msgstr ""
 
-#: tempCatalog.php:4 tempCatalog.php:11 tempCatalog.php:26 tempCatalog.php:41
+#: tempCatalog.php:3 tempCatalog.php:10 tempCatalog.php:25 tempCatalog.php:40
 msgid "available"
 msgstr ""
 
@@ -114,20 +118,20 @@ msgstr ""
 msgid "butmodify"
 msgstr ""
 
-#: tempCatalog.php:49
+#: tempCatalog.php:48
 msgid "delconfirm"
 msgstr ""
 
-#: tempCatalog.php:31
+#: tempCatalog.php:30
 msgid "delconfirmparam"
 msgstr ""
 
-#: tempCatalog.php:32 tempCatalog.php:33 tempCatalog.php:35 tempCatalog.php:47
-#: tempCatalog.php:51
+#: tempCatalog.php:31 tempCatalog.php:32 tempCatalog.php:34 tempCatalog.php:46
+#: tempCatalog.php:50
 msgid "delete"
 msgstr ""
 
-#: tempCatalog.php:50
+#: tempCatalog.php:49
 msgid "delete application"
 msgstr ""
 
@@ -135,19 +139,19 @@ msgstr ""
 msgid "delete parameters"
 msgstr ""
 
-#: Zones/APPMNG/param_list.php:130
+#: Zones/APPMNG/param_list.php:154
 msgid "descr"
 msgstr ""
 
-#: tempCatalog.php:25 tempCatalog.php:40 Actions/APPMNG/applist.php:80
+#: tempCatalog.php:24 tempCatalog.php:39 Actions/APPMNG/applist.php:80
 msgid "description"
 msgstr ""
 
-#: tempCatalog.php:27 tempCatalog.php:42
+#: tempCatalog.php:26 tempCatalog.php:41
 msgid "displayable"
 msgstr ""
 
-#: tempCatalog.php:43 tempCatalog.php:46
+#: tempCatalog.php:42 tempCatalog.php:45
 msgid "edit"
 msgstr ""
 
@@ -175,11 +179,11 @@ msgstr ""
 msgid "err_mod_parameter"
 msgstr ""
 
-#: tempCatalog.php:10 Actions/APPMNG/admin_actions_list.php:57
+#: tempCatalog.php:9 Actions/APPMNG/admin_actions_list.php:57
 msgid "long_name"
 msgstr ""
 
-#: tempCatalog.php:20
+#: tempCatalog.php:19
 msgid "modify"
 msgstr ""
 
@@ -187,22 +191,22 @@ msgstr ""
 msgid "modify parameters"
 msgstr ""
 
-#: tempCatalog.php:2 tempCatalog.php:8 tempCatalog.php:23 tempCatalog.php:58
-#: tempCatalog.php:62
+#: tempCatalog.php:1 tempCatalog.php:7 tempCatalog.php:22 tempCatalog.php:61
+#: tempCatalog.php:65
 msgid "name"
 msgstr ""
 
-#: Actions/APPMNG/param_ulist.php:104
+#: Actions/APPMNG/param_ulist.php:97
 #, c-format
 msgid "no account match '%s'"
 msgstr ""
 
-#: Actions/APPMNG/actionlist.php:79
+#: Actions/APPMNG/actionlist.php:80 Zones/APPMNG/param_list.php:206
 #, c-format
 msgid "no application match '%s'"
 msgstr ""
 
-#: tempCatalog.php:6 tempCatalog.php:15
+#: tempCatalog.php:5 tempCatalog.php:14
 msgid "openaccess"
 msgstr ""
 
@@ -214,21 +218,25 @@ msgstr ""
 msgid "param not changed"
 msgstr ""
 
-#: tempCatalog.php:7 tempCatalog.php:13
+#: tempCatalog.php:6 tempCatalog.php:12
 msgid "root"
 msgstr ""
 
-#: tempCatalog.php:1
+#: tempCatalog.php:53 tempCatalog.php:54
 msgid "select a user"
 msgstr ""
 
-#: tempCatalog.php:3 tempCatalog.php:9 tempCatalog.php:24
+#: tempCatalog.php:57 tempCatalog.php:58
+msgid "select an application"
+msgstr ""
+
+#: tempCatalog.php:2 tempCatalog.php:8 tempCatalog.php:23
 #: Actions/APPMNG/admin_actions_list.php:56
 #: Actions/APPMNG/admin_actions_list.php:57
 msgid "short_name"
 msgstr ""
 
-#: tempCatalog.php:57 tempCatalog.php:61
+#: tempCatalog.php:60 tempCatalog.php:64
 msgid "system name"
 msgstr ""
 
@@ -245,23 +253,23 @@ msgstr ""
 msgid "titlecreateaction"
 msgstr ""
 
-#: tempCatalog.php:48 Actions/APPMNG/app_edit.php:40
+#: tempCatalog.php:47 Actions/APPMNG/app_edit.php:40
 msgid "titlemodify"
 msgstr ""
 
-#: tempCatalog.php:44 Actions/APPMNG/action_edit.php:46
+#: tempCatalog.php:43 Actions/APPMNG/action_edit.php:46
 msgid "titlemodifyaction"
 msgstr ""
 
-#: tempCatalog.php:14
+#: tempCatalog.php:13
 msgid "toc"
 msgstr ""
 
-#: tempCatalog.php:36
+#: tempCatalog.php:35
 msgid "unmodifiable parameter"
 msgstr ""
 
-#: tempCatalog.php:45
+#: tempCatalog.php:44
 msgid "update"
 msgstr ""
 
@@ -269,6 +277,6 @@ msgstr ""
 msgid "user parameters"
 msgstr ""
 
-#: tempCatalog.php:59 tempCatalog.php:63
+#: tempCatalog.php:62 tempCatalog.php:66
 msgid "val"
 msgstr ""

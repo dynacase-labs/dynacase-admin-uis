@@ -98,6 +98,11 @@ $action_desc = array(
          "acl"  => "ADMIN",
          "function"   => "appmngGetApps",
         "script"     => "actionlist.php"
+    ), array(
+        "name" => "GET_APPS_PARAMS",
+         "acl"  => "ADMIN",
+         "function"   => "appmngGetAppsParam",
+        "script"     => "param_list.php"
     ),
     array(
         "name" => "GET_DATATABLE_INFO",

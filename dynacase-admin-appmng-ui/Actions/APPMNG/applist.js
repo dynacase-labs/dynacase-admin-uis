@@ -16,7 +16,7 @@ $(function () {
             "aTargets":['id'],
             "bSortable":false,
             "mDataProp":"id",
-            "sWidth":"100px",
+            "sWidth":"120px",
             fnRender:function (data) {
                 return '<a class="update" href="#" data-id="' + data.aData.id + '" title="[TEXT:update]">' +
                     '</a>' +
