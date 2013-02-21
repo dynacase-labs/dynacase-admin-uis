@@ -26,7 +26,9 @@
     <li>
         <a href="#systemparam_wrapper">[TEXT:Param system]</a>
     </li>
+
     <li class="searchappbutton">
+        <input type="checkbox" id="displayStatic" /><label data-pressed="false" for="displayStatic">[TEXT:Show static parameters]</label>
         <input type="hidden" id="appsearchId" value="[app_id]" data-type="normal"
                data-pview="[pview]"/>
         <input placeholder="[TEXT:select an application]" title="[TEXT:select an application]" type="text" id="appid"

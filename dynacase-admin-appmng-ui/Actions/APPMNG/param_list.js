@@ -1,5 +1,113 @@
 $(function () {
     var $datatable = $(".datatable");
+    /**
+     * Combox for user
+     */
+    $("#userid").combobox({
+        autocomplete:{
+            minLength:0,
+            source:function (request, response) {
+                $.getJSON("?app=APPMNG&action=GET_USERS", {
+                    "filterName":request.term
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#searchId").val(ui.item.value);
+                return false;
+            },
+            select:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#searchId").val(ui.item.value);
+                $(".datatable").attr("data-userid", ui.item.value);
+                datatable.fnFilter("");
+                return false;
+            }
+        }
+    });
+
+    $("#appid").combobox({
+        autocomplete:{
+            minLength:0,
+            source:function (request, response) {
+                var $appsearchid = $("#appsearchId");
+                $.getJSON("?app=APPMNG&action=GET_APPS_PARAMS", {
+                    "filterName":request.term,
+                    "pview":$appsearchid.attr("data-pview"),
+                    "type":$appsearchid.attr("data-type"),
+                    "withstatic":$("#displayStatic").next().attr("data-pressed")
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                return false;
+            },
+            select:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                $(".datatable").attr("data-appid", ui.item.value);
+                datatable.fnFilter("");
+                return false;
+            }
+        }
+    });
+
+    $("#displayStatic").button().on("click", function () {
+        var $this = $(this).next();
+        if ($this.attr("data-pressed") == "true") {
+            $this.find(".ui-button-text").text("[TEXT:Show static parameters]");
+            $this.attr("data-pressed", "false");
+        } else {
+            $this.find(".ui-button-text").text("[TEXT:Hide static parameters]");
+            $this.attr("data-pressed", "true");
+        }
+
+        datatable.fnDraw();
+    });
+
+    $("#fedit").on("submit", function () {
+        var form = $(this).serialize();
+        form += "&action=" + $(this).attr("data-action");
+        $.post("?app=APPMNG", form, function (data) {
+            if (!data.success) {
+                displayWarningMsg(data.error);
+            } else {
+                if (editedParam) {
+                    editedParam.setAttribute('avalue', data.data.value);
+                    editedParam.style.display = 'inline';
+                    if (editedParam.tagName == 'DIV') {
+                        if (data.data.value == null) {
+                            data.data.value = '';
+                        }
+                        modified[data.data.id + data.data.appid] = {
+                            "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
+                            "class":'changed'
+                        };
+                        editedParam.innerHTML = modified[data.data.id + data.data.appid]["value"];
+                        editedParam.className += ' changed';
+                    }
+                }
+                editedParam = '';
+                var pedit = document.getElementById('dedit');
+                if (pedit) {
+                    pedit.style.display = 'none';
+                }
+                if (colorPick2) {
+                    colorPick2.hidePopup();
+                }
+                submiting = false;
+                document.getElementById("editdefault").appendChild(pedit);
+                datatable.fnDraw();
+            }
+        });
+        return false;
+    });
+
     window.datatable = $datatable.dataTable({
         bServerSide:true,
         bJQueryUI:true,
@@ -15,7 +123,6 @@ $(function () {
                 var value = $(this).find("input").val();
                 aoData = addFieldToData(aoData, 'sSearch_' + i, value);
             });
-
             aoData.push(
                 {
                     "name":"userid", "value":$(this).attr("data-userid")
@@ -28,6 +135,9 @@ $(function () {
                 },
                 {
                     "name":"appid", "value":$(this).attr("data-appid")
+                },
+                {
+                    "name":"withstatic", "value":$("#displayStatic").next().attr("data-pressed")
                 });
         },
         "oLanguage":{
@@ -37,6 +147,7 @@ $(function () {
             "sInfoFiltered":""
         },
         fnDrawCallback:function () {
+            $(".groupby").css("width", "70px");
             $(".deletebutton").button({
                 icons:{
                     primary:"ui-icon-trash"
@@ -57,7 +168,7 @@ $(function () {
                                     "appid":$parent.attr("data-appid"),
                                     "atype":$parent.attr("data-type")
                                 }, function () {
-                                    delete modified[$parent.attr("data-id")+$parent.attr("data-appid")];
+                                    delete modified[$parent.attr("data-id") + $parent.attr("data-appid")];
                                     datatable.fnDraw();
                                 });
                                 $(this).dialog("close");
@@ -73,8 +184,12 @@ $(function () {
                     return false;
                 });
             $("div.static").parent().addClass("static");
-            var $appHeader = $(this).find(".appHeader");
-            var toDelete = $appHeader.children().eq(0).attr("colspan", "2").next().remove();
+            $(this).find(".appHeader").each(function () {
+                var delete1 = $(this).children().eq(0).attr("colspan", "2").next();
+                var delete2 = delete1.next().attr("colspan", "2").next();
+                delete1.remove();
+                delete2.remove();
+            });
         },
         aoColumnDefs:[
             {
@@ -130,7 +245,7 @@ $(function () {
                         val = modified[id]["value"];
                         rowclass += " " + modified[id]["class"];
                     }
-                    return '<div id="v' + id+'" avalue="' + data.aData.sval + '" class="' + rowclass + ' column" onclick="' + onclick + '">' + val + '</div>';
+                    return '<div id="v' + id + '" avalue="' + data.aData.sval + '" class="' + rowclass + ' column" onclick="' + onclick + '">' + val + '</div>';
                 }
             }
         ]
@@ -138,7 +253,7 @@ $(function () {
     $("#tabs").tabs({
         select:function (event, ui) {
             $.fn.dataTableExt.iApiIndex = ui.index;
-            $("#appsearchId").attr("data-type", ui.index? "system": "normal").val("");
+            $("#appsearchId").attr("data-type", ui.index ? "system" : "normal").val("");
             $("#appid").val("");
             $(".datatable").attr("data-appid", "");
             datatable.fnDraw();
@@ -146,101 +261,6 @@ $(function () {
     });
 
     findSearchString($datatable.find("thead").find("input"), ["appname", "name"], datatable);
-
-    /**
-     * Combox for user
-     */
-    $("#userid").combobox({
-        autocomplete:{
-            minLength:0,
-            source:function (request, response) {
-                $.getJSON("?app=APPMNG&action=GET_USERS", {
-                    "filterName":request.term
-                }, function (data) {
-                    response(data);
-                });
-            },
-            focus:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#searchId").val(ui.item.value);
-                return false;
-            },
-            select:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#searchId").val(ui.item.value);
-                $(".datatable").attr("data-userid", ui.item.value);
-                datatable.fnFilter("");
-                return false;
-            }
-        }
-    });
-
-    $("#appid").combobox({
-        autocomplete:{
-            minLength:0,
-            source:function (request, response) {
-                var $appsearchid = $("#appsearchId");
-                $.getJSON("?app=APPMNG&action=GET_APPS_PARAMS", {
-                    "filterName":request.term,
-                    "pview": $appsearchid.attr("data-pview"),
-                    "type": $appsearchid.attr("data-type"),
-                    "userid": $("#searchId").val()
-                }, function (data) {
-                    response(data);
-                });
-            },
-            focus:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#appsearchId").val(ui.item.value);
-                return false;
-            },
-            select:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#appsearchId").val(ui.item.value);
-                $(".datatable").attr("data-appid", ui.item.value);
-                datatable.fnFilter("");
-                return false;
-            }
-        }
-    });
-
-    $("#fedit").on("submit", function () {
-        var form = $(this).serialize();
-        form += "&action=" + $(this).attr("data-action");
-        $.post("?app=APPMNG", form, function (data) {
-            if (!data.success) {
-                displayWarningMsg(data.error);
-            } else {
-                if (editedParam) {
-                    editedParam.setAttribute('avalue', data.data.value);
-                    editedParam.style.display = 'inline';
-                    if (editedParam.tagName == 'DIV') {
-                        if (data.data.value == null) {
-                            data.data.value = '';
-                        }
-                        modified[data.data.id+data.data.appid] = {
-                            "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
-                            "class":'changed'
-                        };
-                        editedParam.innerHTML = modified[data.data.id+data.data.appid]["value"];
-                        editedParam.className += ' changed';
-                    }
-                }
-                editedParam = '';
-                var pedit = document.getElementById('dedit');
-                if (pedit) {
-                    pedit.style.display = 'none';
-                }
-                if (colorPick2) {
-                    colorPick2.hidePopup();
-                }
-                submiting = false;
-                document.getElementById("editdefault").appendChild(pedit);
-                datatable.fnDraw();
-            }
-        });
-        return false;
-    })
 });
 
 var modified = {};

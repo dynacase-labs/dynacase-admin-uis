@@ -10,7 +10,7 @@
                 wasOpen = false,
                 select = this.element.hide(),
                 value = select.val() ? select.val() : "",
-                wrapper = this.wrapper = $("<span>")
+                wrapper = this.wrapper = $("<div>")
                     .addClass("ui-combobox")
                     .insertAfter(select);
 

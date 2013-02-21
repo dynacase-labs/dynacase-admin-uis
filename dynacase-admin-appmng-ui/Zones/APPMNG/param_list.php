@@ -47,7 +47,7 @@ function param_list(Action & $action)
 
 function appmngGetParamListDatatableInfo(Action & $action)
 {
-    $withStatic = false;
+    
     $sEcho = intval($action->getArgument('sEcho'));
     $out = array(
         "sEcho" => $sEcho
@@ -58,6 +58,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
     $type = $action->getArgument("type");
     $appid = $action->getArgument("appid");
+    $withStatic = $action->getArgument("withstatic");
     
     $tparam = array();
     $userParams = array();
@@ -79,10 +80,9 @@ function appmngGetParamListDatatableInfo(Action & $action)
         $filter++;
     }
     
-    $withStatic = $withStatic ? "" : "and kind!='static' and kind!='readonly'";
+    $withStatic = ($withStatic == "true") ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
-        $withStatic = "";
         if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
@@ -173,7 +173,7 @@ function appmngGetAppsParam(Action & $action)
     $filterName = $action->getArgument("filterName");
     $pview = $action->getArgument("pview"); // set to "all" or "single" if user parameters
     $type = $action->getArgument("type");
-    $userid = $action->getArgument("userid");
+    $withstatic = $action->getArgument("withstatic");
     
     $applist = array();
     $tab = array();
@@ -181,12 +181,12 @@ function appmngGetAppsParam(Action & $action)
     if ($filterName) {
         $cond = sprintf(" and (lower(application.name) ~'%s')", pg_escape_string(mb_strtolower($filterName)));
     }
-    if ($pview !== "alluser") {
-        $cond.= " and kind!='static' and kind!='readonly'";
-    } else {
+    if ($pview === "alluser") {
         $cond.= " and paramdef.isuser='Y'";
     }
-    
+    if ($withstatic != "true") {
+        $cond.= " and kind!='static' and kind!='readonly'";
+    }
     $system = "~";
     $null = "";
     if ($type !== "system") {

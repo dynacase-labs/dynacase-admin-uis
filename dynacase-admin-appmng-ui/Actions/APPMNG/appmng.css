@@ -15,11 +15,6 @@ a {
     visibility: hidden;
 }
 
-.static {
-    cursor: auto !important;
-    color: red;
-}
-
 .greenlight {
     background-color: #7cfc00;
 }
@@ -42,10 +37,6 @@ a {
     border: 1px solid #AAAAAA;
     color: #222222;
     font-weight: bold;
-}
-
-.searchField {
-    width: 100%;
 }
 
 .ui-combobox {
@@ -106,6 +97,11 @@ table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
     display: inline;
     position: absolute;
     right: auto !important;
+}
+
+.static {
+    cursor: not-allowed;
+    color: #A7A7A7;
 }
 
 .searchField {
