@@ -384,6 +384,9 @@ li {
      support: IE7
     *top: 0.1em;*/
 }
+.click {
+    border: 1px solid white;
+}
 .click:hover{
     border: 1px solid #0088CC;
     cursor: pointer;
