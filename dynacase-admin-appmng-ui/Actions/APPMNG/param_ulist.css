@@ -14,3 +14,11 @@ a.gparam, a.aparam, a.sparam {
 .imgApp {
     vertical-align: middle;
 }
+.datatable {
+    table-layout: fixed;
+    word-wrap: break-word;
+}
+
+.values {
+    width: 50% !important;
+}

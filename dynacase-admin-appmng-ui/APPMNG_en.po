@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-21 16:04+0100\n"
+"POT-Creation-Date: 2013-02-22 18:09+0100\n"
 "PO-Revision-Date: 2013-01-16 16:12+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -56,6 +56,10 @@ msgstr ""
 
 #: Actions/APPMNG/param_delete.php:32
 msgid "Remove parameter"
+msgstr ""
+
+#: Zones/APPMNG/param_list.php:213
+msgid "Select all application"
 msgstr ""
 
 #: tempCatalog.php:15
