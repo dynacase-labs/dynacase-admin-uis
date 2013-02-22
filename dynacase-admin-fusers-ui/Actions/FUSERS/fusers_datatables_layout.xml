@@ -15,7 +15,7 @@
         <th class="icon">
             <button title="[TEXT:filter on type]"
                     name="type" id="icon">
-                <img src="[imgsrc]" class="ui-icon-empty"/>
+                <span class="ui-icon ui-icon-radio-on"><img src="[imgsrc]" class="ui-icon-empty"/></span>
             </button>
         </th>
         [BLOCK thead]

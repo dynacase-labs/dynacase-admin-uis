@@ -35,6 +35,9 @@ IMG.zoom {
 	width:auto;
 }
 
+#finfo {
+    min-width: 700px;
+}
 
 .inputInactive {
   cursor: pointer;
