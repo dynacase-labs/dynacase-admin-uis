@@ -17,6 +17,7 @@ $(function () {
             "bSortable":false,
             "mDataProp":"id",
             "sWidth":"120px",
+            "sClass": "buttonColumn",
             fnRender:function (data) {
                 return '<a class="update" href="#" data-id="' + data.aData.id + '" title="[TEXT:update]">' +
                     '</a>' +

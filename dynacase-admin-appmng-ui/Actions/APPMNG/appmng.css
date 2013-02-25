@@ -7,6 +7,9 @@ a {
     color: #0088CC;
 }
 
+.buttonColumn {
+    white-space: nowrap;
+}
 #tabs {
     min-width: 971px;;
 }
