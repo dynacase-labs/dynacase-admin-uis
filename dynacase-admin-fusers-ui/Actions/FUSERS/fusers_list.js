@@ -50,7 +50,11 @@
             input.data("autocomplete")._renderItem = function (ul, item) {
                 var html = "<a>";
                 if (item.imgsrc) {
-                    html += '<img title="' + item.label + '" src="' + item.imgsrc + '" class="' + item.imgclass + '"/>';
+                    if (!item.imgclass) {
+                        html += '<img title="' + item.label + '" src="' + item.imgsrc + '"/>';
+                    } else {
+                        html += '<span  class="' + item.imgclass + '"><img title="' + item.label + '" src="' + item.imgsrc + '" class="ui-icon-empty"/></span>';
+                    }
                 } else {
                     html += item.label
                 }
@@ -327,7 +331,11 @@ function setDatatable(columnDef, type) {
                         });
                     },
                     select:function (event, ui) {
-                        $(this).html('<img src="' + ui.item.imgsrc + '" class="' + ui.item.imgclass + '" title="' + ui.item.label + '"/>');
+                        if (! ui.item.imgclass) {
+                            $(this).html('<img src="' + ui.item.imgsrc + '" title="' + ui.item.label + '"/>');
+                        } else {
+                             $(this).html('<span  class="' + ui.item.imgclass + '"><img title="' + ui.item.label + '" src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>')
+                        }
                         $("#typeValue").val(ui.item.value);
                         datatable.fnDraw();
                         return false;
