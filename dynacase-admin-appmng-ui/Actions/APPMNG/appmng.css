@@ -7,6 +7,13 @@ a {
     color: #0088CC;
 }
 
+#tabs {
+    min-width: 971px;;
+}
+
+#dataTable {
+    min-width: 940px;
+}
 .values {
     cursor: pointer;
 }
@@ -118,7 +125,7 @@ table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
     background: url('[IMG:loading.gif]') no-repeat left white;
 }
 
-.update, .edit, .delete {
+.update, .edit, .delete, #updateAll {
     height: 2.2em;
 }
 
@@ -138,3 +145,8 @@ table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
     height: 20px;
 }
 [ENDIF ISIE]
+
+
+#appid {
+    width: 205px;
+}

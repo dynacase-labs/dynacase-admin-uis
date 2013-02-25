@@ -18,11 +18,6 @@ a.gparam, a.aparam {
 SPAN.changed {
     background-color: [ COLOR_B5 ];
 }
-
-.imgApp {
-    vertical-align: middle;
-}
-
 .datatable {
     table-layout: fixed;
     word-wrap: break-word;
@@ -32,6 +27,7 @@ SPAN.changed {
     width: 50% !important;
 }
 
-#appid {
-    width: 205px;
+
+.imgApp {
+    vertical-align: middle;
 }

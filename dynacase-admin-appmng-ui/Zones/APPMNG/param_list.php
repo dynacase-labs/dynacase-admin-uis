@@ -210,7 +210,7 @@ function appmngGetAppsParam(Action & $action)
         );
     } else {
         $tab[] = array(
-            "label" => "",
+            "label" => _("Select all application"),
             "value" => "",
             "img" => '<img title="' . _("all applications") . '" src="' . $action->parent->getImageLink("appmng.png", true, 18) . '" class="ui-icon-empty"/>'
         );
