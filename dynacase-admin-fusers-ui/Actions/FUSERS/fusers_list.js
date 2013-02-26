@@ -333,10 +333,10 @@ function setDatatable(columnDef, type) {
                         });
                     },
                     select:function (event, ui) {
-                        if (! ui.item.imgclass) {
+                        if (!ui.item.imgclass) {
                             $(this).html('<img src="' + ui.item.imgsrc + '" title="' + ui.item.label + '"/>');
                         } else {
-                             $(this).html('<span  class="' + ui.item.imgclass + '"><img title="' + ui.item.label + '" src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>')
+                            $(this).html('<span  class="' + ui.item.imgclass + '"><img title="' + ui.item.label + '" src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>')
                         }
                         $("#typeValue").val(ui.item.value);
                         datatable.fnDraw();
@@ -351,7 +351,7 @@ function setDatatable(columnDef, type) {
             "sInfoEmpty":"[TEXT:No result]",
             "sInfoFiltered":"",
             "sInfoThousands":" ",
-            "sProcessing": "[TEXT: Processing]",
+            "sProcessing":"[TEXT: Processing]",
             "sLengthMenu":"[TEXT:show _MENU_ per page]"
         },
         aoColumnDefs:columnDef
@@ -396,10 +396,15 @@ function displayWindow(height, width, ref, type) {
     dialog.dialog({
         autoOpen:true,
         modal:true,
-        draggable:false,
+        draggable:true,
         resizable:true,
         height:$height,
         width:$width,
+        open:function (event, ui) {
+            if (isIE) {
+                $('body').css('overflow', 'hidden');
+            }
+        },
         overlay:{
             opacity:0.5,
             background:"black"
@@ -426,6 +431,9 @@ function displayWindow(height, width, ref, type) {
                 /**detach and reattach iframe to handle ff infinite load bug**/
                 $this.remove();
                 datatable.fnDraw();
+                if (isIE) {
+                    $('body').css('overflow', 'auto');
+                }
                 if (type == "group") refreshLeftSide();
                 oldFrame.append($this);
             }
