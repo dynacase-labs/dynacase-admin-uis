@@ -85,12 +85,14 @@ $(function () {
                         if (data.data.value === null) {
                             data.data.value = '';
                         }
-                        modified[data.data.id + data.data.appid] = {
-                            "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
-                            "class":'changed'
-                        };
-                        editedParam.innerHTML = modified[data.data.id + data.data.appid]["value"];
-                        editedParam.className += ' changed';
+                        if ($("#fedit").find("[name=atype]").val()[0] !== "U") {
+                            modified[data.data.id + data.data.appid] = {
+                                "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
+                                "class":'changed'
+                            };
+                            editedParam.innerHTML = modified[data.data.id + data.data.appid]["value"];
+                            editedParam.className += ' changed';
+                        }
                     }
                 }
                 editedParam = '';
@@ -116,9 +118,10 @@ $(function () {
             $("#fedit").trigger("submit");
         }else if(editedParam) {
             $(editedParam).show();
-            $("#dedit").hide().appendTo("#editdefault");
+            $("#dedit").hide().appendTo($("#editdefault"));
             editedParam = '';
         }
+        return null;
     });
 
     window.datatable = $datatable.dataTable({
@@ -133,21 +136,23 @@ $(function () {
         sDom:'rt',
         fnServerParams:function (aoData) {
             $(this).find("th").each(function (i) {
+            var $this = $(this);
+            $this.find("th").each(function (i) {
                 var value = $(this).find("input").val();
                 aoData = addFieldToData(aoData, 'sSearch_' + i, value);
             });
             aoData.push(
                 {
-                    "name":"userid", "value":$(this).attr("data-userid")
+                    "name":"userid", "value":$this.attr("data-userid")
                 },
                 {
-                    "name":"pview", "value":$(this).attr("data-pview")
+                    "name":"pview", "value":$this.attr("data-pview")
                 },
                 {
-                    "name":"type", "value":$(this).attr("data-type")
+                    "name":"type", "value":$this.attr("data-type")
                 },
                 {
-                    "name":"appid", "value":$(this).attr("data-appid")
+                    "name":"appid", "value":$this.attr("data-appid")
                 },
                 {
                     "name":"withstatic", "value":$("#displayStatic").next().attr("data-pressed")

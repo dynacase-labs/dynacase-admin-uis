@@ -90,7 +90,7 @@ function appmngGetUsers(Action &$action)
 
     $usage->verify(true);
 
-    $data = [];
+    $data = array();
 
     $search = new SearchDoc("", "IUSER");
     $search->setObjectReturn(true);
