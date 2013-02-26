@@ -77,11 +77,12 @@ $(function () {
             if (!data.success) {
                 displayWarningMsg(data.error);
             } else {
+                $("#dedit").hide().appendTo("#editdefault");
                 if (editedParam) {
                     editedParam.setAttribute('avalue', data.data.value);
                     editedParam.style.display = 'inline';
                     if (editedParam.tagName == 'DIV') {
-                        if (data.data.value == null) {
+                        if (data.data.value === null) {
                             data.data.value = '';
                         }
                         modified[data.data.id + data.data.appid] = {
@@ -93,19 +94,31 @@ $(function () {
                     }
                 }
                 editedParam = '';
-                var pedit = document.getElementById('dedit');
-                if (pedit) {
-                    pedit.style.display = 'none';
-                }
                 if (colorPick2) {
                     colorPick2.hidePopup();
                 }
                 submiting = false;
-                document.getElementById("editdefault").appendChild(pedit);
                 datatable.fnDraw();
             }
         });
         return false;
+    });
+
+    $("#val").on("blur", function blurInput(event) {
+        var $this =$(this);
+        if ($('#optionPickerDiv').css("visibility") === "visible") {
+            return null;
+        }
+        if (colorPick2) {
+            colorPick2.hidePopup();
+        }
+        if ($this.val() != $this.attr("originvalue")) {
+            $("#fedit").trigger("submit");
+        }else if(editedParam) {
+            $(editedParam).show();
+            $("#dedit").hide().appendTo("#editdefault");
+            editedParam = '';
+        }
     });
 
     window.datatable = $datatable.dataTable({
@@ -264,9 +277,17 @@ $(function () {
 });
 
 var modified = {};
+var currentColor = '';
 var submiting = false;
 var colorPick2 = false;
+var selectOpen = false;
 var op = new OptionPicker();
+
+function CHC(color) {
+    currentColor = color;
+    ColorPicker_highlightColor(color);
+}
+
 function pickColor(color) {
     document.fedit.val.value = color;
     document.fedit.val.style.backgroundColor = color;
@@ -281,14 +302,12 @@ function pickOption(value) {
 
 var editedParam = '';
 
-function bluringInput() {
-    if (this.value != this.getAttribute('originvalue')) {
-        submiting = true;
-        this.form.submit();
-    }
-}
 function movediv(th, Aname, Atype, Appid, Kind, Value) {
-    if (submiting) return; // wait return of submit
+    var firstColorInit = false;
+    $("#val").css("background-color", "");
+    if (submiting) {
+        return; // wait return of submit
+    }
     if (Kind == 'static' || Kind == 'readonly' || !Kind) {
         alert('[TEXT:unmodifiable parameter]');
         return;
@@ -322,14 +341,29 @@ function movediv(th, Aname, Atype, Appid, Kind, Value) {
     editedParam = th;
 // show color picker if needed
     if (Kind == 'color') {
-        if (!colorPick2) colorPick2 = new ColorPicker();
+        if (!colorPick2) {
+            colorPick2 = new ColorPicker();
+            firstColorInit = true;
+        }
         colorPick2.show('dedit');
+        if (firstColorInit) {
+            $("#pickercolortable").find("td").removeAttr("onclick");
+            $("#pickercolortable").on("mousedown", "td", function(event) {
+                event.preventDefault();
+                CPC(currentColor);
+                $("#val").trigger("blur");
+            });
+        }
+
     } else {
-        if (colorPick2) colorPick2.hidePopup();
+        if (colorPick2) {
+            colorPick2.hidePopup();
+        }
         if (Kind.substr(0, 4) == 'enum') {
             op.show('dedit');
             $("#" + op.divName).css("z-index", 100);
             op.setOptions(Kind.substr(5, Kind.length - 6).split('|'));
+            selectOpen = true;
         }
     }
 

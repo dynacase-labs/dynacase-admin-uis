@@ -5,8 +5,7 @@
             <input type="hidden" name="atype"/>
             <input type="hidden" name="aname"/>
             <input type="hidden" name="direct" value="yes"/>
-            <input type="text" size="35" name="val" id="val" value=""
-                   onblur="bluringInput"/>
+            <input type="text" size="35" name="val" id="val" value=""/>
         </form>
     </div>
 </div>
