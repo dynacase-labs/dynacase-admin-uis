@@ -144,6 +144,7 @@ $(function () {
             "sZeroRecords":"[TEXT:No matching record found]",
             "sInfo":"[TEXT:Showing _TOTAL_ result]",
             "sInfoEmpty":"[TEXT:No result]",
+            "sProcessing":"[TEXT: Processing]",
             "sInfoFiltered":""
         },
         fnDrawCallback:function () {

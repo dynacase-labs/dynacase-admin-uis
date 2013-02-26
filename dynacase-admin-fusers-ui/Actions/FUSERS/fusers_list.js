@@ -351,6 +351,7 @@ function setDatatable(columnDef, type) {
             "sInfoEmpty":"[TEXT:No result]",
             "sInfoFiltered":"",
             "sInfoThousands":" ",
+            "sProcessing": "[TEXT: Processing]",
             "sLengthMenu":"[TEXT:show _MENU_ per page]"
         },
         aoColumnDefs:columnDef
