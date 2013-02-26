@@ -123,7 +123,9 @@ function focuskey(expand) {
     }
 }
 
-function refreshRightSide(action, grp) {
+function refreshRightSide(action, grp, elem) {
+    $(".selected").removeClass("ui-corner-all").removeClass("selected");
+    $(elem).addClass("selected").addClass("ui-corner-all");
     $.post("?app=FUSERS", {
         "action":"FUSERS_DATATABLES_LAYOUT",
         "type":action,
@@ -384,6 +386,7 @@ function displayWindow(height, width, ref, type) {
     var dialog = $("#dialogmodal");
     var $width = $(window).width() * 0.8;
     var $height = $(window).height() * 0.8;
+    //var $jParent = window.parent.jQuery.noConflict();
     if (dialog.length <= 0) {
         dialog = $('<iframe id="dialogmodal" style="padding: 0;" src="' + ref + '" frameborder="0"></iframe>').appendTo('body');
     } else {
@@ -438,5 +441,5 @@ function refreshLeftSide() {
 $(window).on("load", function (e) {
     convertTrees();
     focuskey(e);
-    refreshRightSide('user');
+    refreshRightSide('user', 0, "#SPANUsers");
 });

@@ -14,7 +14,7 @@ function fusers_get_datatable_info(Action & $action)
     $type = $action->getArgument('type');
     $group = $action->getArgument("group");
     $data = array();
-    $dataAll = array();
+    
     $out = array(
         "sEcho" => $sEcho
     );

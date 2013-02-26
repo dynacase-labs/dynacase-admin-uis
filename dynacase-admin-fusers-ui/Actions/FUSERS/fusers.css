@@ -403,3 +403,11 @@ li {
     width:15em;
 }
 [ENDIF ISIE]
+
+.selected {
+    background-color: lightgreen;
+    background-image: url("[IMG:buttongreen.png]");
+    border-style: none;
+    color: black;
+    cursor: pointer;
+}
