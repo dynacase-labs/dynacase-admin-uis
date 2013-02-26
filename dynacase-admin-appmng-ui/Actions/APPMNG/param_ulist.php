@@ -73,7 +73,7 @@ function param_ulist(Action & $action)
     );
     $action->lay->setBlockData("CSS_LINKS", $csslinks);
     $action->lay->setBlockData("JS_LINKS", $jslinks);
-    
+
     return;
 }
 
@@ -113,7 +113,7 @@ function appmngGetUsers(Action &$action)
 
     $action->lay->template = json_encode($data);
     $action->lay->noparse = true;
-    
+
     header('Content-type: application/json');
 }
 ?>

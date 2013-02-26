@@ -106,7 +106,7 @@ $(function () {
         return false;
     });
 
-    $("#val").on("blur", function blurInput(event) {
+    $("#val").on("blur", function blurInput() {
         var $this =$(this);
         if ($('#optionPickerDiv').css("visibility") === "visible") {
             return null;
@@ -115,7 +115,7 @@ $(function () {
             colorPick2.hidePopup();
         }
         if ($this.val() != $this.attr("originvalue")) {
-            $("#fedit").trigger("submit");
+            //$("#fedit").trigger("submit");
         }else if(editedParam) {
             $(editedParam).show();
             $("#dedit").hide().appendTo($("#editdefault"));
@@ -135,7 +135,6 @@ $(function () {
         bDeferRender:true,
         sDom:'rt',
         fnServerParams:function (aoData) {
-            $(this).find("th").each(function (i) {
             var $this = $(this);
             $this.find("th").each(function (i) {
                 var value = $(this).find("input").val();
@@ -356,7 +355,10 @@ function movediv(th, Aname, Atype, Appid, Kind, Value) {
             $("#pickercolortable").on("mousedown", "td", function(event) {
                 event.preventDefault();
                 CPC(currentColor);
-                $("#val").trigger("blur");
+                if (colorPick2) {
+                    //colorPick2.hidePopup();
+                }
+                //$("#val").trigger("blur");
             });
         }
 
