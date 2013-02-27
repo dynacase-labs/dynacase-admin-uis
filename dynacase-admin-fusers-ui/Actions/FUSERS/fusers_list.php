@@ -41,7 +41,7 @@ function fusers_list(Action & $action)
         foreach ($mgroups as $k => $v) {
             $cgroup = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
             $fid = $v["fid"];
-            $v["onclick"] = "refreshRightSide('user','$fid')";
+            $v["onclick"] = "refreshRightSide('user','$fid', this)";
             $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
             $tgroup[$k] = $v;
             $tgroup[$k]["SUBUL"] = $cgroup;
@@ -65,21 +65,21 @@ function fusers_list(Action & $action)
             "id" => "Users",
             "login" => _("All users") ,
             "icon" => $action->parent->getImageLink("dynacase-iuser.png", true, 14) ,
-            "onclick" => "refreshRightSide('user')",
+            "onclick" => "refreshRightSide('user', 0, this)",
             "firstname" => _("All users")
         ) ,
         array(
             "id" => "Roles",
             "login" => _("All roles") ,
             "icon" => $action->parent->getImageLink("role.png", true, 14) ,
-            "onclick" => "refreshRightSide('role')",
+            "onclick" => "refreshRightSide('role', 0, this)",
             "firstname" => _("All roles")
         ) ,
         array(
             "id" => "Groups",
             "login" => _("All groups") ,
             "icon" => $action->parent->getImageLink("igroup.png", true, 14) ,
-            "onclick" => "refreshRightSide('group')",
+            "onclick" => "refreshRightSide('group', 0, this)",
             "firstname" => _("All groups")
         )
     ));
@@ -129,7 +129,7 @@ function fusers_getChildsGroup($id, $groups, $groupIcon)
     foreach ($groups as $k => $v) {
         if ($v["idgroup"] == $id) {
             $fid = $v["fid"];
-            $v["onclick"] = "refreshRightSide('user','$fid')";
+            $v["onclick"] = "refreshRightSide('user','$fid', this)";
             $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
             $tlay[$k] = $v;
             $tlay[$k]["SUBUL"] = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
