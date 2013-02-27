@@ -2,22 +2,19 @@
     font-weight: bold
 }
 
-.aparam {
-
-}
-
 a.gparam, a.aparam {
     display: none;
 }
 
 .highlight {
-    background-color: [ CORE_BGCOLORHIGH ];
+    background-color: [CORE_BGCOLORHIGH];
     cursor: pointer;
 }
 
-SPAN.changed {
-    background-color: [ COLOR_B5 ];
+span.changed {
+    background-color: [COLOR_B5];
 }
+
 .datatable {
     table-layout: fixed;
     word-wrap: break-word;
@@ -26,7 +23,6 @@ SPAN.changed {
 .values {
     width: 50% !important;
 }
-
 
 .imgApp {
     vertical-align: middle;

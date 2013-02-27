@@ -18,9 +18,7 @@
 //  -----------------------------------
 function param_ulist(Action & $action)
 {
-    // -----------------------------------
-    $userid = $action->getArgument("userid");
-    
+
     $jslinks = array(
         array(
             "src" => $action->parent->getJsLink("lib/jquery/jquery.js")
@@ -75,31 +73,47 @@ function param_ulist(Action & $action)
     );
     $action->lay->setBlockData("CSS_LINKS", $csslinks);
     $action->lay->setBlockData("JS_LINKS", $jslinks);
-    
+
     return;
 }
 
-function appmngGetUsers(Action & $action)
+/**
+ * Get user list
+ *
+ * @param Action $action
+ */
+function appmngGetUsers(Action &$action)
 {
-    $filterName = $action->getArgument("filterName");
-    
-    $u = new Account();
-    $list = $u->GetUserList("TABLE", 0, 25, $filterName);
+    $usage = new ActionUsage($action);
+
+    $filterName = $usage->addOptionalParameter("filterName", "filterName");
+
+    $usage->verify(true);
+
     $data = array();
-    // select the wanted user
-    foreach ($list as $v) {
+
+    $search = new SearchDoc("", "IUSER");
+    $search->setObjectReturn(true);
+    $search->addFilter("title ~* '%s' or us_login ~* '%s'", $filterName, $filterName);
+    $search->setSlice(25);
+
+    foreach($search->getDocumentList() as $currentUser) {
+        /* @var $currentUser Doc */
         $data[] = array(
-            "label" => trim(sprintf("%s %s", $v["lastname"], $v["firstname"])) ,
-            "value" => $v["id"]
+            "label" => trim(sprintf("%s (%s)", $currentUser->getTitle(), $currentUser->getRawValue("us_login"))) ,
+            "value" => $currentUser->getRawValue("us_whatid")
         );
     }
-    if ((count($data) == 0) && ($filterName != '')) $data[] = array(
-        "label" => sprintf(_("no account match '%s'") , $filterName) ,
-        "value" => 0
-    );
+    if ((count($data) == 0) && ($filterName != '')) {
+        $data[] = array(
+            "label" => sprintf(_("no account match '%s'") , $filterName) ,
+            "value" => 0
+        );
+    }
+
     $action->lay->template = json_encode($data);
     $action->lay->noparse = true;
-    
+
     header('Content-type: application/json');
 }
 ?>
