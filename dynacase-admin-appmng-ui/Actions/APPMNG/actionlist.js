@@ -89,7 +89,7 @@ $(function () {
                     var url = "?app=APPMNG&action=ACTION_EDIT&id=" + $(elem).attr("data-id");
                     var head = "[TEXT:titlemodifyaction]";
                     var postUrl = "?app=APPMNG&action=ACTION_MOD&action_appl_id=" + $("#searchId").val();
-                    displaySubWindow(330, 350, url, head, datatable, postUrl);
+                    displaySubWindow(350, 450, url, head, datatable, postUrl);
                 });
         });
     }, function (nRow, aData, iDisplayIndex) {

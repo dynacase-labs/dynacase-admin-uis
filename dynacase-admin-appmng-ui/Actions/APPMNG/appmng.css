@@ -147,6 +147,9 @@ table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
 .ui-combobox-toggle {
     height: 20px;
 }
+.ui-dialog-content {
+    height: auto !important;
+}
 [ENDIF ISIE]
 
 
