@@ -1,61 +1,6 @@
 $(function () {
     var $datatable = $(".datatable");
-    /**
-     * Combox for user
-     */
-    $("#userid").combobox({
-        autocomplete:{
-            minLength:0,
-            source:function (request, response) {
-                $.getJSON("?app=APPMNG&action=GET_USERS", {
-                    "filterName":request.term
-                }, function (data) {
-                    response(data);
-                });
-            },
-            focus:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#searchId").val(ui.item.value);
-                return false;
-            },
-            select:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#searchId").val(ui.item.value);
-                $(".datatable").attr("data-userid", ui.item.value);
-                datatable.fnFilter("");
-                return false;
-            }
-        }
-    });
 
-    $("#appid").combobox({
-        autocomplete:{
-            minLength:0,
-            source:function (request, response) {
-                var $appsearchid = $("#appsearchId");
-                $.getJSON("?app=APPMNG&action=GET_APPS_PARAMS", {
-                    "filterName":request.term,
-                    "pview":$appsearchid.attr("data-pview"),
-                    "type":$appsearchid.attr("data-type"),
-                    "withstatic":$("#displayStatic").next().attr("data-pressed")
-                }, function (data) {
-                    response(data);
-                });
-            },
-            focus:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#appsearchId").val(ui.item.value);
-                return false;
-            },
-            select:function (event, ui) {
-                $(this).val(ui.item.label);
-                $("#appsearchId").val(ui.item.value);
-                $(".datatable").attr("data-appid", ui.item.value);
-                datatable.fnFilter("");
-                return false;
-            }
-        }
-    });
 
     $("#displayStatic").button().on("click", function () {
         var $this = $(this).next();
@@ -107,7 +52,7 @@ $(function () {
     });
 
     $("#val").on("blur", function blurInput() {
-        var $this =$(this);
+        var $this = $(this);
         if ($('#optionPickerDiv').css("visibility") === "visible") {
             return null;
         }
@@ -116,7 +61,7 @@ $(function () {
         }
         if ($this.val() != $this.attr("originvalue")) {
             //$("#fedit").trigger("submit");
-        }else if(editedParam) {
+        } else if (editedParam) {
             $(editedParam).show();
             $("#dedit").hide().appendTo($("#editdefault"));
             editedParam = '';
@@ -268,6 +213,64 @@ $(function () {
             }
         ]
     });
+
+    /**
+     * Combox for user
+     */
+    $("#userid").combobox({
+        autocomplete:{
+            minLength:0,
+            source:function (request, response) {
+                $.getJSON("?app=APPMNG&action=GET_USERS", {
+                    "filterName":request.term
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#searchId").val(ui.item.value);
+                return false;
+            },
+            select:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#searchId").val(ui.item.value);
+                $(".datatable").attr("data-userid", ui.item.value);
+                datatable.fnFilter("");
+                return false;
+            }
+        }
+    });
+
+    $("#appid").combobox({
+        autocomplete:{
+            minLength:0,
+            source:function (request, response) {
+                var $appsearchid = $("#appsearchId");
+                $.getJSON("?app=APPMNG&action=GET_APPS_PARAMS", {
+                    "filterName":request.term,
+                    "pview":$appsearchid.attr("data-pview"),
+                    "type":$appsearchid.attr("data-type"),
+                    "withstatic":$("#displayStatic").next().attr("data-pressed")
+                }, function (data) {
+                    response(data);
+                });
+            },
+            focus:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                return false;
+            },
+            select:function (event, ui) {
+                $(this).val(ui.item.label);
+                $("#appsearchId").val(ui.item.value);
+                $(".datatable").attr("data-appid", ui.item.value);
+                datatable.fnFilter("");
+                return false;
+            }
+        }
+    });
+
     $("#tabs").tabs({
         select:function (event, ui) {
             $.fn.dataTableExt.iApiIndex = ui.index;
@@ -277,6 +280,8 @@ $(function () {
             datatable.fnDraw();
         }
     });
+    var lastLi = $("#tabs").find("ul");
+    $(".searchappbutton").appendTo(lastLi);
 
     findSearchString($datatable.find("thead").find("input"), ["appname", "name"], datatable);
 });
@@ -353,7 +358,7 @@ function movediv(th, Aname, Atype, Appid, Kind, Value) {
         colorPick2.show('dedit');
         if (firstColorInit) {
             $("#pickercolortable").find("td").removeAttr("onclick");
-            $("#pickercolortable").on("mousedown", "td", function(event) {
+            $("#pickercolortable").on("mousedown", "td", function (event) {
                 event.preventDefault();
                 CPC(currentColor);
                 if (colorPick2) {
