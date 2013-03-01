@@ -17,7 +17,15 @@
        value="[userlabel]" name="userid"/>
 [ENDIF searchuser]
 </div>
-
+<ul style="display:none;">
+<li class="searchappbutton">
+    <input type="checkbox" id="displayStatic" /><label data-pressed="false" for="displayStatic">[TEXT:Show static parameters]</label>
+    <input type="hidden" id="appsearchId" value="[app_id]" data-type="normal"
+           data-pview="[pview]"/>
+    <input placeholder="[TEXT:select an application]" title="[TEXT:select an application]" type="text" id="appid"
+           value="[applabel]" name="appid"/>
+</li>
+</ul>
 <div id="tabs">
 <ul>
     <li>
@@ -25,14 +33,6 @@
     </li>
     <li>
         <a href="#systemparam_wrapper">[TEXT:Param system]</a>
-    </li>
-
-    <li class="searchappbutton">
-        <input type="checkbox" id="displayStatic" /><label data-pressed="false" for="displayStatic">[TEXT:Show static parameters]</label>
-        <input type="hidden" id="appsearchId" value="[app_id]" data-type="normal"
-               data-pview="[pview]"/>
-        <input placeholder="[TEXT:select an application]" title="[TEXT:select an application]" type="text" id="appid"
-               value="[applabel]" name="appid"/>
     </li>
 </ul>
 <input type="hidden" id="actiondel" value="[ACTIONDEL]"/>
