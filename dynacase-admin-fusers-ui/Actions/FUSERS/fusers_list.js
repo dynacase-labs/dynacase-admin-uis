@@ -124,8 +124,8 @@ function focuskey(expand) {
 }
 
 function refreshRightSide(action, grp, elem) {
-    $(".selected").removeClass("ui-corner-all").removeClass("selected");
-    $(elem).addClass("selected").addClass("ui-corner-all");
+    $(".selected").removeClass("selected");
+    $(elem).addClass("selected");
     $.post("?app=FUSERS", {
         "action":"FUSERS_DATATABLES_LAYOUT",
         "type":action,
@@ -450,5 +450,5 @@ function refreshLeftSide() {
 $(window).on("load", function (e) {
     convertTrees();
     focuskey(e);
-    refreshRightSide('user', 0, "#SPANUsers");
+    refreshRightSide('user', 0, $("#SPANUsers").parent());
 });

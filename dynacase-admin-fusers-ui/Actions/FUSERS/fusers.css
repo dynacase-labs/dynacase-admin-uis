@@ -330,25 +330,25 @@ table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { back
 }
 
 @media screen, print {
-	/* Turn off list bullets */
-	ul.mktree  li { list-style: none; }
-	/* Control how "spaced out" the tree is */
+    /* Turn off list bullets */
+    ul.mktree  li { list-style: none; }
+    /* Control how "spaced out" the tree is */
     ul.mktree {margin-left: 0;padding:0;}
-	ul.mktree ul , ul.mktree li { margin-left:10px; padding:0; }
-	/* Provide space for our own "bullet" inside the LI */
-	ul.mktree  li           .bullet { padding-left: 15px; }
-
-	/* Show "bullets" in the links, depending on the class of the LI that the link's in */
-	ul.mktree  li.liOpen    .bullet { cursor: pointer; background: url([IMG:minus.png])  center left no-repeat; }
-	ul.mktree  li.liClosed  .bullet { cursor: pointer; background: url([IMG:plus.png])   center left no-repeat; }
-	ul.mktree  li.liBullet  .bullet { cursor: default; background: url([IMG:bullet.gif]) center left no-repeat; }
-	/* Sublists are visible or not based on class of parent LI */
-	ul.mktree  li.liOpen    ul { display: block; }
-	ul.mktree  li.liClosed  ul { display: none; }
-[IFNOT ISIE]
+    ul.mktree ul , ul.mktree li { margin-left:3px; padding:0; }
+    /* Provide space for our own "bullet" inside the LI */
+    ul.mktree  li .bullet { padding-left: 12px; }
+    
+    /* Show "bullets" in the links, depending on the class of the LI that the link's in */
+    ul.mktree  li.liOpen    .bullet { cursor: pointer; background: url([IMG:minus.png])  center left no-repeat; }
+    ul.mktree  li.liClosed  .bullet { cursor: pointer; background: url([IMG:plus.png])   center left no-repeat; }
+    ul.mktree  li.liBullet  .bullet { cursor: default; background: url([IMG:bullet.gif]) center left no-repeat; }
+    /* Sublists are visible or not based on class of parent LI */
+    ul.mktree  li.liOpen    ul { display: block; }
+    ul.mktree  li.liClosed  ul { display: none; }
+    [IFNOT ISIE]
     div.mktreetop {   padding-left : 20px; }
-       div.mktreetop ul.mktree  li  .bullet { margin-left : -20px; }[ENDIF ISIE]
-
+    div.mktreetop ul.mktree  li  .bullet { margin-left : -20px; }
+    [ENDIF ISIE]
 }
 
 .tableRow {
@@ -407,10 +407,17 @@ img {
 }
 [ENDIF ISIE]
 
-.selected {
-    background-color: lightgreen;
-    background-image: url("[IMG:buttongreen.png]");
-    border-style: none;
-    color: black;
+ul.mktree li a {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 0 0 0 0;
     cursor: pointer;
+}
+ul.mktree li a:hover {
+    background-color: #08C;
+    color: #fff;
+}
+.selected {
+    background-color: #08C;
+    color: #fff;
 }
