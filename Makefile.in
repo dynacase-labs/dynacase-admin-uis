@@ -57,6 +57,7 @@ po-vault-ui:
 	make -C dynacase-admin-vault-ui po
 
 po: po-access-ui po-appmng-ui po-docadmin-ui po-fusers-ui po-vault-ui
+	:
 
 ## make clean
 clean-access-ui:
