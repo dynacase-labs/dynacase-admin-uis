@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-26 10:30+0100\n"
+"POT-Creation-Date: 2013-03-11 11:48+0100\n"
 "PO-Revision-Date: 2013-02-26 10:31+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tempCatalog.php:7
+#: tempCatalog.php:19
 msgid " Processing"
 msgstr "Traitement en cours"
 
@@ -47,11 +47,11 @@ msgstr "Tous les rôles"
 msgid "All users"
 msgstr "Tous les utilisateurs"
 
-#: tempCatalog.php:11
+#: tempCatalog.php:25
 msgid "Choose family to create"
 msgstr "Choisissez une famille de document à créer"
 
-#: tempCatalog.php:36
+#: tempCatalog.php:10
 msgid "Create "
 msgstr "Créer un "
 
@@ -63,11 +63,11 @@ msgstr "Gestion générique"
 msgid "Group"
 msgstr "Groupe"
 
-#: tempCatalog.php:2 tempCatalog.php:3
+#: tempCatalog.php:14 tempCatalog.php:15
 msgid "Modify type"
 msgstr "Modifier le type"
 
-#: tempCatalog.php:4
+#: tempCatalog.php:16
 msgid "No matching record found"
 msgstr "Aucun résultat trouvé"
 
@@ -75,7 +75,7 @@ msgstr "Aucun résultat trouvé"
 msgid "No need to refresh group"
 msgstr "Tous les groupes sont actualisés"
 
-#: tempCatalog.php:6
+#: tempCatalog.php:18
 msgid "No result"
 msgstr "Aucun résultat"
 
@@ -83,61 +83,61 @@ msgstr "Aucun résultat"
 msgid "Others"
 msgstr "Autres"
 
-#: tempCatalog.php:44
+#: tempCatalog.php:40
 msgid "Password"
 msgstr "Mot de passe"
 
-#: tempCatalog.php:25
+#: tempCatalog.php:8
 msgid "Refersh groups may take long time. Sure ?"
 msgstr ""
 "Rafraichir les groupes peut prendre beaucoup de temps.  Êtes vous sûr ?"
 
-#: tempCatalog.php:24
+#: tempCatalog.php:7
 msgid "Refresh Groups members and mail"
 msgstr "Raffraichissement des membres et du mail"
 
-#: tempCatalog.php:21 tempCatalog.php:23
+#: tempCatalog.php:4 tempCatalog.php:6
 msgid "Refresh LDAP"
 msgstr "Actualiser LDAP"
 
-#: tempCatalog.php:22
+#: tempCatalog.php:5
 msgid "Refresh LDAP may take long time. Sure ?"
 msgstr "Actualiser le LDAP peut prendre beaucoup de temps.  Êtes vous sûr ? "
 
-#: tempCatalog.php:26
+#: tempCatalog.php:9
 msgid "Refresh groups"
 msgstr "Actualiser les groupes"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:3
 msgid "Refresh users"
 msgstr "Actualiser les utilisateurs"
 
-#: tempCatalog.php:18
+#: tempCatalog.php:1
 msgid "Refresh users characteristics from system"
 msgstr "Rafraichir les caractéristiques des utilisateurs depuis le système"
 
-#: tempCatalog.php:19
+#: tempCatalog.php:2
 msgid "Refresh users may take long time. Sure ?"
 msgstr ""
 "Rafraichir les utilisateurs peut prendre beaucoup de temps.  Êtes vous sûr ?"
 
-#: tempCatalog.php:34
+#: tempCatalog.php:36
 msgid "Reset"
 msgstr "Réinitialisation"
 
-#: tempCatalog.php:32
+#: tempCatalog.php:34
 msgid "Save"
 msgstr "Sauver"
 
-#: tempCatalog.php:37
+#: tempCatalog.php:11
 msgid "Select an action"
 msgstr "Autre type"
 
-#: tempCatalog.php:1
+#: tempCatalog.php:13
 msgid "Show All Items"
 msgstr "Tout afficher"
 
-#: tempCatalog.php:5
+#: tempCatalog.php:17
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
 
@@ -153,15 +153,15 @@ msgstr "Pour créer et modifier des utilisateurs et des groups"
 msgid "Users"
 msgstr "Gestion des utilisateurs"
 
-#: tempCatalog.php:27 Apps/FUSERS/FUSERS.app:27
+#: Apps/FUSERS/FUSERS.app:27 tempCatalog.php:38
 msgid "Users Management"
 msgstr "Création, modification des utilisateurs et groupes"
 
-#: tempCatalog.php:30
+#: tempCatalog.php:32
 msgid "choose colums"
 msgstr "Choix des colonnes affichées"
 
-#: tempCatalog.php:9
+#: tempCatalog.php:23
 msgid "click here to create a new"
 msgstr "Création...."
 
@@ -173,15 +173,15 @@ msgstr "Gestion de la taille d'affiche de la datatable"
 msgid "desc"
 msgstr "Description"
 
-#: tempCatalog.php:17
+#: tempCatalog.php:31
 msgid "edit contact card"
 msgstr "éditer la fiche"
 
-#: tempCatalog.php:16
+#: tempCatalog.php:30
 msgid "filter on"
 msgstr "Filtrer sur"
 
-#: tempCatalog.php:38
+#: tempCatalog.php:12
 msgid "filter on type"
 msgstr "Filtrer sur le type"
 
@@ -229,11 +229,11 @@ msgstr "Libellé"
 msgid "lastname"
 msgstr "Nom"
 
-#: tempCatalog.php:12
+#: tempCatalog.php:26
 msgid "lines"
 msgstr "lignes"
 
-#: tempCatalog.php:13
+#: tempCatalog.php:27
 msgid "lines per page"
 msgstr "lignes par page"
 
@@ -254,7 +254,7 @@ msgstr "Vue principale"
 msgid "main view line displayed"
 msgstr "édition des colonnes"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:28
 msgid "manage columns"
 msgstr "Gérer les colonnes"
 
@@ -270,31 +270,31 @@ msgstr "actualiser les entrées du LDAP"
 msgid "refresh users intranet attributes"
 msgstr "actualisation des attributs intranet des utilisateurs"
 
-#: tempCatalog.php:35
+#: tempCatalog.php:37
 msgid "reset to default"
 msgstr "configuration par défaut"
 
-#: tempCatalog.php:33
+#: tempCatalog.php:35
 msgid "save modifications"
 msgstr "sauver les modifications"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:29
 msgid "search all containing"
 msgstr "rechercher tous ceux contenant..."
 
-#: tempCatalog.php:31
+#: tempCatalog.php:33
 msgid "select to view colum"
 msgstr "selection pour voir les colonnes"
 
-#: tempCatalog.php:8
+#: tempCatalog.php:20
 msgid "show _MENU_ per page"
 msgstr "Affiche _MENU_ par page"
 
-#: tempCatalog.php:28 tempCatalog.php:29 tempCatalog.php:40
+#: tempCatalog.php:21 tempCatalog.php:22 tempCatalog.php:44
 msgid "view detail"
 msgstr "voir détails"
 
-#: tempCatalog.php:10
+#: tempCatalog.php:24
 msgid "view sub families"
 msgstr "Voir les sous-familles"
 

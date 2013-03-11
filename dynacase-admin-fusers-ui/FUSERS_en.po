@@ -8,17 +8,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-02-26 10:30+0100\n"
+"POT-Creation-Date: 2013-03-11 11:48+0100\n"
 "PO-Revision-Date: 2013-01-16 16:14+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
+"Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tempCatalog.php:7
+#: tempCatalog.php:19
 msgid " Processing"
 msgstr ""
 
@@ -47,11 +47,11 @@ msgstr ""
 msgid "All users"
 msgstr ""
 
-#: tempCatalog.php:11
+#: tempCatalog.php:25
 msgid "Choose family to create"
 msgstr ""
 
-#: tempCatalog.php:36
+#: tempCatalog.php:10
 msgid "Create "
 msgstr ""
 
@@ -63,11 +63,11 @@ msgstr ""
 msgid "Group"
 msgstr ""
 
-#: tempCatalog.php:2 tempCatalog.php:3
+#: tempCatalog.php:14 tempCatalog.php:15
 msgid "Modify type"
 msgstr ""
 
-#: tempCatalog.php:4
+#: tempCatalog.php:16
 msgid "No matching record found"
 msgstr ""
 
@@ -75,7 +75,7 @@ msgstr ""
 msgid "No need to refresh group"
 msgstr ""
 
-#: tempCatalog.php:6
+#: tempCatalog.php:18
 msgid "No result"
 msgstr ""
 
@@ -83,59 +83,59 @@ msgstr ""
 msgid "Others"
 msgstr ""
 
-#: tempCatalog.php:44
+#: tempCatalog.php:40
 msgid "Password"
 msgstr ""
 
-#: tempCatalog.php:25
+#: tempCatalog.php:8
 msgid "Refersh groups may take long time. Sure ?"
 msgstr ""
 
-#: tempCatalog.php:24
+#: tempCatalog.php:7
 msgid "Refresh Groups members and mail"
 msgstr ""
 
-#: tempCatalog.php:21 tempCatalog.php:23
+#: tempCatalog.php:4 tempCatalog.php:6
 msgid "Refresh LDAP"
 msgstr ""
 
-#: tempCatalog.php:22
+#: tempCatalog.php:5
 msgid "Refresh LDAP may take long time. Sure ?"
 msgstr ""
 
-#: tempCatalog.php:26
+#: tempCatalog.php:9
 msgid "Refresh groups"
 msgstr ""
 
-#: tempCatalog.php:20
+#: tempCatalog.php:3
 msgid "Refresh users"
 msgstr ""
 
-#: tempCatalog.php:18
+#: tempCatalog.php:1
 msgid "Refresh users characteristics from system"
 msgstr ""
 
-#: tempCatalog.php:19
+#: tempCatalog.php:2
 msgid "Refresh users may take long time. Sure ?"
 msgstr ""
 
-#: tempCatalog.php:34
+#: tempCatalog.php:36
 msgid "Reset"
 msgstr ""
 
-#: tempCatalog.php:32
+#: tempCatalog.php:34
 msgid "Save"
 msgstr ""
 
-#: tempCatalog.php:37
+#: tempCatalog.php:11
 msgid "Select an action"
 msgstr ""
 
-#: tempCatalog.php:1
+#: tempCatalog.php:13
 msgid "Show All Items"
 msgstr ""
 
-#: tempCatalog.php:5
+#: tempCatalog.php:17
 msgid "Showing _START_ to _END_ of _TOTAL_ "
 msgstr ""
 
@@ -151,15 +151,15 @@ msgstr ""
 msgid "Users"
 msgstr ""
 
-#: tempCatalog.php:27 Apps/FUSERS/FUSERS.app:27
+#: Apps/FUSERS/FUSERS.app:27 tempCatalog.php:38
 msgid "Users Management"
 msgstr ""
 
-#: tempCatalog.php:30
+#: tempCatalog.php:32
 msgid "choose colums"
 msgstr ""
 
-#: tempCatalog.php:9
+#: tempCatalog.php:23
 msgid "click here to create a new"
 msgstr ""
 
@@ -171,15 +171,15 @@ msgstr ""
 msgid "desc"
 msgstr ""
 
-#: tempCatalog.php:17
+#: tempCatalog.php:31
 msgid "edit contact card"
 msgstr ""
 
-#: tempCatalog.php:16
+#: tempCatalog.php:30
 msgid "filter on"
 msgstr ""
 
-#: tempCatalog.php:38
+#: tempCatalog.php:12
 msgid "filter on type"
 msgstr ""
 
@@ -227,11 +227,11 @@ msgstr ""
 msgid "lastname"
 msgstr ""
 
-#: tempCatalog.php:12
+#: tempCatalog.php:26
 msgid "lines"
 msgstr ""
 
-#: tempCatalog.php:13
+#: tempCatalog.php:27
 msgid "lines per page"
 msgstr ""
 
@@ -252,7 +252,7 @@ msgstr ""
 msgid "main view line displayed"
 msgstr ""
 
-#: tempCatalog.php:14
+#: tempCatalog.php:28
 msgid "manage columns"
 msgstr ""
 
@@ -268,30 +268,30 @@ msgstr ""
 msgid "refresh users intranet attributes"
 msgstr ""
 
-#: tempCatalog.php:35
+#: tempCatalog.php:37
 msgid "reset to default"
 msgstr ""
 
-#: tempCatalog.php:33
+#: tempCatalog.php:35
 msgid "save modifications"
 msgstr ""
 
-#: tempCatalog.php:15
+#: tempCatalog.php:29
 msgid "search all containing"
 msgstr ""
 
-#: tempCatalog.php:31
+#: tempCatalog.php:33
 msgid "select to view colum"
 msgstr ""
 
-#: tempCatalog.php:8
+#: tempCatalog.php:20
 msgid "show _MENU_ per page"
 msgstr ""
 
-#: tempCatalog.php:28 tempCatalog.php:29 tempCatalog.php:40
+#: tempCatalog.php:21 tempCatalog.php:22 tempCatalog.php:44
 msgid "view detail"
 msgstr ""
 
-#: tempCatalog.php:10
+#: tempCatalog.php:24
 msgid "view sub families"
 msgstr ""
