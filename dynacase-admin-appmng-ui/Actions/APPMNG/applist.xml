@@ -1,5 +1,7 @@
+<!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8"/>
         <title>[app_short_name]</title>
         [BLOCK CSS_LINKS]
         <link href="[src]" type="text/css" rel="stylesheet"></link>
