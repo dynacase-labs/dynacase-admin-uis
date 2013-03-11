@@ -76,24 +76,24 @@ a {
     margin-bottom: 3px;
 }
 
-table.datatable {
+table.dataTable {
     border-spacing: 0;
     border-collapse: collapse;
 }
 
-table.datatable thead th {
+table.dataTable thead th {
     padding: 3px 3px;
 }
 
-table.datatable tr td {
+table.dataTable tr td {
     border-bottom: 1px solid #eee;
 }
 
-table.datatable tr.odd, table.datatable tr.even {
+table.dataTable tr.odd, table.dataTable tr.even {
     background-color: #fff;
 }
 
-table.datatable tr.odd td.sorting_1, table.datatable tr.even td.sorting_1 {
+table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 {
     background-color: #FFFDF2;
 }
 
