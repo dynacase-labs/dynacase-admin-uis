@@ -126,6 +126,7 @@ function focuskey(expand) {
 function refreshRightSide(action, grp, elem) {
     $(".selected").removeClass("selected");
     $(elem).addClass("selected");
+    $(document.body).data("selectedSpanId", $(elem).children("span:first").attr("id"));
     $.post("?app=FUSERS", {
         "action":"FUSERS_DATATABLES_LAYOUT",
         "type":action,
@@ -440,10 +441,26 @@ function displayWindow(height, width, ref, type) {
         });
 }
 
+function restoreSelected() {
+    $(".selected").removeClass("selected");
+    var selectedSpanId = $(document.body).data('selectedSpanId');
+    if (selectedSpanId === undefined) {
+        return false;
+    }
+    var spanNode = document.getElementById(selectedSpanId);
+    if (spanNode === null) {
+        $(document.body).removeData('selectedSpanId');
+        return false;
+    }
+    $(spanNode).parent('a').addClass("selected");
+    return true;
+}
+
 function refreshLeftSide() {
     $.post("?app=FUSERS&action=FUSERS_LIST", function (data) {
         $("#flist").html(data);
         convertTrees();
+        restoreSelected();
         focuskey(true);
     });
 }
