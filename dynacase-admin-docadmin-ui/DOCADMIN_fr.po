@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-22 17:05+0100\n"
+"POT-Creation-Date: 2013-03-11 11:48+0100\n"
 "PO-Revision-Date: 2013-01-30 16:39+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -18,17 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: tempCatalog.php:3
+msgid "Confirm unattach activated timers matched "
+msgstr ""
+
+#: tempCatalog.php:4
+msgid "Confirm unattach all activated timers"
+msgstr ""
+
+#: tempCatalog.php:12
+msgid "Document filter"
+msgstr ""
+
+#: tempCatalog.php:1
+msgid "Freedom"
+msgstr ""
+
+#: tempCatalog.php:5
+msgid "Next Timers"
+msgstr ""
+
+#: tempCatalog.php:8
+msgid "Purge history"
+msgstr ""
+
+#: tempCatalog.php:7
+msgid "Skipped Timers"
+msgstr ""
+
+#: tempCatalog.php:6
+msgid "Timers history"
+msgstr ""
+
+#: tempCatalog.php:2
+msgid "Timers management"
+msgstr ""
+
+#: tempCatalog.php:11
+msgid "Unattach Timers"
+msgstr ""
+
+#: tempCatalog.php:9
+msgid "Until done date"
+msgstr ""
+
+#: tempCatalog.php:10
+msgid "days"
+msgstr ""
+
+#: Apps/DOCADMIN/DOCADMIN.app:28
+msgid "docadmin:ADMIN_ACTIONS_LIST short_name"
+msgstr ""
+
+#: Apps/DOCADMIN/DOCADMIN.app:20
 msgid "docadmin:DOCADMIN Access"
 msgstr "Accès à l'application DOCADMIN"
 
+#: Apps/DOCADMIN/DOCADMIN.app:33
 msgid "docadmin:Documents management"
 msgstr "Explorateur de documents"
 
+#: Apps/DOCADMIN/DOCADMIN.app:42
+msgid "docadmin:Timers management"
+msgstr "Gestion des minuteurs"
+
+#: Apps/DOCADMIN/DOCADMIN.app:8
 msgid "docadmin:ihm to access and manage documents"
 msgstr "Paramétrage des documents systèmes : cycles, profils, etc."
 
+#: Apps/DOCADMIN/DOCADMIN.app:7
 msgid "docadmin:manage documents"
 msgstr "Gestion des documents"
 
-msgid "docadmin:Timers management"
-msgstr "Gestion des minuteurs"
+#: Actions/DOCADMIN/admin_actions_list.php:49
+msgid "long_name"
+msgstr ""
+
+#: Actions/DOCADMIN/admin_actions_list.php:48
+#: Actions/DOCADMIN/admin_actions_list.php:49
+msgid "short_name"
+msgstr ""
