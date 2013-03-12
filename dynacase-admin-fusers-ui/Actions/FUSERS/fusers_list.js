@@ -56,7 +56,7 @@
                         html += '<span  class="' + item.imgclass + '"><img title="' + item.label + '" src="' + item.imgsrc + '" class="ui-icon-empty"/></span>';
                     }
                 } else {
-                    html += item.label
+                    html += item.label;
                 }
                 html += "</a>";
                 return $("<li></li>")
@@ -112,21 +112,22 @@ $(function () {
 });
 
 function focuskey(expand) {
-    var o = document.getElementById("kid");
-    if (o) {
-        o.focus();
-        o.select();
+    var kid = document.getElementById("kid");
+    if (kid) {
+        kid.focus();
+        kid.select();
     }
     if (expand) {
         expandTree('gtree');
-        expandTree('gtreeeall')
+        expandTree('gtreeeall');
     }
 }
 
 function refreshRightSide(action, grp, elem) {
+    var $element = $(elem);
     $(".selected").removeClass("selected");
-    $(elem).addClass("selected");
-    $(document.body).data("selectedSpanId", $(elem).children("span:first").attr("id"));
+    $(document.body).data("selectedSpanId", $element.children("span:first").attr("id"));
+    setSelected();
     $.post("?app=FUSERS", {
         "action":"FUSERS_DATATABLES_LAYOUT",
         "type":action,
@@ -280,7 +281,7 @@ function refreshRightSide(action, grp, elem) {
 
 function addFieldToData(aoData, fieldName, fieldValue) {
     $.each(aoData, function (c) {
-        if (aoData[c].name == fieldName && fieldValue != undefined) {
+        if (aoData[c].name == fieldName && fieldValue !== undefined) {
             aoData[c].value = fieldValue;
             return false;
         }
@@ -337,7 +338,7 @@ function setDatatable(columnDef, type) {
                         if (!ui.item.imgclass) {
                             $(this).html('<img src="' + ui.item.imgsrc + '" title="' + ui.item.label + '"/>');
                         } else {
-                            $(this).html('<span  class="' + ui.item.imgclass + '"><img title="' + ui.item.label + '" src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>')
+                            $(this).html('<span  class="' + ui.item.imgclass + '"><img title="' + ui.item.label + '" src="' + ui.item.imgsrc + '" class="ui-icon-empty"/></span>');
                         }
                         $("#typeValue").val(ui.item.value);
                         datatable.fnDraw();
@@ -385,9 +386,9 @@ function findSearchString($elements, fields, dataTable) {
 }
 
 function displayWindow(height, width, ref, type) {
-    var dialog = $("#dialogmodal");
-    var $width = $(window).width() * 0.8;
-    var $height = $(window).height() * 0.8;
+    var dialog = $("#dialogmodal"),
+    $width = $(window).width() * 0.8,
+    $height = $(window).height() * 0.8;
     //var $jParent = window.parent.jQuery.noConflict();
     if (dialog.length <= 0) {
         dialog = $('<iframe id="dialogmodal" style="padding: 0;" src="' + ref + '" frameborder="0"></iframe>').appendTo('body');
@@ -415,11 +416,15 @@ function displayWindow(height, width, ref, type) {
             $(this).attr("src", "Images/1x1.gif");
             return false;
         }
-    }).width($width).height($height).on("load", function () {
+    });
+
+    dialog.width($width).height($height);
+
+    dialog.on("load", function () {
             var $this = $(this), doc, oldFrame;
             doc = this.contentDocument || this.contentWindow.document;
             if (doc) {
-                dialog.dialog("option", "title", doc.title || "");
+                dialog.dialog("option", "title", $("<div/>").text((doc.title || "")).html());
             }
             if (doc && doc.location && doc.location.href &&
                 doc.location.href.toLowerCase().indexOf("images/1x1.gif") > -1) {
@@ -435,21 +440,24 @@ function displayWindow(height, width, ref, type) {
                 if (isIE) {
                     $('body').css('overflow', 'auto');
                 }
-                if (type == "group") refreshLeftSide();
+                if (type == "group") {
+                    refreshLeftSide();
+                }
                 oldFrame.append($this);
             }
         });
 }
 
-function restoreSelected() {
+function setSelected() {
+    var $body = $(document.body), spanNode,
+    selectedSpanId = $body.data('selectedSpanId');
     $(".selected").removeClass("selected");
-    var selectedSpanId = $(document.body).data('selectedSpanId');
     if (selectedSpanId === undefined) {
         return false;
     }
-    var spanNode = document.getElementById(selectedSpanId);
+    spanNode = document.getElementById(selectedSpanId);
     if (spanNode === null) {
-        $(document.body).removeData('selectedSpanId');
+        $body.removeData('selectedSpanId');
         return false;
     }
     $(spanNode).parent('a').addClass("selected");
@@ -460,12 +468,13 @@ function refreshLeftSide() {
     $.post("?app=FUSERS&action=FUSERS_LIST", function (data) {
         $("#flist").html(data);
         convertTrees();
-        restoreSelected();
+        setSelected();
         focuskey(true);
     });
 }
-$(window).on("load", function (e) {
+
+$(document).ready(function (event) {
     convertTrees();
-    focuskey(e);
+    focuskey(event);
     refreshRightSide('user', 0, $("#SPANUsers").parent());
 });
