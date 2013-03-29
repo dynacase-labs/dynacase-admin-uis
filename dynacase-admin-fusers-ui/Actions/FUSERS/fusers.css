@@ -333,7 +333,7 @@ table.dataTable tr.odd td.sorting_1, table.dataTable tr.even td.sorting_1 { back
     /* Turn off list bullets */
     ul.mktree  li { list-style: none; }
     /* Control how "spaced out" the tree is */
-    ul.mktree {margin-left: 0;padding:0;}
+    ul.mktree {margin-left: 0;padding:0;overflow:auto;}
     ul.mktree ul , ul.mktree li { margin-left:3px; padding:0; }
     /* Provide space for our own "bullet" inside the LI */
     ul.mktree  li .bullet { padding-left: 12px; }

@@ -299,6 +299,7 @@ function setDatatable(columnDef, type) {
         iDisplayLength:$("#fusersDisplayLength").val(),
         sAjaxSource:"?app=FUSERS&action=FUSERS_GET_DATATABLE_INFO",
         bDeferRender:true,
+        "sScrollY": "100px",
         sDom:'rt<"F"ip>l',
         "aaSorting":[
             [1, 'asc']
@@ -325,6 +326,7 @@ function setDatatable(columnDef, type) {
                 {"name":"group", "value":$("#fusersGroup").val()});
         },
         fnDrawCallback:function () {
+            $(".dataTables_scrollBody").height($(window).height() - $("#buttonset").outerHeight(true) - $(".dataTables_info").parent().outerHeight(true) - $(".dataTables_length").outerHeight(true)- $(".dataTables_scrollHead").outerHeight(true) - correctedHeight);
             $("#icon").combobox({
                 mode:"button",
                 autocomplete:{
@@ -472,9 +474,17 @@ function refreshLeftSide() {
         focuskey(true);
     });
 }
-
+var correctedHeight = 25;
 $(document).ready(function (event) {
     convertTrees();
     focuskey(event);
     refreshRightSide('user', 0, $("#SPANUsers").parent());
+    var $gtree = $("#gtree");
+    var gtreemargin = $gtree.outerHeight(true) - $gtree.outerHeight();
+    $gtree.height($(window).height() - $("#gtreeall").outerHeight(true) - correctedHeight - gtreemargin);
+    $(window).on("resize", function() {
+        $("#gtree").height($(this).height() - $("#gtreeall").outerHeight(true) - correctedHeight - gtreemargin);
+        $(".dataTables_scrollBody").height($(this).height() - $("#buttonset").outerHeight(true) - $(".dataTables_info").parent().outerHeight(true) - $(".dataTables_length").outerHeight(true)- $(".dataTables_scrollHead").outerHeight(true) - correctedHeight);
+    });
 });
+
