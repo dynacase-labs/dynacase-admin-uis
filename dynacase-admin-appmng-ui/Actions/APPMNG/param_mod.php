@@ -61,12 +61,6 @@ function param_mod(Action & $action)
             }
         }
     }
-    // reopen a new session to update parameters cache
-    if ($atype[0] == PARAM_USER) {
-        $action->parent->session->close();
-    } else {
-        $action->parent->session->closeAll();
-    }
     if ($pdef->kind == "password") {
         if ($ParamCour->val == '') $data["value"] = $ParamCour->val;
         else $data["value"] = "*****";
