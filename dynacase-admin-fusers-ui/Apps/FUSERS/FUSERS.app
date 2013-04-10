@@ -23,8 +23,8 @@
 // ---------------------------------------------------------------
 $app_desc = array(
     "name" => "FUSERS", //Name
-    "short_name" => N_("Users"), //Short name
-    "description" => N_("Users Management"), //long description
+    "short_name" => N_("Users") , //Short name
+    "description" => N_("Users Management") , //long description
     "access_free" => "N", //Access free ? (Y,N)
     "icon" => "fusers.png", //Icon
     "displayable" => "Y", //Should be displayed on an app list (Y,N)
@@ -35,86 +35,87 @@ $app_desc = array(
 );
 
 $app_acl = array(
-
+    
     array(
         "name" => "FUSERS",
-        "description" => N_("To create and modify users and groups"),
-        "group_default" => "N"),
-
+        "description" => N_("To create and modify users and groups") ,
+        "group_default" => "N"
+    ) ,
+    
     array(
         "name" => "FUSERS_MASTER",
-        "description" => N_("Access to user refresh function"),
-        "group_default" => "N")
+        "description" => N_("Access to user refresh function") ,
+        "group_default" => "N"
+    )
 );
 $action_desc = array(
-
+    
     array(
         "name" => "FUSERS_ROOT",
-        "short_name" => N_("fusers root window"),
+        "short_name" => N_("fusers root window") ,
         "acl" => "FUSERS",
         "root" => "Y"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_LIST",
-        "short_name" => N_("fusers list window"),
+        "short_name" => N_("fusers list window") ,
         "acl" => "FUSERS"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_VIEW",
-        "short_name" => N_("fusers view/edit window"),
+        "short_name" => N_("fusers view/edit window") ,
         "acl" => "FUSERS"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_IUSER",
-        "short_name" => N_("refresh users intranet attributes"),
+        "short_name" => N_("refresh users intranet attributes") ,
         "acl" => "FUSERS_MASTER"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_LDAPINIT",
-        "short_name" => N_("refresh ldap entries"),
+        "short_name" => N_("refresh ldap entries") ,
         "script" => "fusers_iuser.php",
         "function" => "fusers_ldapinit",
         "acl" => "FUSERS_MASTER"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_IGROUP",
-        "short_name" => N_("refresh groups"),
+        "short_name" => N_("refresh groups") ,
         "script" => "fusers_iuser.php",
         "function" => "fusers_igroup",
         "acl" => "FUSERS_MASTER"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_MAINCOLS",
-        "short_name" => N_("iuser choose main view column"),
+        "short_name" => N_("iuser choose main view column") ,
         "acl" => "FUSERS",
         "root" => "N"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_MAIN",
-        "short_name" => N_("iuser list main page"),
+        "short_name" => N_("iuser list main page") ,
         "acl" => "FUSERS",
         "root" => "N"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_DATATABLES_LAYOUT",
-        "short_name" => N_("get layout for datatable"),
-        "acl" => "FUSERS_MASTER",
+        "short_name" => N_("get layout for datatable") ,
+        "acl" => "FUSERS",
         "root" => "N"
-    ),
+    ) ,
     array(
         "name" => "FUSERS_GET_DATATABLE_INFO",
-        "short_name" => N_("iuser list all"),
-        "acl" => "FUSERS_MASTER",
+        "short_name" => N_("iuser list all") ,
+        "acl" => "FUSERS",
         "root" => "N"
-    ),
+    ) ,
     array(
         "name" => "GET_TYPE_IMAGE",
-        "short_name" => N_("get image type"),
-        "acl" => "FUSERS_MASTER",
+        "short_name" => N_("get image type") ,
+        "acl" => "FUSERS",
         "script" => "fusers_datatables_layout.php",
         "function" => "get_type_image",
         "root" => "N"
     )
 );
-
 ?>
