@@ -35,12 +35,6 @@ function param_delete(Action & $action)
         $err = sprintf(_("the '%s' parameter cannot be removed") , $name);
         $action->addLogMsg($err);
     }
-    // reopen a new session to update parameters cache
-    if ($atype[0] == PARAM_USER) {
-        $action->parent->session->close();
-    } else {
-        $action->parent->session->closeAll();
-    }
     
     $action->lay->template = json_encode(array(
         "success" => $err ? false : true,
