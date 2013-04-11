@@ -3,9 +3,7 @@
 
         <title>[TEXT:Users Management]</title>
         <link rel="shortcut icon" href="[DYNACASE_FAVICO]">
-        [BLOCK CSS_LINKS]
-        <link href="[src]" type="text/css" rel="stylesheet"></link>
-        [ENDBLOCK CSS_LINKS]
+        [CSS:CUSTOMREF]
         [BLOCK JS_LINKS]
         <script type="text/javascript" src="[src]"></script>
         [ENDBLOCK JS_LINKS]

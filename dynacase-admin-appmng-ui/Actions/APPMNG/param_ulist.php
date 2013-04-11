@@ -18,7 +18,7 @@
 //  -----------------------------------
 function param_ulist(Action & $action)
 {
-
+    
     $jslinks = array(
         array(
             "src" => $action->parent->getJsLink("lib/jquery/jquery.js")
@@ -54,53 +54,41 @@ function param_ulist(Action & $action)
             "src" => $action->parent->getJsLink("APPMNG:param_list.js", true)
         )
     );
-    $csslinks = array(
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("APPMNG:param_ulist.css", true)
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("APPMNG:appmng.css", true)
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
-        )
-    );
-    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    
+    $action->parent->AddCssRef("css/dcp/jquery-ui.css");
+    $action->parent->AddCssRef("lib/jquery-dataTables/css/jquery.dataTables.css");
+    $action->parent->AddCssRef("APPMNG:param_ulist.css", true);
+    $action->parent->AddCssRef("APPMNG:appmng.css", true);
+    $action->parent->AddCssRef("WHAT/Layout/size-normal.css");
+    
     $action->lay->setBlockData("JS_LINKS", $jslinks);
-
+    
     return;
 }
-
 /**
  * Get user list
  *
  * @param Action $action
  */
-function appmngGetUsers(Action &$action)
+function appmngGetUsers(Action & $action)
 {
     $usage = new ActionUsage($action);
-
+    
     $filterName = $usage->addOptionalParameter("filterName", "filterName");
-
+    
     $usage->verify(true);
-
+    
     $data = array();
-
+    
     $search = new SearchDoc("", "IUSER");
     $search->setObjectReturn(true);
     $search->addFilter("title ~* '%s' or us_login ~* '%s'", $filterName, $filterName);
     $search->setSlice(25);
-
-    foreach($search->getDocumentList() as $currentUser) {
+    
+    foreach ($search->getDocumentList() as $currentUser) {
         /* @var $currentUser Doc */
         $data[] = array(
-            "label" => trim(sprintf("%s (%s)", $currentUser->getTitle(), $currentUser->getRawValue("us_login"))) ,
+            "label" => trim(sprintf("%s (%s)", $currentUser->getTitle() , $currentUser->getRawValue("us_login"))) ,
             "value" => $currentUser->getRawValue("us_whatid")
         );
     }
@@ -110,10 +98,10 @@ function appmngGetUsers(Action &$action)
             "value" => 0
         );
     }
-
+    
     $action->lay->template = json_encode($data);
     $action->lay->noparse = true;
-
+    
     header('Content-type: application/json');
 }
 ?>

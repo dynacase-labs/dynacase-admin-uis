@@ -39,20 +39,11 @@ function fusers_root(Action & $action)
             "src" => $action->parent->getJsLink("FUSERS:fusers_list.js", true)
         )
     );
-    $csslinks = array(
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("FUSERS:fusers.css", true)
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
-        )
-    );
-    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    
+    $action->parent->AddCssRef("css/dcp/jquery-ui.css");
+    $action->parent->AddCssRef("lib/jquery-dataTables/css/jquery.dataTables.css");
+    $action->parent->AddCssRef("FUSERS:fusers.css", true);
+    $action->parent->AddCssRef("WHAT/Layout/size-normal.css");
+    
     $action->lay->setBlockData("JS_LINKS", $jslinks);
 }
