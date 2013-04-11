@@ -34,21 +34,12 @@ function actionlist(Action & $action)
             "src" => $packUrl
         )
     );
-    $csslinks = array(
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-ui/css/smoothness/jquery-ui.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("lib/jquery-dataTables/css/jquery.dataTables.css")
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("APPMNG:appmng.css", true)
-        ) ,
-        array(
-            "src" => $action->parent->getCssLink("WHAT/Layout/size-normal.css")
-        )
-    );
-    $action->lay->setBlockData("CSS_LINKS", $csslinks);
+    
+    $action->parent->AddCssRef("css/dcp/jquery-ui.css");
+    $action->parent->AddCssRef("lib/jquery-dataTables/css/jquery.dataTables.css");
+    $action->parent->AddCssRef("APPMNG:appmng.css", true);
+    $action->parent->AddCssRef("WHAT/Layout/size-normal.css");
+    
     $action->lay->setBlockData("JS_LINKS", $jslinks);
     $appl_info = array();
     simpleQuery($action->dbaccess, "select id,name from application where name='ACCESS'", $appl_info, false, true);
