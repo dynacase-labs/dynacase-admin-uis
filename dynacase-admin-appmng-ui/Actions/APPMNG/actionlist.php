@@ -77,7 +77,7 @@ function appmngGetApps(Action & $action)
         );
     }
     if ((count($tab) == 0) && ($filterName != '')) $tab[] = array(
-        "label" => sprintf(_("no application match '%s'") , $filterName) ,
+        "label" => sprintf(_("appmng:no application match '%s'") , $filterName) ,
         "value" => 0
     );
     $action->lay->template = json_encode($tab);

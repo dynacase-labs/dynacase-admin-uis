@@ -106,7 +106,7 @@ function appmngGetUsers(Action &$action)
     }
     if ((count($data) == 0) && ($filterName != '')) {
         $data[] = array(
-            "label" => sprintf(_("no account match '%s'") , $filterName) ,
+            "label" => sprintf(_("appmng:no account match '%s'") , $filterName) ,
             "value" => 0
         );
     }

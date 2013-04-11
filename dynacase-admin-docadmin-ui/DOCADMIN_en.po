@@ -91,10 +91,10 @@ msgid "docadmin:manage documents"
 msgstr "manage documents"
 
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "long_name"
+msgid "docadmin:long_name"
 msgstr "Complete name"
 
 #: Actions/DOCADMIN/admin_actions_list.php:48
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "short_name"
+msgid "docadmin:short_name"
 msgstr "Short name"

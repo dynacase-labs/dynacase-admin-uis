@@ -29,7 +29,7 @@
                     </th>
                     <th class="ui-widget-header short_name"
                         style="white-space: nowrap">
-                        <span class="CORETblBold">[TEXT:short_name]</span>
+                        <span class="CORETblBold">[TEXT:appmng:short_name]</span>
                     </th>
                     <th class="ui-widget-header available">
                         <span class="CORETblBold">[TEXT:available]</span>

@@ -19,7 +19,7 @@
   </tr>
 
   <tr>
-    <td valign="center" align="right" class="CORETblCell"><span class="CORETbl">[TEXT:long_name] : </span></td>
+    <td valign="center" align="right" class="CORETblCell"><span class="CORETbl">[TEXT:appmng:long_name] : </span></td>
     <td colspan="3" valign="center" align="left" class="CORETblCell"><span class="CORETbl">
       <font size="-1">[long_name]</font>
     </span></td>

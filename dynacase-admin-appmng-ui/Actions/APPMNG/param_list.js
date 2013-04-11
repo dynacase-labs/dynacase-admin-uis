@@ -103,10 +103,10 @@ $(function () {
                 });
         },
         "oLanguage":{
-            "sZeroRecords":"[TEXT:No matching record found]",
+            "sZeroRecords":"[TEXT:appmng:No matching record found]",
             "sInfo":"[TEXT:Showing _TOTAL_ result]",
-            "sInfoEmpty":"[TEXT:No result]",
-            "sProcessing":"[TEXT: Processing]",
+            "sInfoEmpty":"[TEXT:appmng:No result]",
+            "sProcessing":"[TEXT:appmng:Processing]",
             "sInfoFiltered":""
         },
         fnDrawCallback:function () {

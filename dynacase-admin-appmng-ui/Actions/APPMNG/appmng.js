@@ -65,7 +65,7 @@
             if (this.options.mode == "input") {
                 $("<a>")
                     .attr("tabIndex", -1)
-                    .attr("title", "[TEXT:Show All Items]")
+                    .attr("title", "[TEXT:appmng:Show All Items]")
                     .appendTo(wrapper)
                     .button({
                         icons:{
@@ -136,10 +136,10 @@ function createDatatable(id, url, sortColumn, displayLength, colomDef, fnServerP
             [sortColumn, 'asc']
         ],
         "oLanguage":{
-            "sZeroRecords":"[TEXT:No matching record found]",
+            "sZeroRecords":"[TEXT:appmng:No matching record found]",
             "sInfo":"[TEXT:Showing _TOTAL_ result]",
-            "sInfoEmpty":"[TEXT:No result]",
-            "sProcessing":"[TEXT: Processing]",
+            "sInfoEmpty":"[TEXT:appmng:No result]",
+            "sProcessing":"[TEXT:appmng:Processing]",
             "sInfoFiltered":""
         },
         fnDrawCallback:fnDrawCallback,
@@ -167,7 +167,7 @@ function displaySubWindow(height, width, ref, title, datatable, postUrl) {
             stack:'.ui-dialog',
             position:"center",
             buttons:{
-                "[TEXT:modify]":function () {
+                "[TEXT:appmng:modify]":function () {
                     var form = $(this).find("form").serialize();
                     var $parent = $(this);
                     $.post(postUrl, form, function (data) {
@@ -175,7 +175,7 @@ function displaySubWindow(height, width, ref, title, datatable, postUrl) {
                             $parent.html(data.error);
                             $parent.dialog("option", "buttons", [
                                 {
-                                    text:"[TEXT:Close]",
+                                    text:"[TEXT:appmng:Close]",
                                     click:function () {
                                         $(this).dialog("close");
                                     }
@@ -187,7 +187,7 @@ function displaySubWindow(height, width, ref, title, datatable, postUrl) {
                         }
                     });
                 },
-                "[TEXT:Close]":function () {
+                "[TEXT:appmng:Close]":function () {
                     $(this).dialog("close");
                 }
             },

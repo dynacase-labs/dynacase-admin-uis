@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tempCatalog.php:19
-msgid " Processing"
+msgid "fusers:Processing"
 msgstr "Traitement en cours"
 
 #: Actions/FUSERS/fusers_list.php:115
@@ -32,7 +32,7 @@ msgid "Access to user refresh function"
 msgstr "Accès aux fonctions de raffraichissement des utilisateurs"
 
 #: Actions/FUSERS/fusers_datatables_layout.php:130
-msgid "All"
+msgid "fusers:All"
 msgstr "Tous"
 
 #: Actions/FUSERS/fusers_list.php:80 Actions/FUSERS/fusers_list.php:83
@@ -60,7 +60,7 @@ msgid "Generic Management"
 msgstr "Gestion générique"
 
 #: tempCatalog.php:42
-msgid "Group"
+msgid "fusers:Group"
 msgstr "Groupe"
 
 #: tempCatalog.php:14 tempCatalog.php:15
@@ -68,7 +68,7 @@ msgid "Modify type"
 msgstr "Modifier le type"
 
 #: tempCatalog.php:16
-msgid "No matching record found"
+msgid "fusers:No matching record found"
 msgstr "Aucun résultat trouvé"
 
 #: Actions/FUSERS/fusers_list.php:116
@@ -76,7 +76,7 @@ msgid "No need to refresh group"
 msgstr "Tous les groupes sont actualisés"
 
 #: tempCatalog.php:18
-msgid "No result"
+msgid "fusers:No result"
 msgstr "Aucun résultat"
 
 #: tempCatalog.php:43
@@ -134,11 +134,11 @@ msgid "Select an action"
 msgstr "Autre type"
 
 #: tempCatalog.php:13
-msgid "Show All Items"
+msgid "fusers:Show All Items"
 msgstr "Tout afficher"
 
 #: tempCatalog.php:17
-msgid "Showing _START_ to _END_ of _TOTAL_ "
+msgid "fusers:Showing _START_ to _END_ of _TOTAL_ "
 msgstr "Affiche les résultats _START_ à _END_ sur _TOTAL_"
 
 #: tempCatalog.php:41

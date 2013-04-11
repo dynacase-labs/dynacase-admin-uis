@@ -121,7 +121,7 @@ $(function () {
                                     $parent.html(data.error);
                                     $parent.dialog("option", "buttons", [
                                         {
-                                            text:"[TEXT:Close]",
+                                            text:"[TEXT:appmng:Close]",
                                             click:function () {
                                                 $(this).dialog("close");
                                             }
@@ -133,7 +133,7 @@ $(function () {
                                 }
                             });
                         },
-                        "[TEXT:Close]":function () {
+                        "[TEXT:appmng:Close]":function () {
                             $(this).dialog("close");
                         }
                     },
