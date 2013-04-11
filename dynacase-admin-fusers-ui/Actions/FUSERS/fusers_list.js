@@ -67,7 +67,7 @@
             if (this.options.mode == "input") {
                 $("<a>")
                     .attr("tabIndex", -1)
-                    .attr("title", "[TEXT:Show All Items]")
+                    .attr("title", "[TEXT:fusers:Show All Items]")
                     .appendTo(wrapper)
                     .button({
                         icons:{
@@ -350,12 +350,12 @@ function setDatatable(columnDef, type) {
             });
         },
         "oLanguage":{
-            "sZeroRecords":"[TEXT:No matching record found]",
-            "sInfo":"[TEXT:Showing _START_ to _END_ of _TOTAL_ ]",
-            "sInfoEmpty":"[TEXT:No result]",
+            "sZeroRecords":"[TEXT:fusers:No matching record found]",
+            "sInfo":"[TEXT:fusers:Showing _START_ to _END_ of _TOTAL_ ]",
+            "sInfoEmpty":"[TEXT:fusers:No result]",
             "sInfoFiltered":"",
             "sInfoThousands":" ",
-            "sProcessing":"[TEXT: Processing]",
+            "sProcessing":"[TEXT:fusers:Processing]",
             "sLengthMenu":"[TEXT:show _MENU_ per page]"
         },
         aoColumnDefs:columnDef

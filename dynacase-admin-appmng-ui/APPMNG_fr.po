@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-02-26 12:14+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:36+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -19,7 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: tempCatalog.php:41 tempCatalog.php:50
-msgid " Processing"
+msgid "appmng:Processing"
 msgstr "Traitement en cours"
 
 #: Actions/APPMNG/applist.php:57
@@ -35,7 +35,7 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: tempCatalog.php:29 tempCatalog.php:30 tempCatalog.php:43 tempCatalog.php:44
-msgid "Close"
+msgid "appmng:Close"
 msgstr "Fermer"
 
 #: tempCatalog.php:46
@@ -43,11 +43,11 @@ msgid "Hide static parameters"
 msgstr "Masquer les paramètres non modifiables"
 
 #: tempCatalog.php:38 tempCatalog.php:47
-msgid "No matching record found"
+msgid "appmng:No matching record found"
 msgstr "Aucun résultat correspondant au filtre trouvé"
 
 #: tempCatalog.php:40 tempCatalog.php:49
-msgid "No result"
+msgid "appmng:No result"
 msgstr "Aucun résultat trouvé"
 
 #: tempCatalog.php:63
@@ -67,7 +67,7 @@ msgid "Select all application"
 msgstr "Toutes les applications"
 
 #: tempCatalog.php:37
-msgid "Show All Items"
+msgid "appmng:Show All Items"
 msgstr "Afficher tous les éléments"
 
 #: tempCatalog.php:45 tempCatalog.php:60
@@ -116,14 +116,14 @@ msgstr "Les applications"
 
 #: Apps/APPMNG/APPMNG.app:26
 msgid "appmng:ADMIN_ACTIONS_LIST short_name"
-msgstr ""
+msgstr "Gestion des applications"
 
 #: tempCatalog.php:57
 msgid "appmng:Save"
 msgstr "Sauver"
 
 #: tempCatalog.php:32 tempCatalog.php:65 tempCatalog.php:69
-msgid "appname"
+msgid "appmng:appname"
 msgstr "Application"
 
 #: tempCatalog.php:4 tempCatalog.php:13 tempCatalog.php:20 tempCatalog.php:35
@@ -164,7 +164,7 @@ msgid "descr"
 msgstr "Description"
 
 #: Actions/APPMNG/applist.php:80 tempCatalog.php:19 tempCatalog.php:34
-msgid "description"
+msgid "appmng:description"
 msgstr "Description"
 
 #: tempCatalog.php:21 tempCatalog.php:36
@@ -200,11 +200,11 @@ msgid "err_mod_parameter"
 msgstr "Impossible de modifier le paramètre"
 
 #: Actions/APPMNG/admin_actions_list.php:57 tempCatalog.php:3
-msgid "long_name"
+msgid "appmng:long_name"
 msgstr "Nom complet"
 
 #: tempCatalog.php:42
-msgid "modify"
+msgid "appmng:modify"
 msgstr "Modifier"
 
 #: Apps/APPMNG/APPMNG.app:93
@@ -218,12 +218,12 @@ msgstr "Description"
 
 #: Actions/APPMNG/param_ulist.php:109
 #, c-format
-msgid "no account match '%s'"
+msgid "appmng:no account match '%s'"
 msgstr "Aucunt compte correspondant à '%s' trouver"
 
 #: Actions/APPMNG/actionlist.php:80 Zones/APPMNG/param_list.php:208
 #, c-format
-msgid "no application match '%s'"
+msgid "appmng:no application match '%s'"
 msgstr "Aucune application correspondante à '%s' n'a été trouvée"
 
 #: tempCatalog.php:8 tempCatalog.php:15
@@ -253,7 +253,7 @@ msgstr "Sélectionnez une application"
 #: Actions/APPMNG/admin_actions_list.php:56
 #: Actions/APPMNG/admin_actions_list.php:57 tempCatalog.php:2
 #: tempCatalog.php:12 tempCatalog.php:18
-msgid "short_name"
+msgid "appmng:short_name"
 msgstr "Nom abrégé"
 
 #: tempCatalog.php:66 tempCatalog.php:70

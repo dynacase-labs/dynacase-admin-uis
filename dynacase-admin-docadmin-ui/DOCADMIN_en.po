@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-01-16 16:10+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 12:20+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -32,7 +32,7 @@ msgstr ""
 
 #: tempCatalog.php:1
 msgid "Freedom"
-msgstr ""
+msgstr "Dynacase"
 
 #: tempCatalog.php:5
 msgid "Next Timers"
@@ -68,33 +68,33 @@ msgstr ""
 
 #: Apps/DOCADMIN/DOCADMIN.app:28
 msgid "docadmin:ADMIN_ACTIONS_LIST short_name"
-msgstr ""
+msgstr "ADMIN_ACTIONS_LIST"
 
 #: Apps/DOCADMIN/DOCADMIN.app:20
 msgid "docadmin:DOCADMIN Access"
-msgstr ""
+msgstr "DOCADMIN Access"
 
 #: Apps/DOCADMIN/DOCADMIN.app:33
 msgid "docadmin:Documents management"
-msgstr ""
+msgstr "Documents management"
 
 #: Apps/DOCADMIN/DOCADMIN.app:42
 msgid "docadmin:Timers management"
-msgstr ""
+msgstr "Timers management"
 
 #: Apps/DOCADMIN/DOCADMIN.app:8
 msgid "docadmin:ihm to access and manage documents"
-msgstr ""
+msgstr "ihm to access and manage documents"
 
 #: Apps/DOCADMIN/DOCADMIN.app:7
 msgid "docadmin:manage documents"
-msgstr ""
+msgstr "manage documents"
 
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "long_name"
-msgstr ""
+msgid "docadmin:long_name"
+msgstr "Complete name"
 
 #: Actions/DOCADMIN/admin_actions_list.php:48
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "short_name"
-msgstr ""
+msgid "docadmin:short_name"
+msgstr "Short name"

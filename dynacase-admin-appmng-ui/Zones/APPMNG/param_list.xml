@@ -45,7 +45,7 @@
     <thead>
         <tr>
             <th class="CORETblCell groupby">
-                <span class="CORETblBold">[TEXT:appname]</span>
+                <span class="CORETblBold">[TEXT:appmng:appname]</span>
             </th>
             <th class="CORETblCell name">
                 <div class="search">
@@ -76,7 +76,7 @@
     <thead>
         <tr>
             <th class="CORETblCell groupby">
-                <span class="CORETblBold">[TEXT:appname]</span>
+                <span class="CORETblBold">[TEXT:appmng:appname]</span>
             </th>
             <th class="CORETblCell name">
                 <div class="search">

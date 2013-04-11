@@ -21,13 +21,13 @@
                         </a>
                     </th>
                     <th class="ui-widget-header name">
-                        <span class="CORETblBold">[TEXT:appname]</span>
+                        <span class="CORETblBold">[TEXT:appmng:appname]</span>
                     </th>
                     <th class="ui-widget-header version">
                         <span class="CORETblBold">[TEXT:Version]</span>
                     </th>
                     <th class="ui-widget-header description">
-                        <span class="CORETblBold">[TEXT:description]</span>
+                        <span class="CORETblBold">[TEXT:appmng:description]</span>
                     </th>
                     <th class="ui-widget-header available">
                         <span class="CORETblBold">[TEXT:available]</span>

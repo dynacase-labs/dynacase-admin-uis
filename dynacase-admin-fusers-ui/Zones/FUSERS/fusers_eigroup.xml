@@ -27,7 +27,7 @@ addEvent(window,"load",function al(event) {viewTab(event,'tabsystem');});
 
 <div  class="tabh" >
 <span id="tabsystem" class="tabsel" onclick="showDiv(this,'dsystem')">[TEXT:System]</span>
-<span id="tabgroup" onclick="showDiv(this,'dgroup')">[TEXT:Group]</span>
+<span id="tabgroup" onclick="showDiv(this,'dgroup')">[TEXT:fusers:Group]</span>
 [IF HasOTHERS]<span id="tabother" onclick="showDiv(this,'dothers')">[TEXT:Others]</span>[ENDIF HasOTHERS]</div>
 <div class="tab" ></div>
 <div class="do" id="dsystem" style="display:none">

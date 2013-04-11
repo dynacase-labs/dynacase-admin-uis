@@ -127,7 +127,7 @@ function get_type_image(Action & $action)
     $out[] = array(
         "value" => "",
         "imgsrc" => $action->parent->getImageLink("user.png", true, 18) ,
-        "label" => _("All") ,
+        "label" => _("fusers:All") ,
         "imgclass" => "ui-icon ui-icon-radio-on"
     );
     $action->lay->template = json_encode($out);

@@ -20,7 +20,7 @@
         <tr>
             <td valign="center" align="right"
                 class="CORETblCell">
-                <span class="CORETbl">[TEXT:short_name]&nbsp;:</span>
+                <span class="CORETbl">[TEXT:appmng:short_name]&nbsp;:</span>
             </td>
             <td colspan="2" valign="center" align="left"
                 class="CORETblCell">
@@ -33,7 +33,7 @@
         <tr>
             <td valign="center" align="right"
                 class="CORETblCell">
-                <span class="CORETbl">[TEXT:description]&nbsp;:</span>
+                <span class="CORETbl">[TEXT:appmng:description]&nbsp;:</span>
             </td>
             <td colspan="2" valign="center" align="left"
                 class="CORETblCell">
