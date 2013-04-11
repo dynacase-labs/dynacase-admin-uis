@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-01-16 16:14+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:51+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "<b>%d group(s) to refresh</b>"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:46
+#: Apps/FUSERS/FUSERS.app:47
 msgid "Access to user refresh function"
 msgstr ""
 
@@ -89,7 +89,7 @@ msgstr ""
 
 #: tempCatalog.php:8
 msgid "Refersh groups may take long time. Sure ?"
-msgstr ""
+msgstr "Refreshing groups might take a long time. Really refresh?"
 
 #: tempCatalog.php:7
 msgid "Refresh Groups members and mail"
@@ -101,7 +101,7 @@ msgstr ""
 
 #: tempCatalog.php:5
 msgid "Refresh LDAP may take long time. Sure ?"
-msgstr ""
+msgstr "Refreshing LDAP might take a long time. Really refresh?"
 
 #: tempCatalog.php:9
 msgid "Refresh groups"
@@ -117,7 +117,7 @@ msgstr ""
 
 #: tempCatalog.php:2
 msgid "Refresh users may take long time. Sure ?"
-msgstr ""
+msgstr "Refreshing users might take a long time. Really refresh?"
 
 #: tempCatalog.php:36
 msgid "Reset"
@@ -169,7 +169,7 @@ msgstr ""
 
 #: Actions/FUSERS/fusers_datatables_layout.php:67
 msgid "desc"
-msgstr ""
+msgstr "Description"
 
 #: tempCatalog.php:31
 msgid "edit contact card"
@@ -187,37 +187,37 @@ msgstr ""
 msgid "firstname"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:59
+#: Apps/FUSERS/FUSERS.app:61
 msgid "fusers list window"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:53
+#: Apps/FUSERS/FUSERS.app:55
 msgid "fusers root window"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:64
+#: Apps/FUSERS/FUSERS.app:66
 msgid "fusers view/edit window"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:112
+#: Apps/FUSERS/FUSERS.app:114
 msgid "get image type"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:100
+#: Apps/FUSERS/FUSERS.app:102
 msgid "get layout for datatable"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:88
+#: Apps/FUSERS/FUSERS.app:90
 msgid "iuser choose main view column"
-msgstr ""
+msgstr "Choose main column's view"
 
-#: Apps/FUSERS/FUSERS.app:106
+#: Apps/FUSERS/FUSERS.app:108
 msgid "iuser list all"
-msgstr ""
+msgstr "List all users"
 
-#: Apps/FUSERS/FUSERS.app:94
+#: Apps/FUSERS/FUSERS.app:96
 msgid "iuser list main page"
-msgstr ""
+msgstr "Main page list"
 
 #: Actions/FUSERS/fusers_datatables_layout.php:51
 msgid "label"
@@ -256,15 +256,15 @@ msgstr ""
 msgid "manage columns"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:81
+#: Apps/FUSERS/FUSERS.app:83
 msgid "refresh groups"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:74
+#: Apps/FUSERS/FUSERS.app:76
 msgid "refresh ldap entries"
 msgstr ""
 
-#: Apps/FUSERS/FUSERS.app:69
+#: Apps/FUSERS/FUSERS.app:71
 msgid "refresh users intranet attributes"
 msgstr ""
 

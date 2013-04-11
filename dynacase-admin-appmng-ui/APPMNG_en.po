@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-01-16 16:12+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:44+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -92,7 +92,7 @@ msgstr ""
 
 #: Apps/APPMNG/APPMNG.app:7
 msgid "What Application Management"
-msgstr ""
+msgstr "Applications parameters"
 
 #: tempCatalog.php:5 tempCatalog.php:14
 msgid "acl"
@@ -116,7 +116,7 @@ msgstr ""
 
 #: Apps/APPMNG/APPMNG.app:26
 msgid "appmng:ADMIN_ACTIONS_LIST short_name"
-msgstr ""
+msgstr "Application manager"
 
 #: tempCatalog.php:57
 msgid "appmng:Save"
@@ -124,27 +124,27 @@ msgstr "Save"
 
 #: tempCatalog.php:32 tempCatalog.php:65 tempCatalog.php:69
 msgid "appname"
-msgstr ""
+msgstr "Application"
 
 #: tempCatalog.php:4 tempCatalog.php:13 tempCatalog.php:20 tempCatalog.php:35
 msgid "available"
-msgstr ""
+msgstr "Available"
 
 #: Actions/APPMNG/action_edit.php:34 Actions/APPMNG/app_edit.php:32
 msgid "butcreate"
-msgstr ""
+msgstr "Create"
 
 #: Actions/APPMNG/action_edit.php:47 Actions/APPMNG/app_edit.php:41
 msgid "butmodify"
-msgstr ""
+msgstr "Modify"
 
 #: tempCatalog.php:26
 msgid "delconfirm"
-msgstr ""
+msgstr "Really delete"
 
 #: tempCatalog.php:51
 msgid "delconfirmparam"
-msgstr ""
+msgstr "Do you really wan't to delete parameter"
 
 #: tempCatalog.php:24 tempCatalog.php:28 tempCatalog.php:52 tempCatalog.php:53
 #: tempCatalog.php:55
@@ -177,31 +177,31 @@ msgstr ""
 
 #: Actions/APPMNG/action_mod.php:40
 msgid "err_add_action"
-msgstr ""
+msgstr "Could not create action"
 
 #: Actions/APPMNG/app_mod.php:37
 msgid "err_add_application"
-msgstr ""
+msgstr "Could not create application"
 
 #: Actions/APPMNG/param_mod.php:43
 msgid "err_add_param"
-msgstr ""
+msgstr "Could not create parameter"
 
 #: Actions/APPMNG/action_mod.php:45
 msgid "err_mod_action"
-msgstr ""
+msgstr "Could not modify action"
 
 #: Actions/APPMNG/app_mod.php:42
 msgid "err_mod_application"
-msgstr ""
+msgstr "Could not modify application"
 
 #: Actions/APPMNG/param_mod.php:57
 msgid "err_mod_parameter"
-msgstr ""
+msgstr "Could not modify parameter"
 
 #: Actions/APPMNG/admin_actions_list.php:57 tempCatalog.php:3
 msgid "long_name"
-msgstr ""
+msgstr "Complete name"
 
 #: tempCatalog.php:42
 msgid "modify"
@@ -228,7 +228,7 @@ msgstr ""
 
 #: tempCatalog.php:8 tempCatalog.php:15
 msgid "openaccess"
-msgstr ""
+msgstr "Open access"
 
 #: Actions/APPMNG/param_mod.php:45 Actions/APPMNG/param_mod.php:59
 msgid "param Changed"
@@ -267,23 +267,23 @@ msgstr ""
 
 #: Actions/APPMNG/app_edit.php:31
 msgid "titlecreate"
-msgstr ""
+msgstr "Create application"
 
 #: Actions/APPMNG/action_edit.php:33
 msgid "titlecreateaction"
-msgstr ""
+msgstr "Create action"
 
 #: Actions/APPMNG/app_edit.php:40 tempCatalog.php:25
 msgid "titlemodify"
-msgstr ""
+msgstr "Modify application"
 
 #: Actions/APPMNG/action_edit.php:46 tempCatalog.php:10
 msgid "titlemodifyaction"
-msgstr ""
+msgstr "Modify action"
 
 #: tempCatalog.php:7
 msgid "toc"
-msgstr ""
+msgstr "Toc"
 
 #: tempCatalog.php:56
 msgid "unmodifiable parameter"
@@ -299,4 +299,4 @@ msgstr ""
 
 #: tempCatalog.php:68 tempCatalog.php:72
 msgid "val"
-msgstr ""
+msgstr "Value"

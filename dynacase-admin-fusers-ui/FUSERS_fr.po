@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-03-11 11:48+0100\n"
-"PO-Revision-Date: 2013-02-26 10:31+0100\n"
+"POT-Creation-Date: 2013-04-11 11:55+0200\n"
+"PO-Revision-Date: 2013-04-11 13:51+0100\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -27,7 +27,7 @@ msgstr "Traitement en cours"
 msgid "<b>%d group(s) to refresh</b>"
 msgstr "<b>%d groupe(s) à actualiser"
 
-#: Apps/FUSERS/FUSERS.app:46
+#: Apps/FUSERS/FUSERS.app:47
 msgid "Access to user refresh function"
 msgstr "Accès aux fonctions de raffraichissement des utilisateurs"
 
@@ -189,35 +189,35 @@ msgstr "Filtrer sur le type"
 msgid "firstname"
 msgstr "Prénom"
 
-#: Apps/FUSERS/FUSERS.app:59
+#: Apps/FUSERS/FUSERS.app:61
 msgid "fusers list window"
 msgstr "fuser fenetre liste"
 
-#: Apps/FUSERS/FUSERS.app:53
+#: Apps/FUSERS/FUSERS.app:55
 msgid "fusers root window"
 msgstr "fuser fenêtre principale"
 
-#: Apps/FUSERS/FUSERS.app:64
+#: Apps/FUSERS/FUSERS.app:66
 msgid "fusers view/edit window"
 msgstr "fuser voir/modifier"
 
-#: Apps/FUSERS/FUSERS.app:112
+#: Apps/FUSERS/FUSERS.app:114
 msgid "get image type"
 msgstr "Récupère les différents type d'image"
 
-#: Apps/FUSERS/FUSERS.app:100
+#: Apps/FUSERS/FUSERS.app:102
 msgid "get layout for datatable"
 msgstr "Récupère le template pour ta dataTable"
 
-#: Apps/FUSERS/FUSERS.app:88
+#: Apps/FUSERS/FUSERS.app:90
 msgid "iuser choose main view column"
 msgstr "Choisissez la colonne de vue principale"
 
-#: Apps/FUSERS/FUSERS.app:106
+#: Apps/FUSERS/FUSERS.app:108
 msgid "iuser list all"
 msgstr "List tous les utilisateurs"
 
-#: Apps/FUSERS/FUSERS.app:94
+#: Apps/FUSERS/FUSERS.app:96
 msgid "iuser list main page"
 msgstr "Listez la page principale"
 
@@ -258,15 +258,15 @@ msgstr "édition des colonnes"
 msgid "manage columns"
 msgstr "Gérer les colonnes"
 
-#: Apps/FUSERS/FUSERS.app:81
+#: Apps/FUSERS/FUSERS.app:83
 msgid "refresh groups"
 msgstr "Actualiseles groupes"
 
-#: Apps/FUSERS/FUSERS.app:74
+#: Apps/FUSERS/FUSERS.app:76
 msgid "refresh ldap entries"
 msgstr "actualiser les entrées du LDAP"
 
-#: Apps/FUSERS/FUSERS.app:69
+#: Apps/FUSERS/FUSERS.app:71
 msgid "refresh users intranet attributes"
 msgstr "actualisation des attributs intranet des utilisateurs"
 
