@@ -48,7 +48,7 @@ function fusers_datatables_layout(Action & $action)
             $thead = array(
                 array(
                     "id" => "title",
-                    "name" => _("label") ,
+                    "name" => _("fusers:label") ,
                     "value" => ""
                 )
             );
