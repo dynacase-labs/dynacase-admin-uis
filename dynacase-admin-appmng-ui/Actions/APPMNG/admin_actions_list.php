@@ -53,8 +53,8 @@ SQL;
                 }
                 $body[] = array(
                     "url" => $actionUrl,
-                    "label" => _($adminAction["short_name"]) ,
-                    "title" => (empty($adminAction["long_name"]) ? _($adminAction["short_name"]) : _($adminAction["long_name"]))
+                    "label" => $action->text($adminAction['short_name']) ,
+                    "title" => (empty($adminAction["long_name"]) ? $action->text($adminAction['short_name']) : $action->text($adminAction['long_name']))
                 );
             }
         }

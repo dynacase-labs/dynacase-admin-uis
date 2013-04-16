@@ -38,8 +38,8 @@ function action_edit(Action & $action)
         $ActionCour = new Action($action->dbaccess, $id);
         $action->lay->Set("id", $id);
         $action->lay->Set("name", $ActionCour->name);
-        $action->lay->Set("short_name", $ActionCour->short_name);
-        $action->lay->Set("long_name", $ActionCour->long_name);
+        $action->lay->Set("short_name", $action->text($ActionCour->short_name));
+        $action->lay->Set("long_name", $action->text($ActionCour->long_name));
         $action->lay->Set("acl", $ActionCour->acl);
         $action->lay->Set("root", $ActionCour->root);
         $action->lay->Set("toc", $ActionCour->toc);
