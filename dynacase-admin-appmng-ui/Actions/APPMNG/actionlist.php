@@ -88,6 +88,9 @@ function appmngGetDatatableInfo(Action & $action)
     $appl_id = intval($action->getArgument("action_appl_id"));
     simpleQuery($action->dbaccess, sprintf("select * from action where id_application=%s order by name", pg_escape_string($appl_id)) , $data);
     
+    foreach ($data as $k => $v) {
+        $data[$k]["short_name"] = $action->text($v['short_name']);
+    }
     $out["aaData"] = $data;
     $out["iTotalRecords"] = count($data);
     $out["iTotalDisplayRecords"] = $out["iTotalRecords"];

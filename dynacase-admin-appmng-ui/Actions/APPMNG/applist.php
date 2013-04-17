@@ -63,12 +63,12 @@ function appmngGetAppDatatableInfo(Action & $action)
         $id = $v["id"];
         $p = new Param($action->dbaccess, array(
             "VERSION",
-            PARAM_APP,
+            Param::PARAM_APP,
             $id
         ));
         $version = (isset($p->val) ? $p->val : "");
         $data[$k]["version"] = $version;
-        $data[$k]["description"] = _($v["description"]);
+        $data[$k]["description"] = $action->text($v['description']);
         $data[$k]["appicon"] = $action->parent->getImageLink($v["icon"], true, 18);
     }
     
