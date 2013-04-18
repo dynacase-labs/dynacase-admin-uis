@@ -62,7 +62,7 @@ function appmngGetApps(Action & $action)
     $tab = array();
     foreach ($applist as $v) {
         $tab[] = array(
-            "label" => $v["name"],
+            "label" => htmlspecialchars($v["name"]) ,
             "value" => $v["id"],
             "img" => '<img title="' . $v["name"] . '" src="' . $action->parent->getImageLink($v["icon"], true, 18) . '" />'
         );
@@ -89,7 +89,8 @@ function appmngGetDatatableInfo(Action & $action)
     simpleQuery($action->dbaccess, sprintf("select * from action where id_application=%s order by name", pg_escape_string($appl_id)) , $data);
     
     foreach ($data as $k => $v) {
-        $data[$k]["short_name"] = $action->text($v['short_name']);
+        $data[$k]["name"] = htmlspecialchars($v["name"]);
+        $data[$k]["short_name"] = htmlspecialchars($action->text($v['short_name']));
     }
     $out["aaData"] = $data;
     $out["iTotalRecords"] = count($data);

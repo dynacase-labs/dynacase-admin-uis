@@ -24,6 +24,9 @@ function fusers_list(Action & $action)
     $groupuniq = array();
     if ($groups) {
         foreach ($groups as $k => $v) {
+            $v['lastname'] = htmlspecialchars($v['lastname']);
+            $v['firstname'] = htmlspecialchars($v['firstname']);
+            $v['login'] = htmlspecialchars($v['login']);
             $groupuniq[$v["id"]] = $v;
             $groupuniq[$v["id"]]["checkbox"] = "";
             //if (in_array($v["id"],$ugroup)) 	 $groupuniq[$v["id"]]["checkbox"]="checked";
@@ -40,6 +43,9 @@ function fusers_list(Action & $action)
         uasort($mgroups, "cmpgroup");
         foreach ($mgroups as $k => $v) {
             $cgroup = fusers_getChildsGroup($v["id"], $groups, $groupIcon);
+            $v['lastname'] = htmlspecialchars($v['lastname']);
+            $v['firstname'] = htmlspecialchars($v['firstname']);
+            $v['login'] = htmlspecialchars($v['login']);
             $fid = $v["fid"];
             $v["onclick"] = "refreshRightSide('user','$fid', this)";
             $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
@@ -129,6 +135,9 @@ function fusers_getChildsGroup($id, $groups, $groupIcon)
     foreach ($groups as $k => $v) {
         if ($v["idgroup"] == $id) {
             $fid = $v["fid"];
+            $v['lastname'] = htmlspecialchars($v['lastname']);
+            $v['firstname'] = htmlspecialchars($v['firstname']);
+            $v['login'] = htmlspecialchars($v['login']);
             $v["onclick"] = "refreshRightSide('user','$fid', this)";
             $v["onclickimg"] = "displayWindow(400, 600,'?app=FDL&action=OPENDOC&mode=view&id=$fid', 'group')";
             $tlay[$k] = $v;
