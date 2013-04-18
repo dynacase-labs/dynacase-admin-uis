@@ -24,6 +24,7 @@ $action_desc = array(
     array(
         "name" => "ADMIN_ACTIONS_LIST",
         "short_name" => N_("appmng:ADMIN_ACTIONS_LIST short_name"),
+        "acl" => "ADMIN"
     ),
     array(
         "name"       => "PARAM_ALIST",
@@ -51,7 +52,8 @@ $action_desc = array(
         "toc"        => "Y",
         "toc_order"  => 3,
         "short_name" => N_("applications"),
-        "acl"        => "ADMIN"
+        "acl"        => "ADMIN",
+        "root" => "Y"
     ),
     array(
         "acl"  => "ADMIN",

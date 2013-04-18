@@ -26,6 +26,7 @@ $action_desc = array(
     array(
         "name"       => "ADMIN_ACTIONS_LIST",
         "short_name" => N_("docadmin:ADMIN_ACTIONS_LIST short_name"),
+        "acl" => "DOCADMIN"
     ),
     array(
         "name"       => "DOCS_ADMIN",
