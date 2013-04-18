@@ -68,7 +68,7 @@ function appmngGetAppDatatableInfo(Action & $action)
         ));
         $version = (isset($p->val) ? $p->val : "");
         $data[$k]["version"] = $version;
-        $data[$k]["description"] = $action->text($v['description']);
+        $data[$k]["description"] = htmlspecialchars($action->text($v['description']));
         $data[$k]["appicon"] = $action->parent->getImageLink($v["icon"], true, 18);
     }
     

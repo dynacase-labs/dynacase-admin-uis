@@ -88,7 +88,7 @@ function appmngGetUsers(Action & $action)
     foreach ($search->getDocumentList() as $currentUser) {
         /* @var $currentUser Doc */
         $data[] = array(
-            "label" => trim(sprintf("%s (%s)", $currentUser->getTitle() , $currentUser->getRawValue("us_login"))) ,
+            "label" => trim(sprintf("%s (%s)", $currentUser->getHTMLTitle() , htmlspecialchars($currentUser->getRawValue("us_login")))) ,
             "value" => $currentUser->getRawValue("us_whatid")
         );
     }

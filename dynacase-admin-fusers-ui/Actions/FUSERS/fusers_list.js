@@ -123,6 +123,13 @@ function focuskey(expand) {
     }
 }
 
+function htmlEncode(value) {
+    if (!value) {
+        return '';
+    }
+    return $("<div/>").text(value).html();
+}
+
 function refreshRightSide(action, grp, elem) {
     var $element = $(elem);
     $(".selected").removeClass("selected");
@@ -155,7 +162,7 @@ function refreshRightSide(action, grp, elem) {
                         "mDataProp":"us_login",
                         bUseRendered:false,
                         fnRender:function (data) {
-                            return '<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + data.aData.us_login + '</a>';
+                            return '<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + htmlEncode(data.aData.us_login) + '</a>';
                         }
                     },
                     {
@@ -163,7 +170,7 @@ function refreshRightSide(action, grp, elem) {
                         "mDataProp":"us_lname",
                         bUseRendered:false,
                         fnRender:function (data) {
-                            return data.aData.us_lname ? data.aData.us_lname : "";
+                            return htmlEncode(data.aData.us_lname);
                         }
                     },
                     {
@@ -171,7 +178,7 @@ function refreshRightSide(action, grp, elem) {
                         "mDataProp":"us_fname",
                         bUseRendered:false,
                         fnRender:function (data) {
-                            return data.aData.us_fname ? data.aData.us_fname : "";
+                            return htmlEncode(data.aData.us_fname);
                         }
                     },
                     {
@@ -179,7 +186,7 @@ function refreshRightSide(action, grp, elem) {
                         "mDataProp":"us_mail",
                         bUseRendered:false,
                         fnRender:function (data) {
-                            return  data.aData.us_mail ? data.aData.us_mail : "";
+                            return  htmlEncode(data.aData.us_mail) ;
                         }
                     }
                 ];
@@ -202,7 +209,7 @@ function refreshRightSide(action, grp, elem) {
                         "aTargets":['title'],
                         "mDataProp":"title",
                         fnRender:function (data) {
-                            return'<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + data.aData.title + '</a>';
+                            return'<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + htmlEncode(data.aData.title) + '</a>';
                         }
                     }
                 ];
@@ -225,12 +232,15 @@ function refreshRightSide(action, grp, elem) {
                         "aTargets":['us_login'],
                         "mDataProp":"us_login",
                         fnRender:function (data) {
-                            return '<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + data.aData.us_login + '</a>';
+                            return '<a href="[CORE_STANDURL]&app=FDL&action=FDL_CARD&id=' + data.aData.id + '">' + htmlEncode(data.aData.us_login) + '</a>';
                         }
                     },
                     {
                         "aTargets":['grp_name'],
-                        "mDataProp":"grp_name"
+                        "mDataProp":"grp_name",
+                        fnRender:function (data) {
+                            return htmlEncode(data.aData.grp_name);
+                        }
                     }
                 ];
                 searchCols = ["title"];
