@@ -1,5 +1,5 @@
 PACKAGE = dynacase-admin-docadmin-ui
-VERSION = 3.2.5
+VERSION = @VERSION_DOCADMIN@
 utildir = @PUBRULE@
 pubdir = @prefix@
 srcdir = @srcdir@

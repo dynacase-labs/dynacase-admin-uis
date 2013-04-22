@@ -1,5 +1,5 @@
 PACKAGE = dynacase-admin-fusers-ui
-VERSION = 3.2.5
+VERSION = @VERSION_FUSERS@
 utildir = @PUBRULE@
 pubdir = @prefix@
 srcdir = @srcdir@
