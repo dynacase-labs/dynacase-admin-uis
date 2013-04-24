@@ -277,6 +277,13 @@ function refreshRightSide(action, grp, elem) {
                     at:"left bottom",
                     of:this
                 });
+                var menuPosition = menu.offset();
+                var marginLeftRight  = (menu.css("position") === "absolute") ? 0: ($("body").outerWidth(true)  - $("body").outerWidth());
+                menu.css({
+                    position: "absolute",
+                    top: menuPosition.top,
+                    left: menuPosition.left + marginLeftRight
+                });
                 $(window).one("click", function () {
                     menu.hide();
                 });
