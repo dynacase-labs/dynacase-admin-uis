@@ -32,7 +32,7 @@ $(function () {
                         }
                         if ($("#fedit").find("[name=atype]").val()[0] !== "U") {
                             modified[data.data.id + data.data.appid] = {
-                                "value":data.data.value + " <i>(" + data.data.textModify + ")</i>",
+                                "value":htmlEncode(data.data.value) + " <i>(" + data.data.textModify + ")</i>",
                                 "class":'changed'
                             };
                             editedParam.innerHTML = modified[data.data.id + data.data.appid]["value"];
@@ -202,7 +202,7 @@ $(function () {
                     }
                     var onclick = "movediv(this,'" + data.aData.name + "','" + data.aData.type + "','" + data.aData.appid + "','" + data.aData.kind + "',this.getAttribute('avalue'))";
                     var id = data.aData["DT_RowId"];
-                    var val = (data.aData.val ? data.aData.val : "&nbsp;");
+                    var val = (data.aData.val ? htmlEncode(data.aData.val) : "&nbsp;");
                     var rowclass = data.aData.classtype;
                     if (modified[id]) {
                         val = modified[id]["value"];
@@ -285,6 +285,12 @@ $(function () {
 
     findSearchString($datatable.find("thead").find("input"), ["appname", "name"], datatable);
 });
+function htmlEncode(value) {
+    if (!value) {
+        return '';
+    }
+    return $("<div/>").text(value).html();
+}
 
 var modified = {};
 var currentColor = '';
