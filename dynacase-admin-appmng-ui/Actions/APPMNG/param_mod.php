@@ -22,7 +22,7 @@ function param_mod(Action & $action)
     // Get all the params
     $appid = $action->getArgument("appid");
     $name = $action->getArgument("aname");
-    $atype = $action->getArgument("atype", PARAM_APP);
+    $atype = $action->getArgument("atype", Param::PARAM_APP);
     $val = $action->getArgument("val");
     $err = '';
     $data = array();
@@ -32,7 +32,11 @@ function param_mod(Action & $action)
         $appid
     ));
     
-    $pdef = new paramdef($action->dbaccess, $name);
+    $pdef = ParamDef::getParamDef($name,$appid);
+    if (!$pdef) {
+        $err=sprintf(_("parameter %s not found (application #%d)"),$name, $appid);
+    } else {
+
     if (!$ParamCour->isAffected()) {
         $ParamCour->appid = $appid;
         $ParamCour->type = $atype;
@@ -48,8 +52,12 @@ function param_mod(Action & $action)
         if (($pdef->kind == "password") && ($val == '*****')) {
             $data["textModify"] = _("param not changed");
         } else {
-            if ($ParamCour->val == $val || $pdef == 'static' || $pdef == 'readonly') {
-                $data["textModify"] = _("param not changed");
+            if ($ParamCour->val == $val || $pdef->kind == 'static' || $pdef->kind == 'readonly') {
+                if ($ParamCour->val == $val) {
+                    $data["textModify"] = _("same value param not changed");
+                } else {
+                $data["textModify"] = _("read only : param not changed");
+                }
             } else {
                 $ParamCour->val = $val;
                 $err = $ParamCour->Modify();
@@ -66,6 +74,7 @@ function param_mod(Action & $action)
         else $data["value"] = "*****";
     } else {
         $data["value"] = $ParamCour->val;
+    }
     }
     $data["id"] = $name;
     $data["appid"] = $ParamCour->appid;
