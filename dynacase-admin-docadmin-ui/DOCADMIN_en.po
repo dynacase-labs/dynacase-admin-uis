@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-04-11 11:55+0200\n"
-"PO-Revision-Date: 2013-04-11 12:20+0100\n"
+"POT-Creation-Date: 2013-06-04 16:17+0200\n"
+"PO-Revision-Date: 2013-06-04 16:19+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -18,51 +18,83 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: tempCatalog.php:3
+#: tempCatalog.php:9
 msgid "Confirm unattach activated timers matched "
 msgstr ""
 
-#: tempCatalog.php:4
+#: tempCatalog.php:10
 msgid "Confirm unattach all activated timers"
 msgstr ""
 
-#: tempCatalog.php:12
+#: tempCatalog.php:18
 msgid "Document filter"
 msgstr ""
 
-#: tempCatalog.php:1
-msgid "Freedom"
-msgstr "Dynacase"
-
-#: tempCatalog.php:5
-msgid "Next Timers"
-msgstr ""
-
-#: tempCatalog.php:8
-msgid "Purge history"
+#: tempCatalog.php:19
+msgid "Filter Documents"
 msgstr ""
 
 #: tempCatalog.php:7
+msgid "Freedom"
+msgstr "Dynacase"
+
+#: tempCatalog.php:11
+msgid "Next Timers"
+msgstr ""
+
+#: tempCatalog.php:14
+msgid "Purge history"
+msgstr ""
+
+#: tempCatalog.php:4
+msgid "Rest delay"
+msgstr ""
+
+#: tempCatalog.php:13
 msgid "Skipped Timers"
 msgstr ""
 
 #: tempCatalog.php:6
+msgid "Timer result"
+msgstr ""
+
+#: tempCatalog.php:3
+msgid "Timer:Action"
+msgstr "Action"
+
+#: tempCatalog.php:2
+msgid "Timer:Document"
+msgstr "Document"
+
+#: tempCatalog.php:5
+msgid "Timer:Done date"
+msgstr "Done date"
+
+#: tempCatalog.php:20
+msgid "TimerOK"
+msgstr "OK"
+
+#: tempCatalog.php:12
 msgid "Timers history"
 msgstr ""
 
-#: tempCatalog.php:2
+#: tempCatalog.php:1 tempCatalog.php:8
 msgid "Timers management"
 msgstr ""
 
-#: tempCatalog.php:11
+#: Apps/DOCADMIN/DOCADMIN.app:51
+msgid "Timers management result"
+msgstr ""
+
+#: tempCatalog.php:17
 msgid "Unattach Timers"
 msgstr ""
 
-#: tempCatalog.php:9
+#: tempCatalog.php:15
 msgid "Until done date"
 msgstr ""
 
-#: tempCatalog.php:10
+#: tempCatalog.php:16
 msgid "days"
 msgstr ""
 
@@ -74,11 +106,11 @@ msgstr "ADMIN_ACTIONS_LIST"
 msgid "docadmin:DOCADMIN Access"
 msgstr "DOCADMIN Access"
 
-#: Apps/DOCADMIN/DOCADMIN.app:33
+#: Apps/DOCADMIN/DOCADMIN.app:34
 msgid "docadmin:Documents management"
 msgstr "Documents management"
 
-#: Apps/DOCADMIN/DOCADMIN.app:42
+#: Apps/DOCADMIN/DOCADMIN.app:43
 msgid "docadmin:Timers management"
 msgstr "Timers management"
 
@@ -91,10 +123,31 @@ msgid "docadmin:manage documents"
 msgstr "manage documents"
 
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "docadmin:long_name"
-msgstr "Complete name"
+msgid "long_name"
+msgstr ""
 
 #: Actions/DOCADMIN/admin_actions_list.php:48
 #: Actions/DOCADMIN/admin_actions_list.php:49
-msgid "docadmin:short_name"
-msgstr "Short name"
+msgid "short_name"
+msgstr ""
+
+#: Actions/DOCADMIN/timers_admin_result.php:126
+#, c-format
+msgid "timer:apply method %s"
+msgstr "Apply method %s"
+
+#: Actions/DOCADMIN/timers_admin_result.php:121
+#, c-format
+msgid "timer:change state to %s"
+msgstr "Change state to %s"
+
+#: Actions/DOCADMIN/timers_admin_result.php:114
+#, c-format
+msgid "timer:send mail with template %s [%d]"
+msgstr "Send mail with template %s [%d]"
+
+#~ msgid "docadmin:long_name"
+#~ msgstr "Complete name"
+
+#~ msgid "docadmin:short_name"
+#~ msgstr "Short name"

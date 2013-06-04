@@ -3,6 +3,9 @@
 a.selected { 
    background-color:[COLOR_B8];
              }
+input[name="filter"] {
+    width:160px;
+    }
 </style> 
 <script type="text/javascript">
 function resizeiframe() {
@@ -43,7 +46,7 @@ addEvent(window,'resize',resizeiframe);
       method="POST" ENCTYPE="multipart/form-data"
       target="timerresult"
       onsubmit="return aalert()"
-      action="[CORE_STANDURL]&app=FREEDOM&action=TIMERS_ADMIN_RESULT">
+      action="[CORE_STANDURL]&app=DOCADMIN&action=TIMERS_ADMIN_RESULT">
 <input type="hidden" name="type">
 <a class="selected" onclick="asend('next')">[TEXT:Next Timers]</a><br/>
 <a onclick="aselect(this);asend('previous');">[TEXT:Timers history]</a><br/>
@@ -53,12 +56,12 @@ addEvent(window,'resize',resizeiframe);
 <a onclick="aselect(this);asend('detach')">[TEXT:Unattach Timers]</a><br/>
 [TEXT:Document filter]:<br/>
 <input type="text" name="filter">
-<input type="submit" style="display:none">
+<input type="submit" title="[TEXT:Filter Documents]" value="[TEXT:TimerOK]">
 </form>
 
 
 </td>
-<td ><iframe  name="timerresult" style="display2:none;  height:100%; width:100%;border:none;padding:0px;margin:0px" src="[CORE_STANDURL]&app=FREEDOM&action=TIMERS_ADMIN_RESULT&type=next"></iframe>
+<td ><iframe  name="timerresult" style="height:100%; width:100%;border:none;padding:0px;margin:0px" src="[CORE_STANDURL]&app=DOCADMIN&action=TIMERS_ADMIN_RESULT&type=next"></iframe>
 </tr></table>
 <iframe id="detailresult" name="detailresult" style="height:100px;  width:100%; border-style:solid none none none;padding:0px;margin:0px" src="about:blank"></iframe>
 [ZONE FDL:HTMLFOOT]

@@ -44,6 +44,12 @@ $action_desc = array(
         "script"     => "timers_admin.php",
         "function"   => "timers_admin",
         "layout"     => "timers_admin.xml"
+    ),
+
+    array(
+     "name"		=>"TIMERS_ADMIN_RESULT",
+     "short_name"		=>N_("Timers management result"),
+     "acl"		=>"DOCADMIN"
     )
 );
 
