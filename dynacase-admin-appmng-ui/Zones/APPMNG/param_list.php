@@ -83,7 +83,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $withStatic = ($withStatic == "true") ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
-        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
+        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramdef.appid=paramv.appid and paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
     
@@ -91,7 +91,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
         /**
          * Getting all parameters
          */
-        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s %s order by application.name, paramv.name, paramv.type desc", PARAM_GLB, PARAM_APP, $withStatic, $type, $second_type, $filterQuery, $paramType) , $tparam);
+        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramdef.appid=paramv.appid and paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_GLB, Param::PARAM_APP, $withStatic, $type, $second_type, $filterQuery, $paramType) , $tparam);
     }
     
     $vsection = "appid";
@@ -132,8 +132,8 @@ function appmngGetParamListDatatableInfo(Action & $action)
                 $tincparam = $v;
             }
             // to show difference between global, user and application parameters
-            if ($tincparam["type"][0] == PARAM_APP) $tincparam["classtype"] = "aparam";
-            else if ($tincparam["type"][0] == PARAM_USER) $tincparam["classtype"] = "uparam";
+            if ($tincparam["type"][0] == Param::PARAM_APP) $tincparam["classtype"] = "aparam";
+            else if ($tincparam["type"][0] == Param::PARAM_USER) $tincparam["classtype"] = "uparam";
             else $tincparam["classtype"] = "gparam";
             if ($tincparam["kind"] == "password") {
                 if ($tincparam["val"] != "") $tincparam["val"] = "*****";
@@ -149,7 +149,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
                 $tincparam["classtype"].= " static";
             }
             // force type user if user mode
-            if ($userid > 0) $tincparam["type"] = PARAM_USER . $userid;
+            if ($userid > 0) $tincparam["type"] = Param::PARAM_USER . $userid;
             
             if ($tincparam["descr"] == "") $tincparam["descr"] = $tincparam["name"];
             else $tincparam["descr"] = _($tincparam["descr"]);
@@ -210,7 +210,7 @@ function appmngGetAppsParam(Action & $action)
         );
     } else {
         $tab[] = array(
-            "label" => _("Select all application"),
+            "label" => _("Select all application") ,
             "value" => "",
             "img" => '<img title="' . _("all applications") . '" src="' . $action->parent->getImageLink("appmng.png", true, 18) . '" class="ui-icon-empty"/>'
         );
