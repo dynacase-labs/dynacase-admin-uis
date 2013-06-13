@@ -6,13 +6,13 @@
     </description>
 
     <requires>
-        <module comp='ge' version='3.2.5' name='dynacase-core'/>
+        <module comp='ge' version='3.2.8' name='dynacase-core'/>
         <module comp='ge' version='1.0.0' name='dynacase-admin'/>
-        <module comp='ge' version='3.2.5' name='dynacase-admin-access-ui'/>
-        <module comp='ge' version='3.2.5' name='dynacase-admin-appmng-ui'/>
-        <module comp='ge' version='3.2.5' name='dynacase-admin-docadmin-ui'/>
-        <module comp='ge' version='3.2.5' name='dynacase-admin-fusers-ui'/>
-        <module comp='ge' version='3.2.5' name='dynacase-admin-vault-ui'/>
+        <module comp='ge' version='3.2.6' name='dynacase-admin-access-ui'/>
+        <module comp='ge' version='3.2.8' name='dynacase-admin-appmng-ui'/>
+        <module comp='ge' version='3.2.7' name='dynacase-admin-docadmin-ui'/>
+        <module comp='ge' version='3.2.7' name='dynacase-admin-fusers-ui'/>
+        <module comp='ge' version='3.2.6' name='dynacase-admin-vault-ui'/>
     </requires>
 
     <post-install>
