@@ -83,7 +83,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $withStatic = ($withStatic == "true") ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
-        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramdef.appid=paramv.appid and paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
+        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application,application as a where paramv.name=paramdef.name and ((paramv.appid=paramdef.appid and a.id=application.id) or (paramv.appid=application.id and application.childof=a.name and a.id=paramdef.appid)) and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
     
@@ -91,7 +91,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
         /**
          * Getting all parameters
          */
-        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application where paramdef.appid=paramv.appid and paramv.name = paramdef.name and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_GLB, Param::PARAM_APP, $withStatic, $type, $second_type, $filterQuery, $paramType) , $tparam);
+        simpleQuery($action->dbaccess, sprintf("SELECT paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application,application as a where paramv.name=paramdef.name and ((paramv.appid=paramdef.appid and a.id=application.id) or (paramv.appid=application.id and application.childof=a.name and a.id=paramdef.appid)) and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and  ((type = '%s') OR (type='%s')) %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_GLB, Param::PARAM_APP, $withStatic, $type, $second_type, $filterQuery, $paramType) , $tparam);
     }
     
     $vsection = "appid";
