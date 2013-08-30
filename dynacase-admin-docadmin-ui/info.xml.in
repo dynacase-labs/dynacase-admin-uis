@@ -18,6 +18,10 @@
         command="./wsh.php --api=importDocuments --file=./DOCADMIN/Data/Init.csv">
           <label lang="en">Initializing DOCADMIN roles and ACLs</label>
         </process>
+        <process
+                        command="./wsh.php --api=importDocuments --file=./DOCADMIN/Data/Update.csv">
+                          <label lang="en">Init DOCADMIN searches</label>
+                        </process>
         <process command="programs/update_catalog" />
     </post-install>
 
@@ -27,6 +31,10 @@
             <label lang="en">Update DOCADMIN application in database</label>
         </process>
         <process command="programs/post_migration DOCADMIN" />
+        <process
+                command="./wsh.php --api=importDocuments --file=./DOCADMIN/Data/Update.csv">
+                  <label lang="en">Update DOCADMIN searches</label>
+                </process>
         <process command="programs/update_catalog" />
     </post-upgrade>
 

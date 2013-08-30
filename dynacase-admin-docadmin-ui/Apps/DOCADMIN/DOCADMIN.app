@@ -50,7 +50,20 @@ $action_desc = array(
      "name"		=>"TIMERS_ADMIN_RESULT",
      "short_name"		=>N_("Timers management result"),
      "acl"		=>"DOCADMIN"
-    )
+    ),
+    array(
+        "name"       => "SYSTEM_DOCS",
+        "acl" => "DOCADMIN",
+        "short_name" => N_("docadmin:View system document"),
+        "script"     => "system_docs.php",
+        "function"   => "system_docs",
+        "layout"     => "system_docs.html"
+    ),
+    array(
+        "name"       => "SYSTEM_GETDATA",
+        "acl" => "DOCADMIN",
+        "short_name" => N_("docadmin:View system document")
+    ),
 );
 
 ?>

@@ -4,15 +4,13 @@ SUBDIR = $(filter-out Makefile, $(wildcard */))
 
 include $(utildir)/PubRule
 
-$(pubdir)/$(appname)/data/Init.csv: Init.csv $(pubdir)/$(appname)/data
-	cp $< $@
 
 $(pubdir)/$(appname)/Data:
 	mkdir -p $@
 
-$(pubdir)/$(appname)/Data/Init.csv: Init.csv $(pubdir)/$(appname)/Data
+$(pubdir)/$(appname)/Data/%.csv: %.csv $(pubdir)/$(appname)/Data
 	cp $< $@
 
-publish: $(pubdir)/$(appname)/Data/Init.csv
+publish: $(pubdir)/$(appname)/Data/Init.csv $(pubdir)/$(appname)/Data/Update.csv
 
 DISTFILES = $(SUBDIR) Makefile
