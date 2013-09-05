@@ -33,16 +33,15 @@ function system_getdata(&$action)
     $usage->verify();
     
     $data = array();
-
-
+    
     $d = new_doc($action->dbaccess, $searchId);
-    if ($familyId[0]=='-') {
-        $onlyFam=true;
-        $familyId=substr($familyId, 1);
+    if ($familyId[0] == '-') {
+        $onlyFam = true;
+        $familyId = substr($familyId, 1);
     } else {
-        $onlyFam=false;
+        $onlyFam = false;
     }
-
+    
     $fam = new_doc($action->dbaccess, $familyId);
     if ($d->isAffected() || $fam->isAffected()) {
         
@@ -51,7 +50,7 @@ function system_getdata(&$action)
         $sSearch = $action->getArgument("sSearch");
         
         $s = new SearchDoc($action->dbaccess, $fam->id);
-        $s->only=$onlyFam;
+        $s->only = $onlyFam;
         if ($d->initid) {
             $s->useCollection($d->initid);
         }
@@ -80,11 +79,9 @@ function system_getdata(&$action)
         
         $allCount = $s->count();
         if ($iDisplayStart || $allCount == $iDisplayLength) {
-            $s = new SearchDoc($action->dbaccess);
-            $s->useCollection($d->initid);
-            if ($sSearch) {
-                $s->addFilter("title ~* '%s'", $sSearch);
-            }
+            $s->reset();
+            $s->setStart(0);
+            $s->setSlice("all");
             $allCount = $s->onlyCount();
         }
         $output = array(
