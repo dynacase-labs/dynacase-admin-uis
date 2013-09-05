@@ -40,7 +40,7 @@ function system_docs(&$action)
     $s = new SearchDoc();
     $s->useCollection("DOCADMIN_SYSSEARCHES");
     $s->setObjectReturn();
-    $s->setOrder("initid");
+    $s->setOrder("name, initid");
     $dl = $s->search()->getDocumentList();
     /**
      * @var DocCollection $search
@@ -62,7 +62,7 @@ function system_docs(&$action)
     $s->addFilter("fromid = 0 or fromid = 1 or fromid = 2");
     
     $dl = $s->search()->getDocumentList();
-    $famList = $searchFamList= array();
+    $famList = $searchFamList = array();
     /**
      * @var DocFam $fam
      */
@@ -72,26 +72,24 @@ function system_docs(&$action)
             "familyId" => $fam->initid,
             "familyIcon" => $fam->getIcon('', 25)
         );
-
-
     }
     $action->lay->setBlockData("FAMLIST", $famList);
-
-    $searchFam=new_doc($action->dbaccess, 5);
+    
+    $searchFam = new_doc($action->dbaccess, 5);
     $searchFamList[] = array(
-            "familyTitle" => $searchFam->getHtmlTitle() ,
-            "familyId" => $searchFam->initid,
-            "familyIcon" => $searchFam->getIcon('', 25)
-        );
-    $childFam=($searchFam->getChildFam());
+        "familyTitle" => $searchFam->getHtmlTitle() ,
+        "familyId" => $searchFam->initid,
+        "familyIcon" => $searchFam->getIcon('', 25)
+    );
+    $childFam = ($searchFam->getChildFam());
     foreach ($childFam as $rawFam) {
-         $searchFamList[] = array(
+        $searchFamList[] = array(
             "familyTitle" => $searchFam->getHtmlTitle($rawFam["initid"]) ,
             "familyId" => $rawFam["initid"],
             "familyIcon" => $searchFam->getIcon($rawFam["icon"], 25)
         );
     }
-
+    
     $action->lay->setBlockData("SEARCHFAMLIST", $searchFamList);
 }
 ?>
