@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-04 16:17+0200\n"
-"PO-Revision-Date: 2013-06-04 16:18+0200\n"
+"POT-Creation-Date: 2013-09-05 13:27+0200\n"
+"PO-Revision-Date: 2013-09-05 13:27+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -18,19 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: tempCatalog.php:11
+msgid "All searches"
+msgstr "Toutes les recherches"
+
 #: tempCatalog.php:9
+msgid "All system documents"
+msgstr "Tous les documents systèmes"
+
+#: tempCatalog.php:13
 msgid "Confirm unattach activated timers matched "
 msgstr "Confirmer l'annulation des minuteurs provenant des documents "
 
-#: tempCatalog.php:10
+#: tempCatalog.php:14
 msgid "Confirm unattach all activated timers"
 msgstr "Confirmer l'annulation de tous les minuteurs actifs"
 
-#: tempCatalog.php:18
+#: tempCatalog.php:22
 msgid "Document filter"
 msgstr "Filtre sur le document"
 
-#: tempCatalog.php:19
+#: tempCatalog.php:23
 msgid "Filter Documents"
 msgstr "Filtrer les documents"
 
@@ -38,11 +46,11 @@ msgstr "Filtrer les documents"
 msgid "Freedom"
 msgstr "Dynacase"
 
-#: tempCatalog.php:11
+#: tempCatalog.php:15
 msgid "Next Timers"
 msgstr "Prochains minuteurs"
 
-#: tempCatalog.php:14
+#: tempCatalog.php:18
 msgid "Purge history"
 msgstr "Nettoyage de l'historique"
 
@@ -50,7 +58,15 @@ msgstr "Nettoyage de l'historique"
 msgid "Rest delay"
 msgstr "Délai restant"
 
-#: tempCatalog.php:13
+#: tempCatalog.php:8
+msgid "Select a family"
+msgstr "Choisir une famille"
+
+#: tempCatalog.php:10
+msgid "Select a search family"
+msgstr "Choisir une catégorie de recherche"
+
+#: tempCatalog.php:17
 msgid "Skipped Timers"
 msgstr "Minuteurs dépassés"
 
@@ -70,15 +86,15 @@ msgstr "Document"
 msgid "Timer:Done date"
 msgstr "Date d'exécution"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:24
 msgid "TimerOK"
 msgstr "OK"
 
-#: tempCatalog.php:12
+#: tempCatalog.php:16
 msgid "Timers history"
 msgstr "Historique des minuteurs"
 
-#: tempCatalog.php:1 tempCatalog.php:8
+#: tempCatalog.php:1 tempCatalog.php:12
 msgid "Timers management"
 msgstr "Gestion des minuteurs"
 
@@ -86,15 +102,15 @@ msgstr "Gestion des minuteurs"
 msgid "Timers management result"
 msgstr "Résultat de la gestion des minuteurs"
 
-#: tempCatalog.php:17
+#: tempCatalog.php:21
 msgid "Unattach Timers"
 msgstr "Désactiver les minuteurs"
 
-#: tempCatalog.php:15
+#: tempCatalog.php:19
 msgid "Until done date"
 msgstr "Historique des minuteurs vieux de plus de n jours"
 
-#: tempCatalog.php:16
+#: tempCatalog.php:20
 msgid "days"
 msgstr "jours"
 
@@ -113,6 +129,10 @@ msgstr "Explorateur de documents"
 #: Apps/DOCADMIN/DOCADMIN.app:43
 msgid "docadmin:Timers management"
 msgstr "Gestion des minuteurs"
+
+#: Apps/DOCADMIN/DOCADMIN.app:57 Apps/DOCADMIN/DOCADMIN.app:65
+msgid "docadmin:View system document"
+msgstr "Accès aux documents systèmes"
 
 #: Apps/DOCADMIN/DOCADMIN.app:8
 msgid "docadmin:ihm to access and manage documents"

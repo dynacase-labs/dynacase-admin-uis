@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: dynacase-admin-uis\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-06-04 16:17+0200\n"
-"PO-Revision-Date: 2013-06-04 16:19+0200\n"
+"POT-Creation-Date: 2013-09-05 13:27+0200\n"
+"PO-Revision-Date: 2013-08-30 17:03+0200\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
 "Language: fr\n"
@@ -18,19 +18,27 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
+#: tempCatalog.php:11
+msgid "All searches"
+msgstr ""
+
 #: tempCatalog.php:9
+msgid "All system documents"
+msgstr ""
+
+#: tempCatalog.php:13
 msgid "Confirm unattach activated timers matched "
 msgstr ""
 
-#: tempCatalog.php:10
+#: tempCatalog.php:14
 msgid "Confirm unattach all activated timers"
 msgstr ""
 
-#: tempCatalog.php:18
+#: tempCatalog.php:22
 msgid "Document filter"
 msgstr ""
 
-#: tempCatalog.php:19
+#: tempCatalog.php:23
 msgid "Filter Documents"
 msgstr ""
 
@@ -38,11 +46,11 @@ msgstr ""
 msgid "Freedom"
 msgstr "Dynacase"
 
-#: tempCatalog.php:11
+#: tempCatalog.php:15
 msgid "Next Timers"
 msgstr ""
 
-#: tempCatalog.php:14
+#: tempCatalog.php:18
 msgid "Purge history"
 msgstr ""
 
@@ -50,7 +58,15 @@ msgstr ""
 msgid "Rest delay"
 msgstr ""
 
-#: tempCatalog.php:13
+#: tempCatalog.php:8
+msgid "Select a family"
+msgstr ""
+
+#: tempCatalog.php:10
+msgid "Select a search family"
+msgstr ""
+
+#: tempCatalog.php:17
 msgid "Skipped Timers"
 msgstr ""
 
@@ -70,15 +86,15 @@ msgstr "Document"
 msgid "Timer:Done date"
 msgstr "Done date"
 
-#: tempCatalog.php:20
+#: tempCatalog.php:24
 msgid "TimerOK"
 msgstr "OK"
 
-#: tempCatalog.php:12
+#: tempCatalog.php:16
 msgid "Timers history"
 msgstr ""
 
-#: tempCatalog.php:1 tempCatalog.php:8
+#: tempCatalog.php:1 tempCatalog.php:12
 msgid "Timers management"
 msgstr ""
 
@@ -86,15 +102,15 @@ msgstr ""
 msgid "Timers management result"
 msgstr ""
 
-#: tempCatalog.php:17
+#: tempCatalog.php:21
 msgid "Unattach Timers"
 msgstr ""
 
-#: tempCatalog.php:15
+#: tempCatalog.php:19
 msgid "Until done date"
 msgstr ""
 
-#: tempCatalog.php:16
+#: tempCatalog.php:20
 msgid "days"
 msgstr ""
 
@@ -113,6 +129,10 @@ msgstr "Documents management"
 #: Apps/DOCADMIN/DOCADMIN.app:43
 msgid "docadmin:Timers management"
 msgstr "Timers management"
+
+#: Apps/DOCADMIN/DOCADMIN.app:57 Apps/DOCADMIN/DOCADMIN.app:65
+msgid "docadmin:View system document"
+msgstr "Access to system documents"
 
 #: Apps/DOCADMIN/DOCADMIN.app:8
 msgid "docadmin:ihm to access and manage documents"

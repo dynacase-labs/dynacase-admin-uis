@@ -26,7 +26,7 @@ SELECT
     (select with_frame from application where id=$appId) as with_frame
 FROM action
 WHERE
-    action.name in ('DOCS_ADMIN', 'TIMERS_ADMIN')
+    action.name in ('DOCS_ADMIN', 'TIMERS_ADMIN', 'SYSTEM_DOCS')
     AND action.id_application = $appId
 ;
 SQL;

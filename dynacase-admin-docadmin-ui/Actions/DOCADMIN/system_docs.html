@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View system documents</title>
+    [CSS:CUSTOMREF]
+    [BLOCK JS_LINKS]
+    <script type="text/javascript" src="[src]"></script>
+    [ENDBLOCK JS_LINKS]
+    [JS:REF]
+    <style>
+
+
+        .systemLeft {
+
+            vertical-align: top;
+        }
+
+        .frameDoc {
+            border: none;
+            width: 100%;
+            height: 100%;
+        }
+
+        a.doc-relation {
+            cursor: pointer;
+        }
+
+        .mainSystem {
+            width: 100%;
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .systemLeft {
+            /* width:40%;*/
+            border: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .systemRight {
+            vertical-align: top;
+            width: 60%;
+            margin: 0;
+            padding: 0;
+            border: solid 3px #ddd;
+        }
+
+        .systemList {
+        }
+
+        a.searchIcon {
+            float: left;
+            cursor: pointer;
+        }
+
+        .systemHeader .searchTitle {
+            /* float: left;*/
+
+            display: inline-block;
+            padding-left: 10px;
+            font-weight: bold;
+            width: 130px
+
+        }
+
+        .systemHeader .dataTables_info {
+            float: none;
+            display: inline-block;
+            font-weight: bold;
+            vertical-align: top;
+        }
+
+        .systemHeader .dataTables_filter {
+            float: none;
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .systemHeader .dataTables_filter input {
+            width: 100px;
+        }
+
+        .systemHeader .dataTables_paginate {
+            float: right;
+            display: inline-block;
+
+        }
+
+        .systemHeader {
+            /* height:2em;*/
+        }
+
+        table.dataTable thead th {
+            border: none;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .searchIcon .ui-button-text {
+            padding: 2px 10px;
+        }
+
+        .familyList {
+            position: absolute;
+            z-index: 1;
+            max-height: 300px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 20px;
+        }
+
+        .systemSearch, .searchSearch {
+            float: left;
+        }
+
+        .selfamily img {
+            width: 20px;
+            vertical-align: middle;
+            margin-right: 10px;
+            border: none;
+        }
+
+        .selsysfam.ui-button-icon-only {
+            height: 35px;
+            width: 20px;
+            vertical-align: top;
+        }
+
+        #filtersysfam, #filtersearchfam {
+            vertical-a, lign: top;
+            margin-top: 0;
+
+        }
+
+        a.selfamily {
+            white-space: nowrap;
+        }
+
+        .familyList .ui-state-highlight {
+
+            margin-bottom: -1px;
+            margin-left: -1px;
+            margin-top: -1px;
+        }
+
+        table.dataTable tr.odd td, table.dataTable tr.even td {
+            background-color: transparent ! important;
+            border-bottom: 1px solid [COLOR_A9];
+        }
+
+        table.dataTable tr.odd, table.dataTable tr.even {
+            background-color: #fff;
+
+        }
+
+        .familyIconList {
+            text-align: right;
+        }
+        a {
+            text-decoration: none;
+            color: #0088CC;
+        }
+
+.ui-widget a.selfamily {
+    font-size: 90%;
+}
+    </style>
+</head>
+<body>
+
+
+<table class="mainSystem">
+    <tr>
+        <td class="systemLeft">
+            <div>
+
+                [BLOCK systemSearch]
+                <div class="systemSearch"><a data-searchid="[searchId]" title="[searchTitle]"
+                                             class="searchIcon searchButton"><img
+                        src="[searchIcon]"/></a></div>
+                [ENDBLOCK systemSearch]
+                <div class="systemSearch">
+                    <div>
+                        <button title="[TEXT:All system documents]" class="searchIcon filterButton" id="filtersysfam"><img src="[IMG:searchsysdoc.png|25]"/></button>
+                        <button class="selsysfam">[TEXT:Select a family]</button>
+                    </div>
+                    <ul class="familyList">
+                        <li><a id="aAllDoc" data-searchid="SSYS_SYSDOC" class="selfamily" href="#"><img src="[IMG:searchsysdoc.png|25]"/>[TEXT:All system documents]</a>
+                        </li>
+                        [BLOCK FAMLIST]
+                        <li><a data-familyid="[familyId]" class="selfamily" href="#"><img src="[familyIcon]"/>[familyTitle]</a></li>
+                        [ENDBLOCK FAMLIST]
+
+                    </ul>
+                </div>
+
+                <div class="searchSearch">
+                    <div>
+                        <button title="[TEXT:All searches]" class="searchIcon filterButton" id="filtersearchfam"><img src="[IMG:searchsearch.png|25]"/></button>
+                        <button class="selsysfam">[TEXT:Select a search family]</button>
+                    </div>
+                    <ul class="familyList">
+                        <li><a data-familyid="5" class="selfamily" href="#"><img src="[IMG:searchsearch.png|25]"/>[TEXT:All searches]</a></li>
+                        [BLOCK SEARCHFAMLIST]
+                        <li><a data-familyid="-[familyId]" class="selfamily" href="#"><img src="[familyIcon]"/>[familyTitle]</a></li>
+                        [ENDBLOCK SEARCHFAMLIST]
+
+                    </ul>
+                </div>
+
+            </div>
+            <div class="systemList">
+                <table cellspacing="0" cellpadding="0" id="systemTable">
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </td>
+        <td class="systemRight">
+
+            <iframe frameborder="no" class="frameDoc" id="frameDoc" src="about:blank"></iframe>
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
