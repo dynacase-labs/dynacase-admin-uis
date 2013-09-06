@@ -17,7 +17,7 @@ $(document).ready(function () {
                 "sInfo": "_START_ - _END_ /  _TOTAL_",
                 "sInfoEmpty": "",
                 "sSearch": "",
-                "sEmptyTable" : "no matches documents"
+                "sEmptyTable": "no matches documents"
             },
             aoColumnDefs: [
                 {
@@ -51,10 +51,19 @@ $(document).ready(function () {
             ]
 
         }
-    ).on("click", "a.doc-relation", function () {
-            $('#frameDoc').attr("src", "?app=FDL&action=FDL_CARD&id=" + $(this).attr("data-docid"));
+    ).on("click", "tbody tr",function () {
+            var aDoc = $(this).find('a.doc-relation');
+            if (aDoc.length > 0) {
+                $('#frameDoc').attr("src", "?app=FDL&action=FDL_CARD&id=" + aDoc.attr("data-docid"));
+            }
+            $(this).parent().find('tr').removeClass("ui-state-highlight");
+            $(this).addClass("ui-state-highlight");
 
-        })
+        }).on("mouseout", "tbody tr",function () {
+            $(this).removeClass("ui-state-hover");
+        }).on("mouseover", "tbody tr", function () {
+            $(this).addClass("ui-state-hover");
+        });
 
 
     $(".filterButton")
@@ -62,7 +71,7 @@ $(document).ready(function () {
         .click(function () {
             var lastFam = $(this).parent().parent().find(".familyList a.ui-state-highlight");
             if (lastFam.length > 0) {
-            lastFam.trigger('click');
+                lastFam.trigger('click');
             } else {
                 lastFam = $(this).parent().parent().find(".familyList a");
                 if (lastFam.length > 0) {
@@ -105,14 +114,14 @@ $(document).ready(function () {
         $(this).addClass("ui-state-highlight");
         var oTable = $("#systemTable").dataTable();
         var oSettings = oTable.fnSettings();
-        oSettings.sAjaxSource = '?app=DOCADMIN&action=SYSTEM_GETDATA&famid=' + familyId+'&id='+searchId;
+        oSettings.sAjaxSource = '?app=DOCADMIN&action=SYSTEM_GETDATA&famid=' + familyId + '&id=' + searchId;
 
         var newTitle = $(this).text();
         $(".searchTitle").html(newTitle);
 
-        var filterButton=$(this).parent().parent().parent().find('.filterButton');
+        var filterButton = $(this).parent().parent().parent().find('.filterButton');
         filterButton.find('img').attr('src', $(this).find('img').attr('src'));
-        filterButton.attr('title',newTitle).addClass("ui-state-highlight");
+        filterButton.attr('title', newTitle).addClass("ui-state-highlight");
         oTable.fnDraw();
         resizeSysDoc();
     });
