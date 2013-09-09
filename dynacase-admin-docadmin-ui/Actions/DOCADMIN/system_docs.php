@@ -32,8 +32,7 @@ function system_docs(&$action)
     
     $action->parent->AddCssRef("css/dcp/jquery-ui.css");
     $action->parent->AddCssRef("lib/jquery-dataTables/css/jquery.dataTables.css");
-    // $action->parent->AddCssRef("APPMNG:param_list.css", true);
-    // $action->parent->AddCssRef("APPMNG:appmng.css", true);
+    $action->parent->AddCssRef("DOCADMIN/Layout/system_docs.css");
     $action->parent->AddCssRef("WHAT/Layout/size-normal.css");
     $action->parent->addCssRef("lib/tipsy/src/stylesheets/tipsy.css");
     $searchList = array();
