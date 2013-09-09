@@ -54,7 +54,48 @@ $(document).ready(function () {
     ).on("click", "tbody tr",function () {
             var aDoc = $(this).find('a.doc-relation');
             if (aDoc.length > 0) {
-                $('#frameDoc').attr("src", "?app=FDL&action=FDL_CARD&id=" + aDoc.attr("data-docid"));
+                var tabs = $('#tabs');
+                var selDocId = aDoc.attr("data-docid");
+                var idif = 'if' + selDocId + Math.round(Math.random() * 10000);
+
+                var tabDocId = $('#ulTabs').find('span[data-docid=' + selDocId + ']').parent().parent();
+                if (tabDocId.length == 0) {
+                    //var tabTemplate = "<li><a href='#{href}'>#{label}</a> <span class='ui-icon ui-icon-close' role='presentation'>Remove Tab</span></li>";
+                    var divTemplate = "<div class='divDoc' id='#{href}'><iframe class='frameDoc' src='?app=FDL&action=FDL_CARD&id=#{docid}'></iframe></div>";
+                    var titleTemplate = '<span class="ui-icon ui-icon-close" role="presentation">Remove Tab</span><img class="docIcon" src="#{src}"/> <span data-docid="#{docid}" class="docTitle" title="#{title}">#{title}</span>';
+
+                    // var li = $(tabTemplate.replace(/#\{href\}/g, "#" + idif).replace(/#\{label\}/g, aDoc.text()));
+                    // tabs.find(".ui-tabs-nav").append(li);
+                    // tabs.tabs("refresh");
+                    var idiv = $(divTemplate.replace(/#\{href\}/g, idif).replace(/#\{docid\}/g, aDoc.attr("data-docid")));
+                    var ititle = titleTemplate.replace(/#\{src\}/g, aDoc.parent().parent().find('img').attr('src')).replace(/#\{title\}/g, aDoc.text()).replace(/#\{docid\}/g, selDocId);
+                    tabs.append(idiv);
+                    tabs.tabs("add", '#' + idif, ititle); // not supported in jQuery 1.10
+                    var docTab = docTab = $('#' + idif);
+                    docTab.find('iframe').on('load', function () {
+                        if (this.contentDocument && this.contentDocument.location && this.contentDocument.location.href.toLowerCase().indexOf("about:blank") > -1) {
+                            $(this).remove();
+                            $('#tabs').tabs("remove", '#' + idif);
+                        } else {
+                            var title = '-';
+                            if (this.contentDocument && this.contentDocument.title) {
+                                title = this.contentDocument.title;
+                            }
+                            var iconSrc = $(this).contents().find("meta[name=document-icon]").attr("content");
+                            var docId = $(this).contents().find("meta[name=document-initid]").attr("content");
+
+                            tabs.find("a[href=#" + idif + "] .docTitle").text(title).attr('title', title).attr('data-docid', docId);
+                            tabs.find("a[href=#" + idif + "] img").attr('src', iconSrc);
+                            tabs.find("a[href=#" + idif + "] img").attr('src', iconSrc);
+                        }
+                    });
+                    tabs.find('.docTitle').tipsy();
+                    tabs.tabs("select", "#" + idif);
+                    resizeTabs();
+                } else {
+                    tabs.tabs("select", tabDocId.attr('href'));
+                }
+
             }
             $(this).parent().find('tr').removeClass("ui-state-highlight");
             $(this).addClass("ui-state-highlight");
@@ -149,7 +190,10 @@ $(document).ready(function () {
 
         //$(".systemRight").height($(window).height - 2 * ($(".systemRight").offset().top));
         var tdsystemRight = $(".systemRight");
-        tdsystemRight.height($(window).height() - 2 * (tdsystemRight.offset().top) - 11);
+        var tdHeight = $(window).height() - 2 * (tdsystemRight.offset().top) - 11;
+        tdsystemRight.height(tdHeight);
+
+        resizeTabs();
 
         var tListbody = $(".dataTables_scrollBody");
 
@@ -162,6 +206,13 @@ $(document).ready(function () {
         }
     }
 
+    function resizeTabs() {
+        var tdsystemRight = $(".systemRight");
+        var tdHeight = tdsystemRight.height();
+        $('.divDoc').height(tdHeight - $('#ulTabs').height() - 16);
+
+    }
+
     $(window).resize(function () {
             resizeSysDoc();
         }
@@ -170,6 +221,10 @@ $(document).ready(function () {
     $(".searchTitle").html(firstSearch.attr('title'));
     firstSearch.addClass("ui-state-highlight");
     $(".searchIcon").tipsy();
+    $('#tabs').tabs().on("mousedown", "span.ui-icon-close", function () {
+        var currentIframe = $($(this).parent().parent().attr("href")).find("iframe");
+        currentIframe.attr("src", "about:blank");
+    });
 
 
 })

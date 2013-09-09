@@ -14,6 +14,10 @@ a.doc-relation {
     cursor: pointer;
 }
 
+.divDoc.ui-tabs-panel {
+    padding: 0;
+}
+
 .mainSystem {
     width: 100%;
     border: none;
@@ -35,14 +39,16 @@ a.doc-relation {
     padding: 0;
     border: solid 3px #ddd;
 }
+
 /*
 .systemList tbody tr.even:hover{
     background-color: red;
 }
 */
-.systemList tbody tr{
-    cursor :pointer;
+.systemList tbody tr {
+    cursor: pointer;
 }
+
 a.searchIcon {
     float: left;
     cursor: pointer;
@@ -153,11 +159,44 @@ table.dataTable tr.odd, table.dataTable tr.even {
 .familyIconList {
     text-align: right;
 }
+
 a {
     text-decoration: none;
     color: #0088CC;
 }
 
 .ui-widget a.selfamily {
-font-size: 90%;
+    font-size: 90%;
+}
+
+#tabs {
+    border: none;
+}
+
+#ulTabs {
+    padding-top: 0;
+}
+
+#tabs .ui-tabs-nav li {
+    top: 5px;
+}
+
+#tabs .ui-tabs-nav li .docTitle {
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-size: 90%;
+    display: inline-block;
+}
+#tabs .ui-tabs-nav li .ui-icon-close {
+   float:right;
+    cursor:pointer;
+    border: 1px solid transparent;
+}
+#tabs .ui-tabs-nav li .ui-icon-close:hover {
+    border-color: #aaa;
+}
+.docIcon {
+    width:15px;
+    border:none;
 }
