@@ -26,6 +26,5 @@ function docs_admin(Action &$action)
     $action->lay->set('FOLDER_MODE', $mode == "folder");
     
     $dirid = GetHttpVars("dirid", 0); // root directory
-    $action->lay->Set("dirid", $dirid);
+    $action->lay->Set("dirid", urlencode($dirid));
 }
-?>
