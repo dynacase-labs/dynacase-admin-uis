@@ -73,11 +73,11 @@ function fusers_datatables_layout(Action & $action)
     }
     array_pop($list);
     $action->lay->setBlockData("thead", $thead);
-    $action->lay->set("fuserType", $type);
-    $action->lay->set("fuserGroup", $group);
-    $action->lay->set("fuserDisplayLength", $displayLength);
+    $action->lay->eSet("fuserType", $type);
+    $action->lay->eSet("fuserGroup", $group);
+    $action->lay->eSet("fuserDisplayLength", $displayLength);
     $action->lay->set("style", (count($list) <= 0 ? "display:none;" : ""));
-    $action->lay->setBlockData("urgtype", $list);
+    $action->lay->eSetBlockData("urgtype", $list);
     $action->lay->set("imgsrc", $action->parent->getImageLink("iuser.png", true, 18));
     $action->lay->set("valuetype", "");
 }
@@ -102,7 +102,7 @@ function getButtonList(Action & $action, $famid)
         "imgclass" => ""
     );
     $action->lay->set("idmain", $doc->getPropertyValue("id"));
-    $action->lay->set("titlemain", $doc->getTitle());
+    $action->lay->eSet("titlemain", $doc->getTitle());
     $action->lay->set("imgsrcmain", $doc->getIcon("", 14));
     return $list;
 }

@@ -2,7 +2,7 @@
 
 <head>
 <link rel="shortcut icon" href="[DYNACASE_FAVICO]">
-<LINK REL="stylesheet" type="text/css" HREF="[CORE_SBASEURL]app=CORE&action=CORE_CSS&layout=FUSERS:fusers.css">
+<LINK REL="stylesheet" type="text/css" HREF="[CORE_SBASEURL]app=CORE&amp;action=CORE_CSS&amp;layout=FUSERS:fusers.css">
 
 
 
@@ -81,7 +81,7 @@ addEvent(window,"load",viewfirst);
 
 
 
-<form style="display:none" id="suserv" name="suserv" method="POST" target="_self" action="[CORE_STANDURL]&app=[APPNAME]&action=FUSERS_MAIN&dfam=[dfam]">
+<form style="display:none" id="suserv" name="suserv" method="POST" target="_self" action="[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=FUSERS_MAIN&amp;dfam=[dfam]">
 <input type="hidden" name="dirid" value="[dirid]">
 <input type="hidden" name="target" value="[target]">
 <input type="hidden" name="etarget" value="[etarget]">
@@ -89,7 +89,7 @@ addEvent(window,"load",viewfirst);
 <input type="hidden" name="usedefaultview" value="[usedefaultview]">
 <input type="hidden" name="cols" value="[cols]">
 </form>
-<form id="suser" name="suser" method="POST" target="_self" action="[CORE_STANDURL]&app=[APPNAME]&action=FUSERS_MAIN&dfam=[dfam]">
+<form id="suser" name="suser" method="POST" target="_self" action="[CORE_STANDURL]&amp;app=[APPNAME]&amp;action=FUSERS_MAIN&amp;dfam=[dfam]">
 <input type="hidden" name="dirid" value="[dirid]">
 <input type="hidden" name="target" value="[target]">
 <input type="hidden" name="etarget" value="[etarget]">
@@ -108,7 +108,7 @@ addEvent(window,"load",viewfirst);
 <img title="Initialiser la recherche..." style="cursor:pointer; border:0" src="[IMG:fusers_initsearch.gif]" onclick="getElementById('suserv').submit();">
 <img title="Page suivante" style="visibility:[IF NextPage]visible[ENDIF NextPage][IFNOT NextPage]hidden[ENDIF NextPage]; cursor:pointer; border:0" src="[IMG:fusers_nextpage.gif]" onclick="getElementById('sp').value='[pnext]'; getElementById('suser').submit();">[dirtitle]
 </td>
-<td>[IF cancreate]<span id="famedit"><a title="[TEXT:click here to create a new]" onclick="subwindow(300, 400, '[target]', '[CORE_STANDURL]&app=GENERIC&action=GENERIC_EDIT&classid='+document.suser.defaulteditfamid.value);"><img  width="16px" src="[IMG:add22.gif]" border="0"><span id="famedittitle" style="font-weight:bold; border:1px outset; cursor:pointer"  onmouseover="this.className='fabcontactsel'" onmouseout="this.className=''"   >[famsearch]</span></a>&nbsp;[IF viewsubfam]<a><img  title="[TEXT:view sub families]" width="16px" onclick="document.getElementById('famedit').style.display='none';document.getElementById('icreatefam').style.display=''" src="[IMG:down22.gif]" border="0"></a></span><select id="icreatefam" style="display:none" name="editfamid" onchange="createuserfam(this);" title="[TEXT:Choose family to create]">[BLOCK NEW]<option value="[id]" >[title]</option>[ENDBLOCK NEW]</select>[ENDIF viewsubfam][ENDIF cancreate]</td>
+<td>[IF cancreate]<span id="famedit"><a title="[TEXT:click here to create a new]" onclick="subwindow(300, 400, '[target]', '[CORE_STANDURL]&amp;app=GENERIC&amp;action=GENERIC_EDIT&amp;classid='+document.suser.defaulteditfamid.value);"><img  width="16px" src="[IMG:add22.gif]" border="0"><span id="famedittitle" style="font-weight:bold; border:1px outset; cursor:pointer"  onmouseover="this.className='fabcontactsel'" onmouseout="this.className=''"   >[famsearch]</span></a>&nbsp;[IF viewsubfam]<a><img  title="[TEXT:view sub families]" width="16px" onclick="document.getElementById('famedit').style.display='none';document.getElementById('icreatefam').style.display=''" src="[IMG:down22.gif]" border="0"></a></span><select id="icreatefam" style="display:none" name="editfamid" onchange="createuserfam(this);" title="[TEXT:Choose family to create]">[BLOCK NEW]<option value="[id]" >[title]</option>[ENDBLOCK NEW]</select>[ENDIF viewsubfam][ENDIF cancreate]</td>
 <td   class="fabzone">[TEXT:lines] : <select title="[TEXT:lines per page]" name="linepp" onchange="setparamu('FUSERS','FUSERS_MAINLINE',this.options[this.selectedIndex].value)">[BLOCK BLine]<option value="[count]" [init]>[count][ENDBLOCK BLine]</select></td>
 <td align="right"></td>
 </tr>

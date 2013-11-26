@@ -3,7 +3,7 @@
 <input type="hidden" id="fusersDisplayLength" value="[fuserDisplayLength]"/>
 <input type="hidden" id="typeValue" value="[valuetype]"/>
 <div id="buttonset">
-<a href="[CORE_STANDURL]&app=FDL&action=OPENDOC&mode=new&famid=[idmain]"
+<a href="[CORE_STANDURL]&amp;app=FDL&amp;action=OPENDOC&amp;mode=new&amp;famid=[idmain]"
    id="mainaction" data-id="[idmain]"><img src="[imgsrcmain]"/>[TEXT:Create ][titlemain]
 </a>
 <button id="otheraction" style="[style]">[TEXT:Select an action]</button>
@@ -37,7 +37,7 @@
 <ul id="menu">
 [BLOCK urgtype]
 <li>
-    <a href="[CORE_STANDURL]&app=FDL&action=OPENDOC&mode=new&famid=[value]"
+    <a href="[CORE_STANDURL]&amp;app=FDL&amp;action=OPENDOC&amp;mode=new&amp;famid=[value]"
        data-id="[value]"><img src="[imgsrc]"/>[label]
     </a>
 </li>
