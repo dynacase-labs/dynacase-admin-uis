@@ -32,7 +32,7 @@ function app_edit(Action & $action)
         $action->lay->Set("BUTTONTYPE", _("butcreate"));
     } else {
         $AppCour = new Application($action->GetParam("CORE_DB") , $id);
-        $action->lay->Set("id", $id);
+        $action->lay->eSet("id", $id);
         $action->lay->Set("name", $AppCour->name);
         $action->lay->Set("short_name", _($AppCour->short_name));
         $action->lay->Set("description", _($AppCour->description));
@@ -65,4 +65,3 @@ function app_edit(Action & $action)
     
     $action->lay->SetBlockData("SELECTDISPLAYABLE", $tab);
 }
-?>
