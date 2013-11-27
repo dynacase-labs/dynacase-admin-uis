@@ -31,16 +31,16 @@ function param_list(Action & $action)
             $u->select($userid);
             $value = trim(sprintf("%s %s", $u->lastname, $u->firstname));
         }
-        $action->lay->set("user_id", $userid);
-        $action->lay->set("userlabel", $value);
+        $action->lay->eSet("user_id", $userid);
+        $action->lay->eSet("userlabel", $value);
     }
     // can chg action because of acl USER/ADMIN
     $action->lay->Set("ACTIONDEL", "PARAM_DELETE");
     $action->lay->Set("ACTIONMOD", "PARAM_MOD");
     
-    $action->lay->set("userid", $userid);
-    $action->lay->set("pview", $pview);
-    $action->lay->set("searchuser", $mode);
+    $action->lay->eSet("userid", $userid);
+    $action->lay->eSet("pview", $pview);
+    $action->lay->set("searchuser", (bool)$mode);
     $action->lay->set("applabel", "");
     $action->lay->set("app_id", "");
 }
@@ -83,7 +83,7 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $withStatic = ($withStatic == "true") ? "" : "and kind!='static' and kind!='readonly'";
     
     if ($pview == "alluser") {
-        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application,application as a where paramv.name=paramdef.name and ((paramv.appid=paramdef.appid and a.id=application.id) or (paramv.appid=application.id and application.childof=a.name and a.id=paramdef.appid)) and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", Param::PARAM_USER . $userid, $withStatic, $type, $second_type, $filterQuery) , $userParams);
+        if ($userid != "") simpleQuery($action->dbaccess, sprintf("select paramv.*, paramdef.descr, paramdef.kind, application.name as appname from paramv,paramdef,application,application as a where paramv.name=paramdef.name and ((paramv.appid=paramdef.appid and a.id=application.id) or (paramv.appid=application.id and application.childof=a.name and a.id=paramdef.appid)) and paramv.name != 'APPNAME' and paramv.name != 'INIT' and paramv.name!= 'VERSION' and paramdef.isuser='Y' and type='%s' %s and application.id=paramv.appid and (application.tag%sE'\\\\ySYSTEM\\\\y' %s) %s order by application.name, paramv.name, paramv.type desc", pg_escape_string(Param::PARAM_USER . $userid) , $withStatic, $type, $second_type, $filterQuery) , $userParams);
         $paramType.= "and paramdef.isuser='Y'";
     }
     
@@ -99,7 +99,6 @@ function appmngGetParamListDatatableInfo(Action & $action)
     $precApp = 0;
     $data = array();
     $appName = "";
-    $appId = 0;
     foreach ($tparam as $v) {
         if (isset($v[$vsection])) {
             $tincparam = array();
@@ -236,4 +235,3 @@ function cmpappname($a, $b)
     if ($a["appname"] > $b["appname"]) return 1;
     return -1;
 }
-?>

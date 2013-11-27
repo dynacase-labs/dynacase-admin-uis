@@ -36,7 +36,7 @@ function action_edit(Action & $action)
         $action->lay->set("openaccess", "");
     } else {
         $ActionCour = new Action($action->dbaccess, $id);
-        $action->lay->Set("id", $id);
+        $action->lay->eSet("id", $id);
         $action->lay->Set("name", $ActionCour->name);
         $action->lay->Set("short_name", $action->text($ActionCour->short_name));
         $action->lay->Set("long_name", $action->text($ActionCour->long_name));
@@ -61,4 +61,3 @@ function action_edit(Action & $action)
     $action->lay->SetBlockData("SELECTAVAILABLE", $tab);
     unset($tab);
 }
-?>
