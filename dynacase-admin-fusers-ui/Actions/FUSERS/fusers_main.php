@@ -70,25 +70,24 @@ function fusers_main(Action & $action)
     }
     $action->lay->setBlockData("BLine", $tl);
     // propagate HTTP vars parameters
-    $action->lay->set("sp", $pstart);
-    $action->lay->set("lp", $lpage);
-    $action->lay->set("target", $target);
-    $action->lay->set("dirid", $dirid);
-    $action->lay->set("etarget", $etarget);
-    $action->lay->set("createsubfam", GetHttpVars("createsubfam"));
-    $action->lay->set("usedefaultview", GetHttpVars("usedefaultview"));
-    $action->lay->set("viewone", GetHttpVars("viewone"));
-    $action->lay->set("cols", GetHttpVars("cols"));
-    $action->lay->set("", GetHttpVars("cols"));
-    
+    $action->lay->eSet("sp", $pstart);
+    $action->lay->eSet("lp", $lpage);
+    $action->lay->eSet("target", $target);
+    $action->lay->eSet("dirid", $dirid);
+    $action->lay->eSet("etarget", $etarget);
+    $action->lay->eSet("createsubfam", GetHttpVars("createsubfam"));
+    $action->lay->eSet("usedefaultview", GetHttpVars("usedefaultview"));
+    $action->lay->eSet("viewone", GetHttpVars("viewone"));
+    $action->lay->eSet("cols", GetHttpVars("cols"));
+
     $sfullsearch = (GetHttpVars("sfullsearch", "") == "on" ? true : false);
     $action->lay->set("fullsearch", $sfullsearch);
     
     $sfam = GetHttpVars("dfam", $action->getParam("USERCARD_FIRSTFAM"));
-    $action->lay->set("dfam", $sfam);
+    $action->lay->eSet("dfam", $sfam);
     $dnfam = new_Doc($dbaccess, $sfam);
     $action->lay->set("famid", $dnfam->id);
-    $action->lay->set("famsearch", mb_convert_case(mb_strtolower($dnfam->title) , MB_CASE_TITLE));
+    $action->lay->eSet("famsearch", mb_convert_case(mb_strtolower($dnfam->title) , MB_CASE_TITLE));
     $dfam = createDoc($dbaccess, $sfam, false);
     $fattr = $dfam->GetAttributes();
     // Get user configuration
@@ -131,7 +130,7 @@ function fusers_main(Action & $action)
         $action->lay->setBlockData("NEW", $child);
         $fc = current($child);
         $action->lay->set("famid", $fc["id"]);
-        $action->lay->set("famsearch", mb_convert_case(mb_strtolower($fc["title"]) , MB_CASE_TITLE));
+        $action->lay->eSet("famsearch", mb_convert_case(mb_strtolower($fc["title"]) , MB_CASE_TITLE));
     } else {
         $action->lay->set("viewsubfam", false);
     }
@@ -264,7 +263,6 @@ function fusers_main(Action & $action)
     $action->lay->set("dirtitle", "");
     if ($dirid > 0) {
         $fdoc = new_doc($dbaccess, $dirid);
-        $action->lay->set("dirtitle", $fdoc->title);
+        $action->lay->eSet("dirtitle", $fdoc->title);
     }
 }
-?>

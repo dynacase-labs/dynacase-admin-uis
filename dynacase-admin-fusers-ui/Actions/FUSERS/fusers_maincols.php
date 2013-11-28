@@ -17,9 +17,9 @@ function fusers_maincols(Action &$action)
     $dbaccess = $action->getParam("FREEDOM_DB");
     // Get default visibilty => Abstract view from freedom
     $sfam = GetHttpVars("dfam", $action->getParam("DEFAULT_FAMILY"));
-    $action->lay->set("dfam", $sfam);
+    $action->lay->eSet("dfam", $sfam);
     $dnfam = new_Doc($dbaccess, $sfam);
-    $action->lay->set("dfamname", $dnfam->title);
+    $action->lay->eSet("dfamname", $dnfam->title);
     
     $reset = GetHttpVars("resetcols", 0);
     
@@ -92,4 +92,3 @@ function fusers_maincols(Action &$action)
     }
     $action->lay->setBlockData("Columns", $vcols);
 }
-?>
