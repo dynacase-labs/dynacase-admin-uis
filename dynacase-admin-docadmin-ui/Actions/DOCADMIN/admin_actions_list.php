@@ -51,6 +51,10 @@ SQL;
             }
         }
 
+        $body[]=array("url"=>"?app=FREEDOM&action=FREEDOM_MAINIMPORT",
+            "label"=> _("docadmin : Import Documents"),
+            "title" => _("docadmin : Import Documents")
+        );
         $sortFunction = function ($value1, $value2) {
             return strnatcasecmp($value1["label"], $value2["label"]);
         };
