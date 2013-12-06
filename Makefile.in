@@ -12,69 +12,7 @@ export PACKAGE utildir pubdir applib appname
 
 include $(utildir)/PubRule
 publish: $(pubdir)
-## make webinst
-webinst-access-ui:
-	cp LICENSE dynacase-admin-access-ui/
-	make -C dynacase-admin-access-ui webinst
-	mv dynacase-admin-access-ui/*webinst .
 
-webinst-appmng-ui:
-	cp LICENSE dynacase-admin-appmng-ui/
-	make -C dynacase-admin-appmng-ui webinst
-	mv dynacase-admin-appmng-ui/*webinst .
-
-webinst-docadmin-ui:
-	cp LICENSE dynacase-admin-docadmin-ui/
-	make -C dynacase-admin-docadmin-ui webinst
-	mv dynacase-admin-docadmin-ui/*webinst .
-
-webinst-fusers-ui:
-	cp LICENSE dynacase-admin-fusers-ui/
-	make -C dynacase-admin-fusers-ui webinst
-	mv dynacase-admin-fusers-ui/*webinst .
-
-webinst-vault-ui:
-	cp LICENSE dynacase-admin-vault-ui/
-	make -C dynacase-admin-vault-ui webinst
-	mv dynacase-admin-vault-ui/*webinst .
-
-webinst: webinst-access-ui webinst-appmng-ui webinst-docadmin-ui webinst-fusers-ui webinst-vault-ui
-
-## make po
-po-access-ui:
-	make -C dynacase-admin-access-ui po
-
-po-appmng-ui:
-	make -C dynacase-admin-appmng-ui po
-
-po-docadmin-ui:
-	make -C dynacase-admin-docadmin-ui po
-
-po-fusers-ui:
-	make -C dynacase-admin-fusers-ui po
-
-po-vault-ui:
-	make -C dynacase-admin-vault-ui po
-
-po: po-access-ui po-appmng-ui po-docadmin-ui po-fusers-ui po-vault-ui
-	:
-
-## make clean
-clean-access-ui:
-	make -C dynacase-admin-access-ui clean
-
-clean-appmng-ui:
-	make -C dynacase-admin-appmng-ui clean
-
-clean-docadmin-ui:
-	make -C dynacase-admin-docadmin-ui clean
-
-clean-fusers-ui:
-	make -C dynacase-admin-fusers-ui clean
-
-clean-vault-ui:
-	make -C dynacase-admin-vault-ui clean
-
-clean: clean-access-ui clean-appmng-ui clean-docadmin-ui clean-fusers-ui clean-vault-ui
+clean:
 	/bin/rm -f *.*~ config.* Makefile configure $(appname)_init.php info.xml $(PACKAGE)-*webinst
 	/bin/rm -fr autom4te.cache
