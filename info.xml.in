@@ -23,17 +23,4 @@
       <!-- Nothing to do: this is only a meta-package -->
     </post-upgrade>
 
-    <changelog>
-        <version number="3.2.5" date="2012-01-20">
-            <change title="First release">
-              Include:
-              - dynacase-admin-access-ui
-              - dynacase-admin-appmng-ui
-              - dynacase-admin-docadmin-ui
-              - dynacase-admin-fusers-ui
-              - dynacase-admin-vault-ui
-            </change>
-        </version>
-    </changelog>
-
 </module>
